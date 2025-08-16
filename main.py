@@ -743,14 +743,27 @@ class IntelligentTradingSystem:
                         'unrealized_pct': float(position.unrealized_plpc) * 100
                     })
             
-            # If unprotected positions found, take immediate action
+            # If unprotected positions found, take appropriate action based on market status
             if unprotected_positions:
+                # Check if market is open
+                clock = await self.gateway.get_clock()
+                is_market_open = clock and hasattr(clock, 'is_open') and clock.is_open
+                
+                if not is_market_open:
+                    # Log as warning when market is closed - can't do anything about it now
+                    self.logger.warning(f"⚠️ {len(unprotected_positions)} positions without stop protection (market closed)")
+                    for pos in unprotected_positions:
+                        self.logger.debug(f"   📍 {pos['symbol']}: {pos['qty']} shares, {pos['unrealized_pct']:+.1f}% P&L")
+                    # Don't spam alerts or try to create stops when market is closed
+                    return
+                
+                # Market is open - this is critical
                 self.logger.critical(f"🚨 RUNTIME ALERT: {len(unprotected_positions)} positions lost protection!")
                 
                 for pos in unprotected_positions:
                     self.logger.critical(f"   ❌ {pos['symbol']}: {pos['qty']} shares, {pos['unrealized_pct']:+.1f}% P&L")
                 
-                # Send alert
+                # Send alert only when market is open and we can actually do something
                 await self.alerter.send_critical_alert(
                     "RUNTIME: Positions lost protection",
                     f"Found {len(unprotected_positions)} unprotected positions during runtime: "
@@ -913,17 +926,26 @@ class IntelligentTradingSystem:
                 unprotected_symbols = [pos['symbol'] for pos in protection_report 
                                      if pos['status'] == "UNPROTECTED"]
                 
-                self.logger.critical(f"🚨 PERIODIC VERIFICATION ALERT: {unprotected_count} unprotected positions found!")
+                # Check market status before sending critical alerts
+                clock = await self.gateway.get_clock()
+                is_market_open = clock and hasattr(clock, 'is_open') and clock.is_open
                 
-                await self.alerter.send_critical_alert(
-                    "Periodic verification: Unprotected positions detected",
-                    f"Found {unprotected_count} unprotected positions: {unprotected_symbols}. "
-                    f"Runtime monitoring should have caught this - investigate system health!"
-                )
-                
-                # This suggests runtime monitoring may have failed - run it manually
-                self.logger.critical("🔄 Running emergency runtime protection check...")
-                await self._monitor_position_protection()
+                if not is_market_open:
+                    # Just log warning when market is closed
+                    self.logger.warning(f"⚠️ Periodic check: {unprotected_count} positions without stops (market closed): {unprotected_symbols}")
+                else:
+                    # Market is open - this is critical
+                    self.logger.critical(f"🚨 PERIODIC VERIFICATION ALERT: {unprotected_count} unprotected positions found!")
+                    
+                    await self.alerter.send_critical_alert(
+                        "Periodic verification: Unprotected positions detected",
+                        f"Found {unprotected_count} unprotected positions: {unprotected_symbols}. "
+                        f"Runtime monitoring should have caught this - investigate system health!"
+                    )
+                    
+                    # This suggests runtime monitoring may have failed - run it manually
+                    self.logger.critical("🔄 Running emergency runtime protection check...")
+                    await self._monitor_position_protection()
             else:
                 self.logger.info("✅ Periodic verification: All positions properly protected")
             
@@ -1773,6 +1795,12 @@ class IntelligentTradingSystem:
                                       opportunity: MarketOpportunity) -> bool:
         """Execute trading signal with comprehensive validation"""
         try:
+            # Check if market is open before attempting to trade
+            clock = await self.gateway.get_clock()
+            if clock and hasattr(clock, 'is_open') and not clock.is_open:
+                self.logger.warning(f"⏰ Skipping trade for {signal.symbol} - market is closed")
+                return False
+            
             # Final risk check
             account = await self.gateway.get_account_safe()
             if not account:

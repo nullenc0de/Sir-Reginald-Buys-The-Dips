@@ -1728,7 +1728,7 @@ class SimpleTradeExecutor:
         except Exception as e:
             logger.error(f"Order cleanup failed: {e}")
             
-    async def _verify_bracket_order_legs(self, order_response, signal, max_wait_seconds=30):
+    async def _verify_bracket_order_legs(self, order_response, signal, max_wait_seconds=60):
         """Verify that bracket order stop loss and take profit legs are properly created"""
         try:
             logger.info(f"🔍 Starting enhanced bracket order verification for {signal.symbol}")
