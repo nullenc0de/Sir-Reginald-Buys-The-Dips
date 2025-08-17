@@ -1801,22 +1801,36 @@ class IntelligentTradingSystem:
                 self.logger.warning(f"⏰ Skipping trade for {signal.symbol} - market is closed")
                 return False
             
+            # Check position limits - CRITICAL for risk management
+            positions = await self.gateway.get_all_positions()
+            active_positions = [p for p in positions if float(p.qty) != 0]
+            max_positions = FUNNEL_CONFIG.get('max_active_positions', 8)
+            
+            if len(active_positions) >= max_positions:
+                self.logger.warning(f"⚠️ Position limit reached ({len(active_positions)}/{max_positions}) - skipping {signal.symbol}")
+                return False
+            
             # Final risk check
             account = await self.gateway.get_account_safe()
             if not account:
                 return False
                 
-            # Calculate position size based on AI recommendation
-            base_position_size = RISK_CONFIG['max_position_risk_pct'] / 100
+            # Calculate position size based on AI recommendation - AGGRESSIVE 50% ANNUAL RETURN TARGET
+            min_position_size = RISK_CONFIG['min_position_size_pct'] / 100  # 25% minimum
+            max_position_size = RISK_CONFIG['max_position_size_pct'] / 100  # 40% maximum
             
-            # Adjust size based on AI confidence and recommendation
+            # Size based on AI confidence and recommendation - MORE AGGRESSIVE
             size_multiplier = {
-                'FULL': 1.0,
-                'REDUCED': 0.5,
-                'MINIMAL': 0.25
-            }.get(ai_evaluation.get('position_size_recommendation', 'REDUCED'), 0.5)
+                'FULL': 1.0,        # 40% position - MAXIMUM AGGRESSION
+                'REDUCED': 0.8,     # 32% position (was 0.7)
+                'MINIMAL': 0.625    # 25% position minimum (was 0.6)
+            }.get(ai_evaluation.get('position_size_recommendation', 'REDUCED'), 0.8)
             
-            adjusted_position_size = base_position_size * size_multiplier
+            # Calculate target position size - MUCH LARGER FOR 50% RETURNS
+            target_size = max_position_size * size_multiplier
+            adjusted_position_size = max(min_position_size, target_size)
+            
+            self.logger.info(f"🚀 AGGRESSIVE POSITION FOR 50% RETURNS: {signal.symbol} = {adjusted_position_size*100:.1f}% of account")
             
             # Update signal with AI insights
             signal.stop_loss_price = signal.entry_price * (1 - RISK_CONFIG['stop_loss_pct'] / 100)
@@ -1931,6 +1945,11 @@ class IntelligentTradingSystem:
             from config import RISK_CONFIG
             max_loss_pct = RISK_CONFIG.get('max_position_loss_pct', -4.0)
             if unrealized_pct <= max_loss_pct:
+                # Check if market is open before attempting loss cuts
+                clock = await self.gateway.get_clock()
+                if clock and hasattr(clock, 'is_open') and not clock.is_open:
+                    self.logger.warning(f"⚠️ {symbol} at {unrealized_pct:.1f}% loss but market closed - will execute loss cut when market opens")
+                    return  # Skip loss cut when market is closed
                 # Check if position already has adequate stop protection before triggering loss cut
                 try:
                     orders = await self.gateway.get_orders('open')
@@ -1945,9 +1964,12 @@ class IntelligentTradingSystem:
                             stop_price = float(order.stop_price) if hasattr(order, 'stop_price') else float(order.limit_price)
                             stop_loss_pct = ((stop_price - entry_price) / entry_price) * 100
                             
-                            if stop_loss_pct >= max_loss_pct:  # Stop is better than or equal to our threshold
+                            # Check if stop is at an acceptable level (stop should be negative, closer to 0 is less loss)
+                            # For a long position, stop_loss_pct will be negative when stop < entry
+                            # We want to skip if there's ANY stop order, as it provides protection
+                            if order.order_type in ['stop', 'stop_limit']:
                                 has_adequate_stop = True
-                                self.logger.debug(f"✅ {symbol} already has adequate stop protection at {stop_loss_pct:.1f}%")
+                                self.logger.debug(f"✅ {symbol} already has stop protection at {stop_loss_pct:.1f}%")
                                 break
                     
                     if has_adequate_stop:
@@ -1957,7 +1979,9 @@ class IntelligentTradingSystem:
                 except Exception as e:
                     self.logger.debug(f"Could not check existing orders for {symbol}: {e}")
                 
-                self.logger.critical(f"🔴 LOSS CUT TRIGGERED: {symbol} at {unrealized_pct:.1f}% loss (limit: {max_loss_pct}%)")
+                # Only log CRITICAL after confirming no protection exists
+                # First try to execute the loss cut
+                self.logger.info(f"📉 Attempting loss cut for {symbol} at {unrealized_pct:.1f}% loss (limit: {max_loss_pct}%)")
                 
                 # Execute immediate loss cut with market sell order
                 order_data = {
@@ -1971,7 +1995,7 @@ class IntelligentTradingSystem:
                 try:
                     response = await self.gateway.submit_order(order_data)
                     if response and response.success:
-                        self.logger.critical(f"✅ LOSS CUT EXECUTED: {symbol} - sold {int(abs(qty))} shares at {unrealized_pct:.1f}% loss")
+                        self.logger.critical(f"🔴 LOSS CUT EXECUTED: {symbol} - sold {int(abs(qty))} shares at {unrealized_pct:.1f}% loss")
                         await self.alerter.send_critical_alert(
                             f"🔴 LOSS CUT: {symbol} sold at {unrealized_pct:.1f}% loss"
                         )
@@ -1980,7 +2004,7 @@ class IntelligentTradingSystem:
                         error_msg = response.error if response else "No response received"
                         # Check if shares are held by existing orders (stop losses)
                         if response and "insufficient qty available" in str(response.error) and "held_for_orders" in str(response.error):
-                            self.logger.warning(f"✅ LOSS CUT ALREADY PROTECTED: {symbol} - shares held by existing stop orders")
+                            self.logger.debug(f"✅ {symbol} already protected by existing stop orders - loss cut not needed")
                         else:
                             self.logger.error(f"❌ LOSS CUT FAILED: {symbol} - {error_msg}")
                 except Exception as e:

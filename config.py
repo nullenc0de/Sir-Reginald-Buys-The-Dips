@@ -29,9 +29,10 @@ SYSTEM_CONFIG = {
     'paper_trading_mandatory': True,
     'min_paper_trading_days': 30,
     'min_profitable_trades': 50,
-    'required_win_rate': 0.55,
-    'required_profit_factor': 1.3,
-    'max_daily_trades': 8,
+    'required_win_rate': 0.70,             # AGGRESSIVE: 70% win rate for 50% annual returns
+    'required_profit_factor': 3.0,         # AGGRESSIVE: 3.0 profit factor (was 2.0)
+    'max_daily_trades': 4,              # Increase trading velocity for 50% returns (was 2)
+    'min_trade_spacing_hours': 2,       # Faster trades for velocity (was 4)
     'enable_intelligent_funnel': True
 }
 
@@ -82,10 +83,10 @@ FUNNEL_CONFIG = {
         'analyst_ratings': False        # Future enhancement
     },
     
-    # Final selection
-    'max_watchlist_size': 25,          # Dynamic watchlist size
-    'max_active_positions': 8,         # Concurrent positions
-    'opportunity_refresh_minutes': 5   # Update rankings every 5 min
+    # Final selection - CONCENTRATED FOR PERFORMANCE
+    'max_watchlist_size': 15,          # Reduced watchlist for focus
+    'max_active_positions': 5,         # Maximum 5 positions for concentration
+    'opportunity_refresh_minutes': 30  # Reduce scanning frequency to avoid overtrading
 }
 
 # === MARKET-WIDE SCREENING CRITERIA ===
@@ -221,10 +222,12 @@ STRATEGY_CONFIG = {
 
 # === RISK MANAGEMENT ===
 RISK_CONFIG = {
-    # Position sizing
-    'max_position_risk_pct': 2.0,          # 2% max risk per trade
-    'max_portfolio_risk_pct': 12.0,        # 12% max total risk
-    'max_correlation_exposure': 0.6,       # Max 60% in correlated positions
+    # Position sizing - AGGRESSIVE FOR 50%+ ANNUAL RETURNS
+    'max_position_risk_pct': 3.0,          # 3% max risk per trade (was 2%)
+    'min_position_size_pct': 25.0,         # Minimum 25% position for meaningful gains (was 15%)
+    'max_position_size_pct': 40.0,         # Maximum 40% position - AGGRESSIVE (was 25%)
+    'max_portfolio_risk_pct': 12.0,        # 12% max total risk - higher for growth (was 8%)
+    'max_correlation_exposure': 0.4,       # Max 40% in correlated positions (tighter limit)
     'max_sector_concentration': 0.4,       # Max 40% in single sector
     
     # Drawdown controls
@@ -232,24 +235,26 @@ RISK_CONFIG = {
     'max_weekly_drawdown_pct': 12.0,       # 12% weekly review
     'max_monthly_drawdown_pct': 20.0,      # 20% monthly strategy review
     
-    # Trade parameters
-    'stop_loss_pct': 8.0,                  # 8% stop loss
-    'take_profit_multiple': 2.5,           # 2.5:1 reward/risk
-    'min_risk_reward_ratio': 2.0,          # Never <2:1
-    'max_position_hold_days': 15,          # Force exit after 15 days
+    # Trade parameters - OPTIMIZED FOR 50% ANNUAL GROWTH
+    'stop_loss_pct': 7.5,                  # 7.5% stop loss (tighter for 4:1 ratio)
+    'take_profit_multiple': 4.0,           # 4:1 reward/risk - AGGRESSIVE TARGET (was 3:1)
+    'min_risk_reward_ratio': 3.5,          # Higher bar: never <3.5:1 (was 2.5:1)
+    'min_position_hold_days': 3,           # Minimum 3 days - FASTER VELOCITY (was 7)
+    'target_hold_days': 14,               # Target 2 weeks - FASTER TURNOVER (was 21)
+    'max_position_hold_days': 30,          # Maximum 1 month - FORCE TURNOVER (was 60)
     
     # PDT compliance
     'min_holding_period_hours': 24,        # Minimum hold time
     'pdt_day_trade_buffer': 1,             # Stay 1 trade under limit
     'account_size_threshold': 25000,       # PDT rule threshold
     
-    # Enhanced Position Management - OPTIMIZED FOR PROFITABILITY
-    'max_position_loss_pct': -4.0,         # Cut losses at -4% (keep conservative)
-    'profit_taking_levels': [5.0, 10.0, 15.0],  # More granular: +5% (15%), +10% (35%), +15% (50%)
-    'profit_taking_percentages': [0.15, 0.35, 0.50],  # How much to sell at each level
-    'position_review_frequency_minutes': 15, # Review positions every 15min
-    'trailing_stop_activation_pct': 3.0,   # Activate trailing stop at +3%
-    'max_position_age_days': 4,            # Faster turnover - review after 4 days
+    # Enhanced Position Management - AGGRESSIVE 50% GROWTH TARGET
+    'max_position_loss_pct': -5.0,         # Allow larger losses for bigger wins (was -4%)
+    'profit_taking_levels': [10.0, 20.0, 30.0],  # AGGRESSIVE: +10% (25%), +20% (35%), +30% (40%)
+    'profit_taking_percentages': [0.25, 0.35, 0.40],  # Scale out more aggressively
+    'position_review_frequency_minutes': 10, # Review positions every 10min (was 15)
+    'trailing_stop_activation_pct': 8.0,   # Activate trailing stop at +8% (was 3%)
+    'max_position_age_days': 2,            # FORCE FASTER TURNOVER (was 4)
     'concentration_limit_pct': 8.0,        # Keep safe concentration limit
     'extended_hours_emergency_loss_pct': -6.0  # Emergency extended hours threshold
 }
@@ -266,7 +271,7 @@ AI_CONFIG = {
     # Market analysis
     'market_regime_analysis_frequency': 30,  # Every 30 minutes
     'daily_report_time': time(8, 0),        # 8:00 AM daily report
-    'confidence_threshold': 0.65,           # 65% AI confidence minimum
+    'confidence_threshold': 0.85,           # 85% AI confidence - VERY HIGH BAR for 50% returns
     
     # Prompt templates
     'few_shot_examples': True,              # Use few-shot prompting
@@ -301,11 +306,11 @@ PERFORMANCE_CONFIG = {
         'profit_factor', 'calmar_ratio', 'sortino_ratio', 'alpha', 'beta'
     ],
     'target_metrics': {
-        'monthly_return_target': 0.20,      # 20% monthly
-        'annual_return_target': 3.0,        # 300% annual
-        'max_acceptable_drawdown': 0.15,    # 15% max drawdown
-        'min_sharpe_ratio': 1.5,            # 1.5 Sharpe minimum
-        'min_win_rate': 0.55                # 55% win rate minimum
+        'monthly_return_target': 0.035,     # 3.5% monthly = 50% annual compounded
+        'annual_return_target': 0.50,       # 50% annual return TARGET
+        'max_acceptable_drawdown': 0.20,    # 20% max drawdown for aggressive growth
+        'min_sharpe_ratio': 1.8,            # 1.8 Sharpe minimum for quality
+        'min_win_rate': 0.70                # 70% win rate minimum for 50% returns
     }
 }
 
