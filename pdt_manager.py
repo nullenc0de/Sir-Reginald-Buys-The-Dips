@@ -101,7 +101,7 @@ class PDTManager:
             
             # Get current PDT day trade count in rolling 5-day period
             recent_day_trades = self._get_recent_day_trades()
-            current_day_trade_count = len(recent_day_trades)
+            local_day_trade_count = len(recent_day_trades)
             
             # Check account status and equity
             account = await self.gateway.get_account_safe()
@@ -111,13 +111,51 @@ class PDTManager:
             equity = float(account.equity)
             is_pdt_account = getattr(account, 'pattern_day_trader', False)
             
-            # If buying, just track the position
+            # Use broker's actual day trade count if available (more reliable)
+            # Try multiple possible field names for day trade count
+            broker_day_trade_count = (
+                getattr(account, 'day_trade_count', None) or
+                getattr(account, 'daytrade_count', None) or
+                getattr(account, 'dayTradeCount', None) or
+                getattr(account, 'day_trades', None) or
+                0
+            )
+            
+            # Debug: log all account attributes to find the correct field
+            if hasattr(account, '__dict__'):
+                logger.info(f"🔍 Account fields: {list(account.__dict__.keys())}")
+                # Also check for any fields containing 'day' or 'trade'
+                day_trade_fields = {k: v for k, v in account.__dict__.items() if 'day' in k.lower() or 'trade' in k.lower()}
+                if day_trade_fields:
+                    logger.info(f"🎯 Day/trade related fields: {day_trade_fields}")
+                else:
+                    logger.info(f"🔍 No day/trade fields found in account object")
+            
+            current_day_trade_count = max(local_day_trade_count, broker_day_trade_count)
+            
+            logger.info(f"📊 Day trade status - Local: {local_day_trade_count}, Broker: {broker_day_trade_count}, Using: {current_day_trade_count}")
+            
+            # If we're at the PDT limit, be explicit about it
+            if current_day_trade_count >= 3 and equity < 25000:
+                logger.warning(f"⚠️ PDT LIMIT REACHED: {current_day_trade_count} day trades with equity ${equity:,.2f} < $25,000")
+                logger.warning(f"⚠️ New day trades will be blocked until count drops below 3 or equity exceeds $25,000")
+            
+            # If buying, check PDT risk more carefully for small accounts
             if side.lower() == 'buy':
+                # For accounts under $25K with existing day trades, be very conservative
+                if current_day_trade_count >= 2 and equity < 25000:
+                    logger.warning(f"⚠️ CONSERVATIVE PDT PREVENTION: {current_day_trade_count} day trades exist, blocking new positions to prevent PDT violation")
+                    return False, f"PDT PREVENTION: Already have {current_day_trade_count} day trades. Avoiding new positions to prevent violations."
+                
                 # Check if we already have a position opened today (to prevent adding to day trade risk)
                 if symbol in self.open_positions_today:
                     logger.info(f"⚠️ {symbol}: Already opened position today - adding could create larger day trade")
                 
-                # Buying is generally allowed (it's the sell that creates the day trade)
+                # If we're at limit, only allow if we're sure it won't become a day trade
+                if current_day_trade_count >= 3 and equity < 25000:
+                    logger.warning(f"⚠️ AT PDT LIMIT: Only allowing buy if position will be held overnight")
+                    return True, "Buy order approved with PDT limit warning - MUST hold overnight"
+                
                 return True, "Buy order approved"
             
             # If selling, check for potential day trade
@@ -127,10 +165,10 @@ class PDTManager:
                     # This would create a day trade
                     potential_day_trades = current_day_trade_count + 1
                     
-                    # More conservative approach: if we're at risk, prevent the trade
-                    if current_day_trade_count >= 2 and equity < 25000:  # Prevent at 2 instead of 3
-                        return False, f"PDT PREVENTION: Already have {current_day_trade_count} day trades. Preventing trade to avoid PDT violation (need <$25k account)"
-                    elif current_day_trade_count >= 3:
+                    # Allow up to 3 day trades (PDT limit is 4, be conservative at 3)
+                    if current_day_trade_count >= 3 and equity < 25000:  # Allow 3 day trades, block at 4th
+                        return False, f"PDT PREVENTION: Already have {current_day_trade_count} day trades. Cannot exceed 3 day trades with account equity ${equity:,.2f} < $25,000"
+                    elif current_day_trade_count >= 4:
                         if equity < 25000:
                             return False, f"PDT VIOLATION RISK: Already have {current_day_trade_count} day trades in 5-day period. Account equity ${equity:,.2f} < $25,000 required for PDT."
                         elif not is_pdt_account:

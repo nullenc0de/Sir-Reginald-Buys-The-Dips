@@ -174,6 +174,10 @@ class IntelligentTradingSystem:
             # Reset PDT blocks for new trading day
             self.gateway.reset_pdt_blocks()
             
+            # Also reset daily PDT tracking in PDT manager
+            if hasattr(self, 'pdt_manager'):
+                await self.pdt_manager._reset_daily_tracking()
+            
             # Reset gap risk alert tracking for new trading day
             self.gap_risk_manager.reset_alert_tracking()
             
@@ -837,6 +841,15 @@ class IntelligentTradingSystem:
         try:
             self.logger.info("🔍 Running periodic protection verification...")
             
+            # Reset PDT blocks to prevent permanent blocking of good opportunities
+            try:
+                blocked_symbols = self.gateway.get_pdt_blocked_symbols()
+                if blocked_symbols:
+                    self.logger.info(f"🔄 Clearing PDT blocks for {len(blocked_symbols)} symbols to allow fresh evaluation")
+                    self.gateway.reset_pdt_blocks()
+            except Exception as pdt_error:
+                self.logger.warning(f"⚠️ PDT block reset failed: {pdt_error}")
+            
             # Get all positions and orders
             positions = await self.gateway.get_all_positions()
             active_positions = [pos for pos in positions if float(pos.qty) != 0]
@@ -971,6 +984,7 @@ class IntelligentTradingSystem:
                 
             aging_actions = []
             current_time = datetime.now()
+            from config import RISK_CONFIG
             max_age_days = RISK_CONFIG.get('max_position_age_days', 4)
             concentration_limit = RISK_CONFIG.get('concentration_limit_pct', 8.0)
             
@@ -1723,8 +1737,39 @@ class IntelligentTradingSystem:
                         data_sources=data_sources_tried, market_intelligence=self.current_intelligence
                     )
                     
-                    if technical_signal:
-                        self.logger.info(f"📈 Technical signal generated for {opportunity.symbol}: {technical_signal.action}")
+                    # AGGRESSIVE TRADING: Allow AI-only evaluation when technical fails but has good data
+                    from config import RISK_CONFIG
+                    allow_ai_only = (not technical_signal and len(bars) >= 10 and 
+                                   RISK_CONFIG['max_position_size_pct'] >= 25.0)  # Only for aggressive config
+                    
+                    if technical_signal or allow_ai_only:
+                        if technical_signal:
+                            self.logger.info(f"📈 Technical signal generated for {opportunity.symbol}: {technical_signal.action}")
+                        else:
+                            self.logger.info(f"🤖 AI-only evaluation for {opportunity.symbol} (technical analysis bypassed)")
+                            # Create basic signal for AI evaluation
+                            try:
+                                # Safely get current price from bars or opportunity
+                                if isinstance(bars, pd.DataFrame) and len(bars) > 0:
+                                    current_price = bars['close'].iloc[-1]
+                                else:
+                                    current_price = opportunity.current_price
+                            except:
+                                current_price = opportunity.current_price
+                                
+                            technical_signal = type('Signal', (), {
+                                'symbol': opportunity.symbol,
+                                'action': 'BUY', 
+                                'entry_price': current_price,
+                                'signal_type': 'AI_ONLY',
+                                'confidence': 0.85,        # Default confidence for AI-only signals
+                                'strength': 1.0,           # Default strength
+                                'stop_loss': None,         # Will be set by risk management
+                                'take_profit': None,       # Will be set by risk management
+                                'position_size_pct': 40.0, # Aggressive position sizing
+                                'timeframe': '1D',         # Daily timeframe
+                                'risk_reward_ratio': 2.0   # 2:1 risk/reward
+                            })()
                         
                         # AI validation of signal against market context
                         try:
@@ -1816,6 +1861,7 @@ class IntelligentTradingSystem:
                 return False
                 
             # Calculate position size based on AI recommendation - AGGRESSIVE 50% ANNUAL RETURN TARGET
+            from config import RISK_CONFIG
             min_position_size = RISK_CONFIG['min_position_size_pct'] / 100  # 25% minimum
             max_position_size = RISK_CONFIG['max_position_size_pct'] / 100  # 40% maximum
             
@@ -1830,7 +1876,7 @@ class IntelligentTradingSystem:
             target_size = max_position_size * size_multiplier
             adjusted_position_size = max(min_position_size, target_size)
             
-            self.logger.info(f"🚀 AGGRESSIVE POSITION FOR 50% RETURNS: {signal.symbol} = {adjusted_position_size*100:.1f}% of account")
+            self.logger.info(f"🚀 TARGET POSITION: {signal.symbol} = {adjusted_position_size*100:.1f}% of account (subject to position sizing caps)")
             
             # Update signal with AI insights
             signal.stop_loss_price = signal.entry_price * (1 - RISK_CONFIG['stop_loss_pct'] / 100)
@@ -2011,6 +2057,7 @@ class IntelligentTradingSystem:
                     self.logger.error(f"❌ LOSS CUT ERROR: {symbol} - {e}")
             
             # Check for profit taking opportunities - ENHANCED GRANULAR SYSTEM
+            from config import RISK_CONFIG
             profit_levels = RISK_CONFIG.get('profit_taking_levels', [5.0, 10.0, 15.0])
             profit_percentages = RISK_CONFIG.get('profit_taking_percentages', [0.15, 0.35, 0.50])
             
@@ -2034,6 +2081,12 @@ class IntelligentTradingSystem:
                                 self.logger.info(f"   📏 1-SHARE PROFIT: {symbol} at +{unrealized_pct:.1f}% - keeping (threshold not met)")
                         
                         if sell_qty > 0:
+                            # Check for existing orders BEFORE attempting new order
+                            orders_exist = await self._check_actual_open_orders_for_symbol(symbol)
+                            if orders_exist:
+                                self.logger.info(f"✅ PROFIT TAKING SKIPPED: {symbol} - shares held by existing orders (protected)")
+                                continue  # Skip to next profit level
+                            
                             self.logger.info(f"💰 PROFIT TAKING: {symbol} at +{unrealized_pct:.1f}% - selling {sell_qty} shares ({profit_pct*100}%)")
                             
                             order_data = {

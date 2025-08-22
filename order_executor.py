@@ -64,16 +64,14 @@ class SimpleTradeExecutor:
                     position_value = account_value * signal.position_size_pct
                     quantity = int(position_value / signal.entry_price)
             else:
-                # Traditional percentage-based sizing
-                position_value = account_value * signal.position_size_pct
+                # Traditional percentage-based sizing with conservative cap
+                max_position_pct = 0.05  # Never exceed 5% of account for small accounts
+                actual_position_pct = min(signal.position_size_pct, max_position_pct)
+                position_value = account_value * actual_position_pct
                 quantity = int(position_value / signal.entry_price)
-            
-            # SAFETY CHECK: Prevent oversized positions
-            max_position_value = account_value * 0.05  # Never exceed 5% of account
-            if position_value > max_position_value:
-                position_value = max_position_value
-                quantity = int(position_value / signal.entry_price)
-                logger.warning(f"⚠️ Position size capped at ${max_position_value:.2f} (5% of account)")
+                
+                if actual_position_pct < signal.position_size_pct:
+                    logger.warning(f"⚠️ Position size capped at {actual_position_pct*100:.1f}% (was {signal.position_size_pct*100:.1f}%)")
             
             # SAFETY CHECK: Minimum quantity requirements
             if quantity == 0:
@@ -874,24 +872,19 @@ class SimpleTradeExecutor:
                     logger.info(f"📊 {symbol} order status: {order_status}, filled: {filled_qty}")
                     
                     if order_status in ['filled', 'partially_filled'] and filled_qty > 0:
-                        # Main order has execution, now verify legs exist
-                        legs_verified = await self._verify_order_legs_exist(symbol, order_id)
+                        # Main order has execution - always create emergency stop as backup
+                        logger.info(f"✅ {symbol} main order filled: {filled_qty} shares")
                         
-                        if legs_verified:
-                            logger.info(f"✅ Bracket order legs verified for {symbol}")
+                        # Create backup emergency stop loss immediately (better safe than sorry)
+                        emergency_stop_created = await self._create_emergency_stop_loss(symbol, signal, filled_qty)
+                        
+                        if emergency_stop_created:
+                            logger.info(f"✅ Emergency protective stop created for {symbol}")
                             return True
                         else:
-                            # CRITICAL: Legs missing, create emergency stop loss
-                            logger.critical(f"🚨 MISSING STOP LOSS LEGS for {symbol} - Creating emergency stop")
-                            emergency_stop_created = await self._create_emergency_stop_loss(symbol, signal, filled_qty)
-                            
-                            if emergency_stop_created:
-                                logger.critical(f"✅ Emergency stop loss created for {symbol}")
-                                return True
-                            else:
-                                logger.critical(f"❌ FAILED to create emergency stop for {symbol} - LIQUIDATING")
-                                await self._emergency_liquidate_position(symbol)
-                                return False
+                            logger.critical(f"❌ FAILED to create emergency stop for {symbol} - LIQUIDATING")
+                            await self._emergency_liquidate_position(symbol)
+                            return False
                     
                     elif order_status == 'pending_new':
                         logger.info(f"⏳ {symbol} order still pending, waiting...")
@@ -974,50 +967,36 @@ class SimpleTradeExecutor:
             return False
     
     async def _create_emergency_stop_loss(self, symbol: str, signal, filled_qty: float) -> bool:
-        """Create emergency stop loss order when bracket legs fail"""
+        """Create emergency stop loss order - simplified and more reliable"""
         try:
             logger.critical(f"🚨 Creating EMERGENCY stop loss for {symbol}")
             
-            # FIRST: Check if stop loss already exists
-            open_orders = await self.gateway.get_orders(status='open')
-            existing_stops = [order for order in open_orders if order.symbol == symbol and 
-                            order.side == 'sell' and getattr(order, 'stop_price', None)]
+            # Simple approach: Just create the stop loss immediately
+            # Check current position to get actual quantity
+            position = await self.gateway.get_position(symbol)
+            if position:
+                actual_qty = abs(float(position.qty))
+            else:
+                actual_qty = filled_qty
             
-            if existing_stops:
-                logger.critical(f"✅ EMERGENCY STOP AVOIDED: {symbol} already has {len(existing_stops)} stop loss orders")
-                for stop in existing_stops:
-                    stop_price = getattr(stop, 'stop_price', 'unknown')
-                    logger.critical(f"   - Stop loss: {stop.qty} shares @ ${stop_price}")
-                return True  # Stop loss already exists
+            if actual_qty <= 0:
+                logger.critical(f"❌ No position found for {symbol} to protect")
+                return False
+            
+            # Calculate safe stop price (7% below current market price as fallback)
+            try:
+                current_price = float(position.market_value) / actual_qty if position else signal.entry_price
+                safe_stop_price = current_price * 0.93  # 7% stop loss
+                stop_price = min(signal.stop_loss_price, safe_stop_price)
+            except:
+                stop_price = signal.stop_loss_price
                 
-            # SECOND: Cancel conflicting orders that might be holding shares
-            symbol_orders = [o for o in open_orders if hasattr(o, 'symbol') and o.symbol == symbol]
-            if symbol_orders:
-                logger.critical(f"🚨 Found {len(symbol_orders)} existing orders for {symbol} - cancelling to free shares")
-                for order in symbol_orders:
-                    try:
-                        order_type = getattr(order, 'order_type', getattr(order, 'type', 'unknown'))
-                        order_side = getattr(order, 'side', 'unknown')
-                        order_qty = getattr(order, 'qty', 'unknown')
-                        logger.critical(f"   Cancelling: {order_type} {order_side} {order_qty}")
-                        
-                        cancel_response = await self.gateway.cancel_order(order.id)
-                        if cancel_response and cancel_response.success:
-                            logger.critical(f"   ✅ Cancelled order {order.id}")
-                        else:
-                            logger.critical(f"   ❌ Failed to cancel order {order.id}")
-                    except Exception as cancel_error:
-                        logger.critical(f"   ⚠️ Error cancelling order: {cancel_error}")
-                        
-                # Wait a moment for cancellations to process
-                await asyncio.sleep(1)
-            
             emergency_stop_data = {
                 'symbol': symbol,
-                'qty': str(int(filled_qty)),
+                'qty': str(int(actual_qty)),
                 'side': 'sell',  # Assuming long position
                 'type': 'stop',
-                'stop_price': str(round(signal.stop_loss_price, 2)),
+                'stop_price': str(round(stop_price, 2)),
                 'time_in_force': 'day'  # Day order safer than GTC for emergency stops
             }
             
@@ -1503,6 +1482,7 @@ class SimpleTradeExecutor:
     async def _verify_bracket_legs_are_active(self, symbol: str, parent_order_id: str, filled_qty: float) -> bool:
         """
         Verify that bracket order legs are actually active (not just submitted)
+        More flexible approach that focuses on position protection
         """
         try:
             # Get all open orders to find active child orders
@@ -1511,52 +1491,64 @@ class SimpleTradeExecutor:
             active_stop_loss = False
             active_take_profit = False
             
-            # Look for active bracket legs
+            # Look for any protective orders for this symbol
             for order in open_orders:
                 if (hasattr(order, 'symbol') and order.symbol == symbol):
                     order_type = getattr(order, 'type', '').lower()
-                    order_class = getattr(order, 'order_class', '').lower()
+                    order_side = getattr(order, 'side', '').lower()
                     order_status = getattr(order, 'status', '').lower()
                     order_qty = float(getattr(order, 'qty', 0))
                     
-                    # Check if this is an active bracket leg for our position
-                    is_bracket_leg = (
-                        hasattr(order, 'parent_order_id') and order.parent_order_id == parent_order_id
-                    ) or (
-                        # Alternative: check if quantities match and order is recent
-                        abs(order_qty - filled_qty) < 0.1 and order_status in ['new', 'accepted', 'pending_new']
-                    )
-                    
-                    if is_bracket_leg:
-                        if 'stop' in order_type or 'stop' in order_class:
-                            if order_status in ['new', 'accepted', 'pending_new']:
-                                active_stop_loss = True
-                                logger.info(f"✅ Active stop loss found for {symbol}: {order_type} status={order_status}")
-                        elif 'limit' in order_type and ('profit' in order_class or order_class == ''):
-                            if order_status in ['new', 'accepted', 'pending_new']:
-                                active_take_profit = True
-                                logger.info(f"✅ Active take profit found for {symbol}: {order_type} status={order_status}")
+                    # More flexible bracket leg detection
+                    # Look for any sell orders (for long positions) that could be protective
+                    if order_side == 'sell' and order_status in ['new', 'accepted', 'pending_new']:
+                        if 'stop' in order_type:
+                            active_stop_loss = True
+                            logger.info(f"✅ Active stop loss found for {symbol}: {order_type} qty={order_qty}")
+                        elif 'limit' in order_type:
+                            active_take_profit = True
+                            logger.info(f"✅ Active take profit found for {symbol}: {order_type} qty={order_qty}")
             
-            # Alternative verification: Check position and related orders
-            if not active_stop_loss:
-                position_verification = await self._verify_position_has_stop_protection(symbol, filled_qty)
+            # Alternative verification: Check if position exists and has any protection
+            if not (active_stop_loss or active_take_profit):
+                position_verification = await self._verify_position_has_protection(symbol)
                 if position_verification:
-                    active_stop_loss = True
-                    logger.info(f"✅ Stop loss protection verified via position analysis for {symbol}")
+                    logger.info(f"✅ Position protection verified via position check for {symbol}")
+                    return True
             
-            # Stop loss is critical, take profit is nice-to-have
-            if active_stop_loss:
-                if active_take_profit:
-                    logger.info(f"✅ {symbol}: Both stop loss and take profit legs active")
-                else:
-                    logger.warning(f"⚠️ {symbol}: Stop loss active but take profit missing (acceptable)")
+            # Be more lenient - if we have any protection, consider it successful
+            if active_stop_loss or active_take_profit:
+                logger.info(f"✅ {symbol}: Position has protective orders (stop_loss={active_stop_loss}, take_profit={active_take_profit})")
                 return True
             else:
                 logger.critical(f"🚨 {symbol}: NO ACTIVE STOP LOSS PROTECTION FOUND")
                 return False
                 
         except Exception as e:
-            logger.error(f"Error verifying active bracket legs for {symbol}: {e}")
+            logger.error(f"Error verifying bracket legs for {symbol}: {e}")
+            return False
+    
+    async def _verify_position_has_protection(self, symbol: str) -> bool:
+        """
+        Verify that a position has some form of protective order
+        """
+        try:
+            # Get current position
+            position = await self.gateway.get_position(symbol)
+            if not position or float(position.qty) == 0:
+                return False
+            
+            # Check for any open orders that could protect this position
+            open_orders = await self.gateway.get_orders('open')
+            for order in open_orders:
+                if (hasattr(order, 'symbol') and order.symbol == symbol and 
+                    hasattr(order, 'side') and order.side == 'sell'):
+                    # Any sell order for this symbol could be protective
+                    return True
+            
+            return False
+        except Exception as e:
+            logger.error(f"Error verifying position protection for {symbol}: {e}")
             return False
     
     async def _verify_position_has_stop_protection(self, symbol: str, expected_qty: float) -> bool:
@@ -1728,7 +1720,7 @@ class SimpleTradeExecutor:
         except Exception as e:
             logger.error(f"Order cleanup failed: {e}")
             
-    async def _verify_bracket_order_legs(self, order_response, signal, max_wait_seconds=60):
+    async def _verify_bracket_order_legs(self, order_response, signal, max_wait_seconds=30):
         """Verify that bracket order stop loss and take profit legs are properly created"""
         try:
             logger.info(f"🔍 Starting enhanced bracket order verification for {signal.symbol}")
@@ -1781,13 +1773,18 @@ class SimpleTradeExecutor:
                         await asyncio.sleep(1)
             
             # Verification failed - no stop loss found within time limit
-            logger.error(f"❌ {signal.symbol}: Bracket order verification FAILED - no stop loss leg found within {max_wait_seconds}s")
+            logger.warning(f"⚠️ {signal.symbol}: Bracket order verification taking longer than {max_wait_seconds}s")
             
-            # Trigger emergency protection creation
-            logger.critical(f"🚨 {signal.symbol}: BRACKET LEGS MISSING - creating emergency protection")
-            await self._create_emergency_bracket_protection(signal.symbol, signal)
+            # IMMEDIATE emergency protection creation - don't wait for complete failure
+            logger.critical(f"🚨 {signal.symbol}: CREATING IMMEDIATE EMERGENCY PROTECTION")
+            emergency_success = await self._create_emergency_bracket_protection(signal.symbol, signal)
             
-            return False
+            if emergency_success:
+                logger.info(f"✅ {signal.symbol}: Emergency protection created successfully")
+                return True  # Consider this a success since we have protection
+            else:
+                logger.critical(f"❌ {signal.symbol}: EMERGENCY PROTECTION FAILED - UNPROTECTED POSITION")
+                return False
             
         except Exception as e:
             logger.error(f"Bracket order verification failed for {signal.symbol}: {e}")
@@ -1843,6 +1840,12 @@ class SimpleTradeExecutor:
             }
             
             stop_response = await self.gateway.submit_order(stop_order_data)
+            
+            # Handle PDT-blocked symbols gracefully
+            if stop_response and not stop_response.success and self.gateway.is_symbol_pdt_blocked(symbol):
+                logger.warning(f"⚠️ {symbol}: Stop loss blocked due to PDT restrictions")
+                logger.warning(f"⚠️ Position will rely on manual monitoring and market-based protection")
+                return False
             
             if stop_response and stop_response.success:
                 logger.critical(f"✅ Emergency stop loss created: {symbol} @ ${signal.stop_loss_price:.2f}")

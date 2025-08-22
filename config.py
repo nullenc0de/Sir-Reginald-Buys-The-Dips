@@ -83,9 +83,9 @@ FUNNEL_CONFIG = {
         'analyst_ratings': False        # Future enhancement
     },
     
-    # Final selection - CONCENTRATED FOR PERFORMANCE
-    'max_watchlist_size': 15,          # Reduced watchlist for focus
-    'max_active_positions': 5,         # Maximum 5 positions for concentration
+    # Final selection - AGGRESSIVE DIVERSIFIED STRATEGY
+    'max_watchlist_size': 30,          # Expanded watchlist for more opportunities
+    'max_active_positions': 30,        # Allow up to 30 positions for aggressive diversification
     'opportunity_refresh_minutes': 30  # Reduce scanning frequency to avoid overtrading
 }
 
@@ -271,7 +271,7 @@ AI_CONFIG = {
     # Market analysis
     'market_regime_analysis_frequency': 30,  # Every 30 minutes
     'daily_report_time': time(8, 0),        # 8:00 AM daily report
-    'confidence_threshold': 0.85,           # 85% AI confidence - VERY HIGH BAR for 50% returns
+    'confidence_threshold': 0.80,           # 80% AI confidence - balanced threshold
     
     # Prompt templates
     'few_shot_examples': True,              # Use few-shot prompting
