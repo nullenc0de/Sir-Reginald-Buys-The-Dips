@@ -1941,6 +1941,7 @@ class IntelligentTradingSystem:
     async def _manage_individual_position(self, position):
         """Manage individual position with autonomous decision making"""
         try:
+            from config import RISK_CONFIG
             symbol = position.symbol
             qty = float(position.qty)
             current_value = float(position.market_value)
@@ -1988,7 +1989,6 @@ class IntelligentTradingSystem:
             current_price = float(current_quote.get('ask_price', 0)) or float(current_quote.get('bid_price', 0))
             
             # CRITICAL: Enhanced risk management - Loss cutting at -4%
-            from config import RISK_CONFIG
             max_loss_pct = RISK_CONFIG.get('max_position_loss_pct', -4.0)
             if unrealized_pct <= max_loss_pct:
                 # Check if market is open before attempting loss cuts
@@ -2057,7 +2057,6 @@ class IntelligentTradingSystem:
                     self.logger.error(f"❌ LOSS CUT ERROR: {symbol} - {e}")
             
             # Check for profit taking opportunities - ENHANCED GRANULAR SYSTEM
-            from config import RISK_CONFIG
             profit_levels = RISK_CONFIG.get('profit_taking_levels', [5.0, 10.0, 15.0])
             profit_percentages = RISK_CONFIG.get('profit_taking_percentages', [0.15, 0.35, 0.50])
             
