@@ -1,0 +1,1341 @@
+2025-08-19 11:04:11,056 - intelligent_funnel - INFO - 🔧 Tiered Analyzer initialized for comprehensive stock coverage
+2025-08-19 11:04:11,092 - alerter - INFO - 🤖 Ollama detected with model: llama3:latest
+2025-08-19 11:04:11,092 - alerter - INFO - 📢 Critical alerting system initialized (console only)
+2025-08-19 11:04:11,092 - alerter - INFO - 🤖 AI decision making enabled with llama3:latest
+2025-08-19 11:04:11,127 - alerter - INFO - 🤖 Ollama detected with model: llama3:latest
+2025-08-19 11:04:11,127 - alerter - INFO - 📢 Critical alerting system initialized (console only)
+2025-08-19 11:04:11,127 - alerter - INFO - 🤖 AI decision making enabled with llama3:latest
+2025-08-19 11:04:11,128 - __main__ - INFO - 🚀 Initializing Intelligent Trading System...
+2025-08-19 11:04:11,129 - __main__ - INFO - ✅ Configuration validated
+2025-08-19 11:04:11,228 - api_gateway - INFO - ✅ Alpaca API Gateway initialized successfully
+2025-08-19 11:04:11,229 - __main__ - INFO - ✅ API Gateway connected
+2025-08-19 11:04:11,229 - ai_market_intelligence - INFO - 🤖 AI Assistant session initialized successfully
+2025-08-19 11:04:11,229 - __main__ - INFO - ✅ AI Assistant online
+2025-08-19 11:04:11,229 - supplemental_data_provider - INFO - 🔑 Yahoo Finance is primary data source (sustainable 1500/hour limit)
+2025-08-19 11:04:11,229 - supplemental_data_provider - INFO - 🔑 Alpha Vantage key generation available if needed...
+2025-08-19 11:04:11,229 - __main__ - INFO - ✅ Supplemental Data Provider online
+2025-08-19 11:04:11,257 - __main__ - INFO - 💰 Account Value: $24,796.15
+2025-08-19 11:04:11,258 - risk_manager - INFO - 💰 Risk Manager initialized with $24,796.15
+2025-08-19 11:04:11,258 - risk_manager - INFO - ⚡ Circuit breaker at $23,556.34 (-5% total loss)
+2025-08-19 11:04:11,258 - __main__ - INFO - ✅ Risk Manager initialized
+2025-08-19 11:04:11,284 - performance_tracker - INFO - 📊 Performance tracking initialized
+2025-08-19 11:04:11,284 - performance_tracker - INFO -    Initial account value: $1,977.04
+2025-08-19 11:04:11,285 - performance_tracker - INFO -    Session start value: $24,796.15
+2025-08-19 11:04:11,285 - __main__ - INFO - ✅ Performance Tracker ready
+2025-08-19 11:04:11,311 - pdt_manager - INFO - 📊 Account is NOT flagged as Pattern Day Trader
+2025-08-19 11:04:11,312 - pdt_manager - WARNING - ⚠️ Account equity below $25,000 - PDT rules apply strictly
+2025-08-19 11:04:11,312 - pdt_manager - INFO - ✅ PDT Manager initialized
+2025-08-19 11:04:11,312 - __main__ - INFO - ✅ PDT Manager ready
+2025-08-19 11:04:11,312 - __main__ - INFO - 🔍 Performing startup position safety check...
+2025-08-19 11:04:11,369 - __main__ - INFO - 📋 AAPL protection found: STOP: stop sell @ $214.51
+2025-08-19 11:04:11,370 - __main__ - INFO - 📋 AMD protection found: STOP: stop sell @ $163.02
+2025-08-19 11:04:11,370 - __main__ - INFO - 📋 ARKF protection found: STOP: stop sell @ $49.82
+2025-08-19 11:04:11,370 - __main__ - INFO - 📋 ARRY protection found: STOP: stop sell @ $6.93
+2025-08-19 11:04:11,370 - __main__ - INFO - 📋 BHC protection found: STOP: stop sell @ $7.69
+2025-08-19 11:04:11,370 - __main__ - INFO - 📋 CBRE protection found: STOP: stop sell @ $146.26
+2025-08-19 11:04:11,370 - __main__ - INFO - 📋 CELH protection found: STOP: stop sell @ $52.52
+2025-08-19 11:04:11,370 - __main__ - INFO - 📋 CLBT protection found: STOP: stop sell @ $14.16
+2025-08-19 11:04:11,370 - __main__ - INFO - 📋 DELL protection found: STOP: stop sell @ $127
+2025-08-19 11:04:11,370 - __main__ - INFO - 📋 EPD protection found: STOP: stop sell @ $28.76
+2025-08-19 11:04:11,370 - __main__ - INFO - 📋 GOOG protection found: STOP: stop sell @ $189.61
+2025-08-19 11:04:11,371 - __main__ - INFO - 📋 GOOGL protection found: STOP: stop sell @ $188.18
+2025-08-19 11:04:11,371 - __main__ - INFO - 📋 GRFS protection found: STOP: stop sell @ $9.57
+2025-08-19 11:04:11,371 - __main__ - INFO - 📋 HOOD protection found: STOP: stop sell @ $103.21
+2025-08-19 11:04:11,371 - __main__ - INFO - 📋 INTC protection found: STOP: stop sell @ $23.24
+2025-08-19 11:04:11,371 - __main__ - INFO - 📋 NTST protection found: STOP: stop sell @ $17.34
+2025-08-19 11:04:11,371 - __main__ - INFO - 📋 NU protection found: STOP: stop sell @ $12.2
+2025-08-19 11:04:11,371 - __main__ - INFO - 📋 SNDK protection found: STOP: stop sell @ $40.99
+2025-08-19 11:04:11,371 - __main__ - INFO - 📋 TMHC protection found: STOP: stop sell @ $61.95
+2025-08-19 11:04:11,371 - __main__ - INFO - 📋 TRMD protection found: STOP: stop sell @ $18.77
+2025-08-19 11:04:11,371 - __main__ - INFO - 📋 WB protection found: STOP: stop sell @ $10.47
+2025-08-19 11:04:11,372 - __main__ - INFO - 📋 XLC protection found: STOP: stop sell @ $102.69
+2025-08-19 11:04:11,372 - __main__ - INFO - ✅ All positions have stop protection
+2025-08-19 11:04:11,372 - __main__ - INFO - 🔄 Performing startup position reconciliation...
+2025-08-19 11:04:12,497 - __main__ - INFO - ✅ Position reconciliation complete: 22 active positions
+2025-08-19 11:04:12,497 - __main__ - INFO -    AAPL: 5.0 shares
+2025-08-19 11:04:12,498 - __main__ - INFO -    AMD: 7.0 shares
+2025-08-19 11:04:12,498 - __main__ - INFO -    ARKF: 23.0 shares
+2025-08-19 11:04:12,498 - __main__ - INFO -    ARRY: 165.0 shares
+2025-08-19 11:04:12,498 - __main__ - INFO -    BHC: 148.0 shares
+2025-08-19 11:04:12,498 - __main__ - INFO -    CBRE: 7.0 shares
+2025-08-19 11:04:12,498 - __main__ - INFO -    CELH: 21.0 shares
+2025-08-19 11:04:12,498 - __main__ - INFO -    CLBT: 24.0 shares
+2025-08-19 11:04:12,498 - __main__ - INFO -    DELL: 9.0 shares
+2025-08-19 11:04:12,498 - __main__ - INFO -    EPD: 11.0 shares
+2025-08-19 11:04:12,499 - __main__ - INFO -    GOOG: 6.0 shares
+2025-08-19 11:04:12,499 - __main__ - INFO -    GOOGL: 6.0 shares
+2025-08-19 11:04:12,499 - __main__ - INFO -    GRFS: 34.0 shares
+2025-08-19 11:04:12,499 - __main__ - INFO -    HOOD: 11.0 shares
+2025-08-19 11:04:12,499 - __main__ - INFO -    INTC: 15.0 shares
+2025-08-19 11:04:12,499 - __main__ - INFO -    NTST: 66.0 shares
+2025-08-19 11:04:12,499 - __main__ - INFO -    NU: 94.0 shares
+2025-08-19 11:04:12,499 - __main__ - INFO -    SNDK: 27.0 shares
+2025-08-19 11:04:12,500 - __main__ - INFO -    TMHC: 18.0 shares
+2025-08-19 11:04:12,500 - __main__ - INFO -    TRMD: 18.0 shares
+2025-08-19 11:04:12,500 - __main__ - INFO -    WB: 32.0 shares
+2025-08-19 11:04:12,500 - __main__ - INFO -    XLC: 11.0 shares
+2025-08-19 11:04:12,641 - ai_market_intelligence - INFO - 📊 Generating market intelligence from real market data...
+2025-08-19 11:04:12,641 - supplemental_data_provider - INFO - 🔑 Yahoo Finance is primary data source (sustainable 1500/hour limit)
+2025-08-19 11:04:12,641 - supplemental_data_provider - INFO - 🔑 Alpha Vantage key generation available if needed...
+2025-08-19 11:04:12,811 - supplemental_data_provider - INFO - 📊 Yahoo Finance: Got 4 bars for SPY
+2025-08-19 11:04:12,812 - supplemental_data_provider - INFO - ✅ Supplemental data provider session closed cleanly
+2025-08-19 11:04:12,812 - supplemental_data_provider - INFO - 🔑 Yahoo Finance is primary data source (sustainable 1500/hour limit)
+2025-08-19 11:04:12,812 - supplemental_data_provider - INFO - 🔑 Alpha Vantage key generation available if needed...
+2025-08-19 11:04:12,925 - supplemental_data_provider - WARNING - 📊 No supplemental data available for VIX
+2025-08-19 11:04:12,925 - supplemental_data_provider - INFO - ✅ Supplemental data provider session closed cleanly
+2025-08-19 11:04:12,925 - supplemental_data_provider - INFO - 🔑 Yahoo Finance is primary data source (sustainable 1500/hour limit)
+2025-08-19 11:04:12,925 - supplemental_data_provider - INFO - 🔑 Alpha Vantage key generation available if needed...
+2025-08-19 11:04:13,000 - supplemental_data_provider - INFO - 📊 Yahoo Finance: Got 4 bars for SPY
+2025-08-19 11:04:13,001 - supplemental_data_provider - INFO - ✅ Supplemental data provider session closed cleanly
+2025-08-19 11:04:13,001 - supplemental_data_provider - INFO - 🔑 Yahoo Finance is primary data source (sustainable 1500/hour limit)
+2025-08-19 11:04:13,001 - supplemental_data_provider - INFO - 🔑 Alpha Vantage key generation available if needed...
+2025-08-19 11:04:14,639 - supplemental_data_provider - INFO - 📊 Yahoo Finance: Got 4 bars for XLK
+2025-08-19 11:04:14,639 - supplemental_data_provider - INFO - ✅ Supplemental data provider session closed cleanly
+2025-08-19 11:04:14,740 - supplemental_data_provider - INFO - 🔑 Yahoo Finance is primary data source (sustainable 1500/hour limit)
+2025-08-19 11:04:14,741 - supplemental_data_provider - INFO - 🔑 Alpha Vantage key generation available if needed...
+2025-08-19 11:04:14,884 - supplemental_data_provider - INFO - 📊 Yahoo Finance: Got 4 bars for XLF
+2025-08-19 11:04:14,884 - supplemental_data_provider - INFO - ✅ Supplemental data provider session closed cleanly
+2025-08-19 11:04:14,986 - supplemental_data_provider - INFO - 🔑 Yahoo Finance is primary data source (sustainable 1500/hour limit)
+2025-08-19 11:04:14,986 - supplemental_data_provider - INFO - 🔑 Alpha Vantage key generation available if needed...
+2025-08-19 11:04:17,373 - supplemental_data_provider - INFO - 📊 Yahoo Finance: Got 4 bars for XLV
+2025-08-19 11:04:17,373 - supplemental_data_provider - INFO - ✅ Supplemental data provider session closed cleanly
+2025-08-19 11:04:17,474 - supplemental_data_provider - INFO - 🔑 Yahoo Finance is primary data source (sustainable 1500/hour limit)
+2025-08-19 11:04:17,475 - supplemental_data_provider - INFO - 🔑 Alpha Vantage key generation available if needed...
+2025-08-19 11:04:17,622 - supplemental_data_provider - INFO - 📊 Yahoo Finance: Got 4 bars for XLE
+2025-08-19 11:04:17,622 - supplemental_data_provider - INFO - ✅ Supplemental data provider session closed cleanly
+2025-08-19 11:04:17,724 - supplemental_data_provider - INFO - 🔑 Yahoo Finance is primary data source (sustainable 1500/hour limit)
+2025-08-19 11:04:17,724 - supplemental_data_provider - INFO - 🔑 Alpha Vantage key generation available if needed...
+2025-08-19 11:04:17,901 - supplemental_data_provider - INFO - 📊 Yahoo Finance: Got 4 bars for XLY
+2025-08-19 11:04:17,901 - supplemental_data_provider - INFO - ✅ Supplemental data provider session closed cleanly
+2025-08-19 11:04:18,002 - ai_market_intelligence - INFO - 📊 Generated DATA-DRIVEN market intelligence: LOW_VOLATILITY regime, LOW volatility (confidence: 95%)
+2025-08-19 11:04:18,003 - __main__ - INFO - 🧠 Market Intelligence: LOW_VOLATILITY regime
+2025-08-19 11:04:18,003 - __main__ - INFO - 🎯 SYSTEM READY FOR INTELLIGENT TRADING
+2025-08-19 11:04:18,003 - __main__ - INFO - 🔥 STARTING INTELLIGENT TRADING ENGINE
+2025-08-19 11:04:18,136 - ai_market_intelligence - INFO - 📊 Generating market intelligence from real market data...
+2025-08-19 11:04:18,137 - supplemental_data_provider - INFO - 🔑 Yahoo Finance is primary data source (sustainable 1500/hour limit)
+2025-08-19 11:04:18,137 - supplemental_data_provider - INFO - 🔑 Alpha Vantage key generation available if needed...
+2025-08-19 11:04:18,300 - supplemental_data_provider - INFO - 📊 Yahoo Finance: Got 4 bars for SPY
+2025-08-19 11:04:18,301 - supplemental_data_provider - INFO - ✅ Supplemental data provider session closed cleanly
+2025-08-19 11:04:18,301 - supplemental_data_provider - INFO - 🔑 Yahoo Finance is primary data source (sustainable 1500/hour limit)
+2025-08-19 11:04:18,301 - supplemental_data_provider - INFO - 🔑 Alpha Vantage key generation available if needed...
+2025-08-19 11:04:18,404 - supplemental_data_provider - WARNING - 📊 No supplemental data available for VIX
+2025-08-19 11:04:18,404 - supplemental_data_provider - INFO - ✅ Supplemental data provider session closed cleanly
+2025-08-19 11:04:18,405 - supplemental_data_provider - INFO - 🔑 Yahoo Finance is primary data source (sustainable 1500/hour limit)
+2025-08-19 11:04:18,405 - supplemental_data_provider - INFO - 🔑 Alpha Vantage key generation available if needed...
+2025-08-19 11:04:18,565 - supplemental_data_provider - INFO - 📊 Yahoo Finance: Got 4 bars for SPY
+2025-08-19 11:04:18,566 - supplemental_data_provider - INFO - ✅ Supplemental data provider session closed cleanly
+2025-08-19 11:04:18,566 - supplemental_data_provider - INFO - 🔑 Yahoo Finance is primary data source (sustainable 1500/hour limit)
+2025-08-19 11:04:18,566 - supplemental_data_provider - INFO - 🔑 Alpha Vantage key generation available if needed...
+2025-08-19 11:04:18,747 - supplemental_data_provider - INFO - 📊 Yahoo Finance: Got 4 bars for XLK
+2025-08-19 11:04:18,748 - supplemental_data_provider - INFO - ✅ Supplemental data provider session closed cleanly
+2025-08-19 11:04:18,851 - supplemental_data_provider - INFO - 🔑 Yahoo Finance is primary data source (sustainable 1500/hour limit)
+2025-08-19 11:04:18,851 - supplemental_data_provider - INFO - 🔑 Alpha Vantage key generation available if needed...
+2025-08-19 11:04:18,984 - supplemental_data_provider - INFO - 📊 Yahoo Finance: Got 4 bars for XLF
+2025-08-19 11:04:18,985 - supplemental_data_provider - INFO - ✅ Supplemental data provider session closed cleanly
+2025-08-19 11:04:19,086 - supplemental_data_provider - INFO - 🔑 Yahoo Finance is primary data source (sustainable 1500/hour limit)
+2025-08-19 11:04:19,086 - supplemental_data_provider - INFO - 🔑 Alpha Vantage key generation available if needed...
+2025-08-19 11:04:19,244 - supplemental_data_provider - INFO - 📊 Yahoo Finance: Got 4 bars for XLV
+2025-08-19 11:04:19,244 - supplemental_data_provider - INFO - ✅ Supplemental data provider session closed cleanly
+2025-08-19 11:04:19,346 - supplemental_data_provider - INFO - 🔑 Yahoo Finance is primary data source (sustainable 1500/hour limit)
+2025-08-19 11:04:19,346 - supplemental_data_provider - INFO - 🔑 Alpha Vantage key generation available if needed...
+2025-08-19 11:04:19,570 - supplemental_data_provider - INFO - 📊 Yahoo Finance: Got 4 bars for XLE
+2025-08-19 11:04:19,571 - supplemental_data_provider - INFO - ✅ Supplemental data provider session closed cleanly
+2025-08-19 11:04:19,672 - supplemental_data_provider - INFO - 🔑 Yahoo Finance is primary data source (sustainable 1500/hour limit)
+2025-08-19 11:04:19,672 - supplemental_data_provider - INFO - 🔑 Alpha Vantage key generation available if needed...
+2025-08-19 11:04:19,884 - supplemental_data_provider - INFO - 📊 Yahoo Finance: Got 4 bars for XLY
+2025-08-19 11:04:19,884 - supplemental_data_provider - INFO - ✅ Supplemental data provider session closed cleanly
+2025-08-19 11:04:19,987 - ai_market_intelligence - INFO - 📊 Generated DATA-DRIVEN market intelligence: LOW_VOLATILITY regime, LOW volatility (confidence: 95%)
+2025-08-19 11:04:19,987 - __main__ - INFO - 📊 Market Intelligence Updated: LOW_VOLATILITY (95% confidence)
+2025-08-19 11:04:20,012 - corporate_actions_filter - INFO - 🔍 Checking corporate actions for 22 symbols
+2025-08-19 11:04:20,012 - supplemental_data_provider - WARNING - 📊 No supplemental data available for XLC
+2025-08-19 11:04:20,012 - supplemental_data_provider - WARNING - 📊 No supplemental data available for XLC
+2025-08-19 11:04:20,513 - supplemental_data_provider - WARNING - 📊 No supplemental data available for SNDK
+2025-08-19 11:04:20,514 - supplemental_data_provider - WARNING - 📊 No supplemental data available for SNDK
+2025-08-19 11:04:21,015 - supplemental_data_provider - WARNING - 📊 No supplemental data available for WB
+2025-08-19 11:04:21,015 - supplemental_data_provider - WARNING - 📊 No supplemental data available for WB
+2025-08-19 11:04:21,516 - supplemental_data_provider - WARNING - 📊 No supplemental data available for CLBT
+2025-08-19 11:04:21,517 - supplemental_data_provider - WARNING - 📊 No supplemental data available for CLBT
+2025-08-19 11:04:22,018 - supplemental_data_provider - WARNING - 📊 No supplemental data available for ARRY
+2025-08-19 11:04:22,018 - supplemental_data_provider - WARNING - 📊 No supplemental data available for ARRY
+2025-08-19 11:04:22,520 - supplemental_data_provider - WARNING - 📊 No supplemental data available for EPD
+2025-08-19 11:04:22,520 - supplemental_data_provider - WARNING - 📊 No supplemental data available for EPD
+2025-08-19 11:04:23,021 - supplemental_data_provider - WARNING - 📊 No supplemental data available for AMD
+2025-08-19 11:04:23,022 - supplemental_data_provider - WARNING - 📊 No supplemental data available for AMD
+2025-08-19 11:04:23,523 - supplemental_data_provider - WARNING - 📊 No supplemental data available for TRMD
+2025-08-19 11:04:23,523 - supplemental_data_provider - WARNING - 📊 No supplemental data available for TRMD
+2025-08-19 11:04:24,024 - supplemental_data_provider - WARNING - 📊 No supplemental data available for AAPL
+2025-08-19 11:04:24,025 - supplemental_data_provider - WARNING - 📊 No supplemental data available for AAPL
+2025-08-19 11:04:24,526 - supplemental_data_provider - WARNING - 📊 No supplemental data available for BHC
+2025-08-19 11:04:24,527 - supplemental_data_provider - WARNING - 📊 No supplemental data available for BHC
+2025-08-19 11:04:25,028 - supplemental_data_provider - WARNING - 📊 No supplemental data available for DELL
+2025-08-19 11:04:25,028 - supplemental_data_provider - WARNING - 📊 No supplemental data available for DELL
+2025-08-19 11:04:25,530 - supplemental_data_provider - WARNING - 📊 No supplemental data available for CELH
+2025-08-19 11:04:25,530 - supplemental_data_provider - WARNING - 📊 No supplemental data available for CELH
+2025-08-19 11:04:26,031 - supplemental_data_provider - WARNING - 📊 No supplemental data available for GOOG
+2025-08-19 11:04:26,032 - supplemental_data_provider - WARNING - 📊 No supplemental data available for GOOG
+2025-08-19 11:04:26,533 - supplemental_data_provider - WARNING - 📊 No supplemental data available for NTST
+2025-08-19 11:04:26,533 - supplemental_data_provider - WARNING - 📊 No supplemental data available for NTST
+2025-08-19 11:04:27,034 - supplemental_data_provider - WARNING - 📊 No supplemental data available for NU
+2025-08-19 11:04:27,035 - supplemental_data_provider - WARNING - 📊 No supplemental data available for NU
+2025-08-19 11:04:27,537 - supplemental_data_provider - WARNING - 📊 No supplemental data available for INTC
+2025-08-19 11:04:27,538 - supplemental_data_provider - WARNING - 📊 No supplemental data available for INTC
+2025-08-19 11:04:28,039 - supplemental_data_provider - WARNING - 📊 No supplemental data available for ARKF
+2025-08-19 11:04:28,039 - supplemental_data_provider - WARNING - 📊 No supplemental data available for ARKF
+2025-08-19 11:04:28,541 - supplemental_data_provider - WARNING - 📊 No supplemental data available for GOOGL
+2025-08-19 11:04:28,541 - supplemental_data_provider - WARNING - 📊 No supplemental data available for GOOGL
+2025-08-19 11:04:29,042 - supplemental_data_provider - WARNING - 📊 No supplemental data available for TMHC
+2025-08-19 11:04:29,043 - supplemental_data_provider - WARNING - 📊 No supplemental data available for TMHC
+2025-08-19 11:04:29,544 - supplemental_data_provider - WARNING - 📊 No supplemental data available for GRFS
+2025-08-19 11:04:29,545 - supplemental_data_provider - WARNING - 📊 No supplemental data available for GRFS
+2025-08-19 11:04:30,046 - supplemental_data_provider - WARNING - 📊 No supplemental data available for CBRE
+2025-08-19 11:04:30,046 - supplemental_data_provider - WARNING - 📊 No supplemental data available for CBRE
+2025-08-19 11:04:30,547 - supplemental_data_provider - WARNING - 📊 No supplemental data available for HOOD
+2025-08-19 11:04:30,548 - supplemental_data_provider - WARNING - 📊 No supplemental data available for HOOD
+2025-08-19 11:04:31,049 - corporate_actions_filter - INFO - ✅ No corporate actions detected for current watchlist
+2025-08-19 11:04:31,049 - intelligent_funnel - INFO - 🔍 Starting intelligent market funnel scan...
+2025-08-19 11:04:31,049 - intelligent_funnel - INFO - 🔄 Updating dynamic asset universe...
+2025-08-19 11:04:31,311 - api_gateway - INFO - Retrieved 8909 tradeable assets
+2025-08-19 11:04:31,328 - intelligent_funnel - INFO - ✅ Updated asset universe: 8461 tradeable symbols
+2025-08-19 11:04:31,407 - intelligent_funnel - INFO - No live most active data, using dynamic discovery
+2025-08-19 11:04:31,407 - intelligent_funnel - INFO - 🔍 Dynamic discovery: scanning for high volume from 8461 assets
+2025-08-19 11:04:31,413 - supplemental_data_provider - INFO - 🔑 Yahoo Finance is primary data source (sustainable 1500/hour limit)
+2025-08-19 11:04:31,414 - supplemental_data_provider - INFO - 🔑 Alpha Vantage key generation available if needed...
+2025-08-19 11:04:31,881 - supplemental_data_provider - INFO - 📊 Yahoo Finance: Got 4 bars for APGE
+2025-08-19 11:04:31,881 - supplemental_data_provider - INFO - ✅ Supplemental data provider session closed cleanly
+2025-08-19 11:04:31,882 - supplemental_data_provider - INFO - 🔑 Yahoo Finance is primary data source (sustainable 1500/hour limit)
+2025-08-19 11:04:31,882 - supplemental_data_provider - INFO - 🔑 Alpha Vantage key generation available if needed...
+2025-08-19 11:04:32,045 - supplemental_data_provider - INFO - 📊 Yahoo Finance: Got 4 bars for BSET
+2025-08-19 11:04:32,046 - supplemental_data_provider - INFO - ✅ Supplemental data provider session closed cleanly
+2025-08-19 11:04:32,046 - supplemental_data_provider - INFO - 🔑 Yahoo Finance is primary data source (sustainable 1500/hour limit)
+2025-08-19 11:04:32,046 - supplemental_data_provider - INFO - 🔑 Alpha Vantage key generation available if needed...
+2025-08-19 11:04:32,206 - supplemental_data_provider - INFO - 📊 Yahoo Finance: Got 4 bars for VSDA
+2025-08-19 11:04:32,206 - supplemental_data_provider - INFO - ✅ Supplemental data provider session closed cleanly
+2025-08-19 11:04:32,207 - supplemental_data_provider - INFO - 🔑 Yahoo Finance is primary data source (sustainable 1500/hour limit)
+2025-08-19 11:04:32,207 - supplemental_data_provider - INFO - 🔑 Alpha Vantage key generation available if needed...
+2025-08-19 11:04:32,317 - supplemental_data_provider - INFO - 📊 Yahoo Finance: Got 4 bars for PALI
+2025-08-19 11:04:32,317 - supplemental_data_provider - INFO - ✅ Supplemental data provider session closed cleanly
+2025-08-19 11:04:32,317 - supplemental_data_provider - INFO - 🔑 Yahoo Finance is primary data source (sustainable 1500/hour limit)
+2025-08-19 11:04:32,318 - supplemental_data_provider - INFO - 🔑 Alpha Vantage key generation available if needed...
+2025-08-19 11:04:32,469 - supplemental_data_provider - INFO - 📊 Yahoo Finance: Got 4 bars for CEPT
+2025-08-19 11:04:32,469 - supplemental_data_provider - INFO - ✅ Supplemental data provider session closed cleanly
+2025-08-19 11:04:32,470 - supplemental_data_provider - INFO - 🔑 Yahoo Finance is primary data source (sustainable 1500/hour limit)
+2025-08-19 11:04:32,470 - supplemental_data_provider - INFO - 🔑 Alpha Vantage key generation available if needed...
+2025-08-19 11:04:32,573 - supplemental_data_provider - INFO - 📊 Yahoo Finance: Got 4 bars for RRGB
+2025-08-19 11:04:32,574 - supplemental_data_provider - INFO - ✅ Supplemental data provider session closed cleanly
+2025-08-19 11:04:32,574 - supplemental_data_provider - INFO - 🔑 Yahoo Finance is primary data source (sustainable 1500/hour limit)
+2025-08-19 11:04:32,574 - supplemental_data_provider - INFO - 🔑 Alpha Vantage key generation available if needed...
+2025-08-19 11:04:32,671 - supplemental_data_provider - INFO - 📊 Yahoo Finance: Got 4 bars for APP
+2025-08-19 11:04:32,672 - supplemental_data_provider - INFO - ✅ Supplemental data provider session closed cleanly
+2025-08-19 11:04:32,672 - supplemental_data_provider - INFO - 🔑 Yahoo Finance is primary data source (sustainable 1500/hour limit)
+2025-08-19 11:04:32,672 - supplemental_data_provider - INFO - 🔑 Alpha Vantage key generation available if needed...
+2025-08-19 11:04:32,794 - supplemental_data_provider - INFO - 📊 Yahoo Finance: Got 4 bars for OLED
+2025-08-19 11:04:32,794 - supplemental_data_provider - INFO - ✅ Supplemental data provider session closed cleanly
+2025-08-19 11:04:32,794 - supplemental_data_provider - INFO - 🔑 Yahoo Finance is primary data source (sustainable 1500/hour limit)
+2025-08-19 11:04:32,795 - supplemental_data_provider - INFO - 🔑 Alpha Vantage key generation available if needed...
+2025-08-19 11:04:32,989 - supplemental_data_provider - INFO - 📊 Yahoo Finance: Got 4 bars for SYY
+2025-08-19 11:04:32,989 - supplemental_data_provider - INFO - ✅ Supplemental data provider session closed cleanly
+2025-08-19 11:04:32,990 - supplemental_data_provider - INFO - 🔑 Yahoo Finance is primary data source (sustainable 1500/hour limit)
+2025-08-19 11:04:32,990 - supplemental_data_provider - INFO - 🔑 Alpha Vantage key generation available if needed...
+2025-08-19 11:04:33,134 - supplemental_data_provider - INFO - 📊 Yahoo Finance: Got 4 bars for BGFV
+2025-08-19 11:04:33,134 - supplemental_data_provider - INFO - ✅ Supplemental data provider session closed cleanly
+2025-08-19 11:04:33,135 - supplemental_data_provider - INFO - 🔑 Yahoo Finance is primary data source (sustainable 1500/hour limit)
+2025-08-19 11:04:33,135 - supplemental_data_provider - INFO - 🔑 Alpha Vantage key generation available if needed...
+2025-08-19 11:04:33,291 - supplemental_data_provider - INFO - 📊 Yahoo Finance: Got 4 bars for JBL
+2025-08-19 11:04:33,292 - supplemental_data_provider - INFO - ✅ Supplemental data provider session closed cleanly
+2025-08-19 11:04:33,292 - supplemental_data_provider - INFO - 🔑 Yahoo Finance is primary data source (sustainable 1500/hour limit)
+2025-08-19 11:04:33,292 - supplemental_data_provider - INFO - 🔑 Alpha Vantage key generation available if needed...
+2025-08-19 11:04:33,405 - supplemental_data_provider - INFO - 📊 Yahoo Finance: Got 3 bars for SPBC
+2025-08-19 11:04:33,405 - supplemental_data_provider - INFO - ✅ Supplemental data provider session closed cleanly
+2025-08-19 11:04:33,406 - supplemental_data_provider - INFO - 🔑 Yahoo Finance is primary data source (sustainable 1500/hour limit)
+2025-08-19 11:04:33,406 - supplemental_data_provider - INFO - 🔑 Alpha Vantage key generation available if needed...
+2025-08-19 11:04:33,516 - supplemental_data_provider - INFO - 📊 Yahoo Finance: Got 4 bars for CALC
+2025-08-19 11:04:33,517 - supplemental_data_provider - INFO - ✅ Supplemental data provider session closed cleanly
+2025-08-19 11:04:33,517 - supplemental_data_provider - INFO - 🔑 Yahoo Finance is primary data source (sustainable 1500/hour limit)
+2025-08-19 11:04:33,517 - supplemental_data_provider - INFO - 🔑 Alpha Vantage key generation available if needed...
+2025-08-19 11:04:33,643 - supplemental_data_provider - INFO - 📊 Yahoo Finance: Got 4 bars for CVV
+2025-08-19 11:04:33,643 - supplemental_data_provider - INFO - ✅ Supplemental data provider session closed cleanly
+2025-08-19 11:04:33,644 - supplemental_data_provider - INFO - 🔑 Yahoo Finance is primary data source (sustainable 1500/hour limit)
+2025-08-19 11:04:33,644 - supplemental_data_provider - INFO - 🔑 Alpha Vantage key generation available if needed...
+2025-08-19 11:04:33,812 - supplemental_data_provider - INFO - 📊 Yahoo Finance: Got 4 bars for ODC
+2025-08-19 11:04:33,812 - supplemental_data_provider - INFO - ✅ Supplemental data provider session closed cleanly
+2025-08-19 11:04:33,813 - supplemental_data_provider - INFO - 🔑 Yahoo Finance is primary data source (sustainable 1500/hour limit)
+2025-08-19 11:04:33,813 - supplemental_data_provider - INFO - 🔑 Alpha Vantage key generation available if needed...
+2025-08-19 11:04:33,923 - supplemental_data_provider - INFO - 📊 Yahoo Finance: Got 4 bars for SNTI
+2025-08-19 11:04:33,923 - supplemental_data_provider - INFO - ✅ Supplemental data provider session closed cleanly
+2025-08-19 11:04:33,924 - supplemental_data_provider - INFO - 🔑 Yahoo Finance is primary data source (sustainable 1500/hour limit)
+2025-08-19 11:04:33,924 - supplemental_data_provider - INFO - 🔑 Alpha Vantage key generation available if needed...
+2025-08-19 11:04:34,063 - supplemental_data_provider - INFO - 📊 Yahoo Finance: Got 4 bars for KT
+2025-08-19 11:04:34,064 - supplemental_data_provider - INFO - ✅ Supplemental data provider session closed cleanly
+2025-08-19 11:04:34,064 - supplemental_data_provider - INFO - 🔑 Yahoo Finance is primary data source (sustainable 1500/hour limit)
+2025-08-19 11:04:34,065 - supplemental_data_provider - INFO - 🔑 Alpha Vantage key generation available if needed...
+2025-08-19 11:04:34,171 - supplemental_data_provider - INFO - 📊 Yahoo Finance: Got 4 bars for ITRM
+2025-08-19 11:04:34,172 - supplemental_data_provider - INFO - ✅ Supplemental data provider session closed cleanly
+2025-08-19 11:04:34,172 - supplemental_data_provider - INFO - 🔑 Yahoo Finance is primary data source (sustainable 1500/hour limit)
+2025-08-19 11:04:34,172 - supplemental_data_provider - INFO - 🔑 Alpha Vantage key generation available if needed...
+2025-08-19 11:04:34,288 - supplemental_data_provider - INFO - 📊 Yahoo Finance: Got 4 bars for OPTX
+2025-08-19 11:04:34,289 - supplemental_data_provider - INFO - ✅ Supplemental data provider session closed cleanly
+2025-08-19 11:04:34,289 - supplemental_data_provider - INFO - 🔑 Yahoo Finance is primary data source (sustainable 1500/hour limit)
+2025-08-19 11:04:34,289 - supplemental_data_provider - INFO - 🔑 Alpha Vantage key generation available if needed...
+2025-08-19 11:04:34,451 - supplemental_data_provider - INFO - 📊 Yahoo Finance: Got 4 bars for LOW
+2025-08-19 11:04:34,451 - supplemental_data_provider - INFO - ✅ Supplemental data provider session closed cleanly
+2025-08-19 11:04:34,452 - supplemental_data_provider - INFO - 🔑 Yahoo Finance is primary data source (sustainable 1500/hour limit)
+2025-08-19 11:04:34,452 - supplemental_data_provider - INFO - 🔑 Alpha Vantage key generation available if needed...
+2025-08-19 11:04:34,554 - supplemental_data_provider - INFO - 📊 Yahoo Finance: Got 4 bars for BZ
+2025-08-19 11:04:34,554 - supplemental_data_provider - INFO - ✅ Supplemental data provider session closed cleanly
+2025-08-19 11:04:34,554 - supplemental_data_provider - INFO - 🔑 Yahoo Finance is primary data source (sustainable 1500/hour limit)
+2025-08-19 11:04:34,555 - supplemental_data_provider - INFO - 🔑 Alpha Vantage key generation available if needed...
+2025-08-19 11:04:34,699 - supplemental_data_provider - INFO - 📊 Yahoo Finance: Got 4 bars for IEI
+2025-08-19 11:04:34,700 - supplemental_data_provider - INFO - ✅ Supplemental data provider session closed cleanly
+2025-08-19 11:04:34,700 - supplemental_data_provider - INFO - 🔑 Yahoo Finance is primary data source (sustainable 1500/hour limit)
+2025-08-19 11:04:34,700 - supplemental_data_provider - INFO - 🔑 Alpha Vantage key generation available if needed...
+2025-08-19 11:04:34,850 - supplemental_data_provider - INFO - 📊 Yahoo Finance: Got 4 bars for GRFS
+2025-08-19 11:04:34,851 - supplemental_data_provider - INFO - ✅ Supplemental data provider session closed cleanly
+2025-08-19 11:04:34,851 - supplemental_data_provider - INFO - 🔑 Yahoo Finance is primary data source (sustainable 1500/hour limit)
+2025-08-19 11:04:34,851 - supplemental_data_provider - INFO - 🔑 Alpha Vantage key generation available if needed...
+2025-08-19 11:04:34,988 - supplemental_data_provider - INFO - 📊 Yahoo Finance: Got 4 bars for TEN
+2025-08-19 11:04:34,989 - supplemental_data_provider - INFO - ✅ Supplemental data provider session closed cleanly
+2025-08-19 11:04:34,989 - supplemental_data_provider - INFO - 🔑 Yahoo Finance is primary data source (sustainable 1500/hour limit)
+2025-08-19 11:04:34,989 - supplemental_data_provider - INFO - 🔑 Alpha Vantage key generation available if needed...
+2025-08-19 11:04:35,149 - supplemental_data_provider - INFO - 📊 Yahoo Finance: Got 4 bars for OHI
+2025-08-19 11:04:35,149 - supplemental_data_provider - INFO - ✅ Supplemental data provider session closed cleanly
+2025-08-19 11:04:35,150 - supplemental_data_provider - INFO - 🔑 Yahoo Finance is primary data source (sustainable 1500/hour limit)
+2025-08-19 11:04:35,150 - supplemental_data_provider - INFO - 🔑 Alpha Vantage key generation available if needed...
+2025-08-19 11:04:35,300 - supplemental_data_provider - INFO - 📊 Yahoo Finance: Got 4 bars for ZG
+2025-08-19 11:04:35,301 - supplemental_data_provider - INFO - ✅ Supplemental data provider session closed cleanly
+2025-08-19 11:04:35,301 - supplemental_data_provider - INFO - 🔑 Yahoo Finance is primary data source (sustainable 1500/hour limit)
+2025-08-19 11:04:35,301 - supplemental_data_provider - INFO - 🔑 Alpha Vantage key generation available if needed...
+2025-08-19 11:04:35,426 - supplemental_data_provider - INFO - 📊 Yahoo Finance: Got 4 bars for IPKW
+2025-08-19 11:04:35,426 - supplemental_data_provider - INFO - ✅ Supplemental data provider session closed cleanly
+2025-08-19 11:04:35,427 - supplemental_data_provider - INFO - 🔑 Yahoo Finance is primary data source (sustainable 1500/hour limit)
+2025-08-19 11:04:35,427 - supplemental_data_provider - INFO - 🔑 Alpha Vantage key generation available if needed...
+2025-08-19 11:04:35,530 - supplemental_data_provider - INFO - 📊 Yahoo Finance: Got 4 bars for IONR
+2025-08-19 11:04:35,530 - supplemental_data_provider - INFO - ✅ Supplemental data provider session closed cleanly
+2025-08-19 11:04:35,530 - supplemental_data_provider - INFO - 🔑 Yahoo Finance is primary data source (sustainable 1500/hour limit)
+2025-08-19 11:04:35,531 - supplemental_data_provider - INFO - 🔑 Alpha Vantage key generation available if needed...
+2025-08-19 11:04:35,668 - supplemental_data_provider - INFO - 📊 Yahoo Finance: Got 4 bars for FEAM
+2025-08-19 11:04:35,669 - supplemental_data_provider - INFO - ✅ Supplemental data provider session closed cleanly
+2025-08-19 11:04:35,669 - supplemental_data_provider - INFO - 🔑 Yahoo Finance is primary data source (sustainable 1500/hour limit)
+2025-08-19 11:04:35,669 - supplemental_data_provider - INFO - 🔑 Alpha Vantage key generation available if needed...
+2025-08-19 11:04:35,772 - supplemental_data_provider - INFO - 📊 Yahoo Finance: Got 4 bars for UK
+2025-08-19 11:04:35,773 - supplemental_data_provider - INFO - ✅ Supplemental data provider session closed cleanly
+2025-08-19 11:04:35,773 - supplemental_data_provider - INFO - 🔑 Yahoo Finance is primary data source (sustainable 1500/hour limit)
+2025-08-19 11:04:35,773 - supplemental_data_provider - INFO - 🔑 Alpha Vantage key generation available if needed...
+2025-08-19 11:04:35,916 - supplemental_data_provider - INFO - 📊 Yahoo Finance: Got 4 bars for KKRT
+2025-08-19 11:04:35,916 - supplemental_data_provider - INFO - ✅ Supplemental data provider session closed cleanly
+2025-08-19 11:04:35,917 - supplemental_data_provider - INFO - 🔑 Yahoo Finance is primary data source (sustainable 1500/hour limit)
+2025-08-19 11:04:35,917 - supplemental_data_provider - INFO - 🔑 Alpha Vantage key generation available if needed...
+2025-08-19 11:04:36,035 - supplemental_data_provider - INFO - 📊 Yahoo Finance: Got 4 bars for LGND
+2025-08-19 11:04:36,035 - supplemental_data_provider - INFO - ✅ Supplemental data provider session closed cleanly
+2025-08-19 11:04:36,035 - supplemental_data_provider - INFO - 🔑 Yahoo Finance is primary data source (sustainable 1500/hour limit)
+2025-08-19 11:04:36,036 - supplemental_data_provider - INFO - 🔑 Alpha Vantage key generation available if needed...
+2025-08-19 11:04:36,160 - supplemental_data_provider - INFO - 📊 Yahoo Finance: Got 4 bars for MOMO
+2025-08-19 11:04:36,160 - supplemental_data_provider - INFO - ✅ Supplemental data provider session closed cleanly
+2025-08-19 11:04:36,161 - supplemental_data_provider - INFO - 🔑 Yahoo Finance is primary data source (sustainable 1500/hour limit)
+2025-08-19 11:04:36,161 - supplemental_data_provider - INFO - 🔑 Alpha Vantage key generation available if needed...
+2025-08-19 11:04:36,331 - supplemental_data_provider - INFO - 📊 Yahoo Finance: Got 4 bars for FRD
+2025-08-19 11:04:36,332 - supplemental_data_provider - INFO - ✅ Supplemental data provider session closed cleanly
+2025-08-19 11:04:36,332 - supplemental_data_provider - INFO - 🔑 Yahoo Finance is primary data source (sustainable 1500/hour limit)
+2025-08-19 11:04:36,332 - supplemental_data_provider - INFO - 🔑 Alpha Vantage key generation available if needed...
+2025-08-19 11:04:36,452 - supplemental_data_provider - INFO - 📊 Yahoo Finance: Got 4 bars for PSCC
+2025-08-19 11:04:36,452 - supplemental_data_provider - INFO - ✅ Supplemental data provider session closed cleanly
+2025-08-19 11:04:36,452 - supplemental_data_provider - INFO - 🔑 Yahoo Finance is primary data source (sustainable 1500/hour limit)
+2025-08-19 11:04:36,453 - supplemental_data_provider - INFO - 🔑 Alpha Vantage key generation available if needed...
+2025-08-19 11:04:36,592 - supplemental_data_provider - INFO - 📊 Yahoo Finance: Got 4 bars for DHIL
+2025-08-19 11:04:36,593 - supplemental_data_provider - INFO - ✅ Supplemental data provider session closed cleanly
+2025-08-19 11:04:36,593 - supplemental_data_provider - INFO - 🔑 Yahoo Finance is primary data source (sustainable 1500/hour limit)
+2025-08-19 11:04:36,593 - supplemental_data_provider - INFO - 🔑 Alpha Vantage key generation available if needed...
+2025-08-19 11:04:36,700 - supplemental_data_provider - INFO - 📊 Yahoo Finance: Got 4 bars for BWIN
+2025-08-19 11:04:36,701 - supplemental_data_provider - INFO - ✅ Supplemental data provider session closed cleanly
+2025-08-19 11:04:36,701 - supplemental_data_provider - INFO - 🔑 Yahoo Finance is primary data source (sustainable 1500/hour limit)
+2025-08-19 11:04:36,701 - supplemental_data_provider - INFO - 🔑 Alpha Vantage key generation available if needed...
+2025-08-19 11:04:36,802 - supplemental_data_provider - INFO - 📊 Yahoo Finance: Got 4 bars for EICB
+2025-08-19 11:04:36,802 - supplemental_data_provider - INFO - ✅ Supplemental data provider session closed cleanly
+2025-08-19 11:04:36,802 - supplemental_data_provider - INFO - 🔑 Yahoo Finance is primary data source (sustainable 1500/hour limit)
+2025-08-19 11:04:36,803 - supplemental_data_provider - INFO - 🔑 Alpha Vantage key generation available if needed...
+2025-08-19 11:04:36,956 - supplemental_data_provider - INFO - 📊 Yahoo Finance: Got 4 bars for LECO
+2025-08-19 11:04:36,956 - supplemental_data_provider - INFO - ✅ Supplemental data provider session closed cleanly
+2025-08-19 11:04:36,957 - supplemental_data_provider - INFO - 🔑 Yahoo Finance is primary data source (sustainable 1500/hour limit)
+2025-08-19 11:04:36,957 - supplemental_data_provider - INFO - 🔑 Alpha Vantage key generation available if needed...
+2025-08-19 11:04:37,100 - supplemental_data_provider - INFO - 📊 Yahoo Finance: Got 4 bars for PFF
+2025-08-19 11:04:37,100 - supplemental_data_provider - INFO - ✅ Supplemental data provider session closed cleanly
+2025-08-19 11:04:37,101 - supplemental_data_provider - INFO - 🔑 Yahoo Finance is primary data source (sustainable 1500/hour limit)
+2025-08-19 11:04:37,101 - supplemental_data_provider - INFO - 🔑 Alpha Vantage key generation available if needed...
+2025-08-19 11:04:37,197 - supplemental_data_provider - INFO - 📊 Yahoo Finance: Got 4 bars for MBX
+2025-08-19 11:04:37,198 - supplemental_data_provider - INFO - ✅ Supplemental data provider session closed cleanly
+2025-08-19 11:04:37,198 - supplemental_data_provider - INFO - 🔑 Yahoo Finance is primary data source (sustainable 1500/hour limit)
+2025-08-19 11:04:37,198 - supplemental_data_provider - INFO - 🔑 Alpha Vantage key generation available if needed...
+2025-08-19 11:04:37,316 - supplemental_data_provider - INFO - 📊 Yahoo Finance: Got 3 bars for LMTS
+2025-08-19 11:04:37,317 - supplemental_data_provider - INFO - ✅ Supplemental data provider session closed cleanly
+2025-08-19 11:04:37,317 - supplemental_data_provider - INFO - 🔑 Yahoo Finance is primary data source (sustainable 1500/hour limit)
+2025-08-19 11:04:37,317 - supplemental_data_provider - INFO - 🔑 Alpha Vantage key generation available if needed...
+2025-08-19 11:04:37,453 - supplemental_data_provider - INFO - 📊 Yahoo Finance: Got 4 bars for BBD
+2025-08-19 11:04:37,453 - supplemental_data_provider - INFO - ✅ Supplemental data provider session closed cleanly
+2025-08-19 11:04:37,453 - supplemental_data_provider - INFO - 🔑 Yahoo Finance is primary data source (sustainable 1500/hour limit)
+2025-08-19 11:04:37,453 - supplemental_data_provider - INFO - 🔑 Alpha Vantage key generation available if needed...
+2025-08-19 11:04:37,619 - supplemental_data_provider - INFO - 📊 Yahoo Finance: Got 4 bars for GPC
+2025-08-19 11:04:37,619 - supplemental_data_provider - INFO - ✅ Supplemental data provider session closed cleanly
+2025-08-19 11:04:37,619 - supplemental_data_provider - INFO - 🔑 Yahoo Finance is primary data source (sustainable 1500/hour limit)
+2025-08-19 11:04:37,620 - supplemental_data_provider - INFO - 🔑 Alpha Vantage key generation available if needed...
+2025-08-19 11:04:37,721 - supplemental_data_provider - INFO - 📊 Yahoo Finance: Got 4 bars for COWS
+2025-08-19 11:04:37,722 - supplemental_data_provider - INFO - ✅ Supplemental data provider session closed cleanly
+2025-08-19 11:04:37,722 - supplemental_data_provider - INFO - 🔑 Yahoo Finance is primary data source (sustainable 1500/hour limit)
+2025-08-19 11:04:37,722 - supplemental_data_provider - INFO - 🔑 Alpha Vantage key generation available if needed...
+2025-08-19 11:04:37,831 - supplemental_data_provider - INFO - 📊 Yahoo Finance: Got 4 bars for TSMU
+2025-08-19 11:04:37,831 - supplemental_data_provider - INFO - ✅ Supplemental data provider session closed cleanly
+2025-08-19 11:04:37,831 - supplemental_data_provider - INFO - 🔑 Yahoo Finance is primary data source (sustainable 1500/hour limit)
+2025-08-19 11:04:37,832 - supplemental_data_provider - INFO - 🔑 Alpha Vantage key generation available if needed...
+2025-08-19 11:04:37,935 - supplemental_data_provider - INFO - 📊 Yahoo Finance: Got 4 bars for MDGL
+2025-08-19 11:04:37,936 - supplemental_data_provider - INFO - ✅ Supplemental data provider session closed cleanly
+2025-08-19 11:04:37,936 - supplemental_data_provider - INFO - 🔑 Yahoo Finance is primary data source (sustainable 1500/hour limit)
+2025-08-19 11:04:37,936 - supplemental_data_provider - INFO - 🔑 Alpha Vantage key generation available if needed...
+2025-08-19 11:04:38,076 - supplemental_data_provider - INFO - 📊 Yahoo Finance: Got 4 bars for BXP
+2025-08-19 11:04:38,077 - supplemental_data_provider - INFO - ✅ Supplemental data provider session closed cleanly
+2025-08-19 11:04:38,077 - supplemental_data_provider - INFO - 🔑 Yahoo Finance is primary data source (sustainable 1500/hour limit)
+2025-08-19 11:04:38,077 - supplemental_data_provider - INFO - 🔑 Alpha Vantage key generation available if needed...
+2025-08-19 11:04:38,214 - supplemental_data_provider - INFO - 📊 Yahoo Finance: Got 4 bars for AEYE
+2025-08-19 11:04:38,214 - supplemental_data_provider - INFO - ✅ Supplemental data provider session closed cleanly
+2025-08-19 11:04:38,215 - supplemental_data_provider - INFO - 🔑 Yahoo Finance is primary data source (sustainable 1500/hour limit)
+2025-08-19 11:04:38,215 - supplemental_data_provider - INFO - 🔑 Alpha Vantage key generation available if needed...
+2025-08-19 11:04:38,334 - supplemental_data_provider - INFO - 📊 Yahoo Finance: Got 4 bars for BCBP
+2025-08-19 11:04:38,334 - supplemental_data_provider - INFO - ✅ Supplemental data provider session closed cleanly
+2025-08-19 11:04:38,334 - supplemental_data_provider - INFO - 🔑 Yahoo Finance is primary data source (sustainable 1500/hour limit)
+2025-08-19 11:04:38,334 - supplemental_data_provider - INFO - 🔑 Alpha Vantage key generation available if needed...
+2025-08-19 11:04:38,464 - supplemental_data_provider - INFO - 📊 Yahoo Finance: Got 4 bars for PDP
+2025-08-19 11:04:38,464 - supplemental_data_provider - INFO - ✅ Supplemental data provider session closed cleanly
+2025-08-19 11:04:38,465 - supplemental_data_provider - INFO - 🔑 Yahoo Finance is primary data source (sustainable 1500/hour limit)
+2025-08-19 11:04:38,465 - supplemental_data_provider - INFO - 🔑 Alpha Vantage key generation available if needed...
+2025-08-19 11:04:38,601 - supplemental_data_provider - INFO - 📊 Yahoo Finance: Got 3 bars for PYZ
+2025-08-19 11:04:38,601 - supplemental_data_provider - INFO - ✅ Supplemental data provider session closed cleanly
+2025-08-19 11:04:38,602 - supplemental_data_provider - INFO - 🔑 Yahoo Finance is primary data source (sustainable 1500/hour limit)
+2025-08-19 11:04:38,602 - supplemental_data_provider - INFO - 🔑 Alpha Vantage key generation available if needed...
+2025-08-19 11:04:39,175 - supplemental_data_provider - INFO - 📊 Yahoo Finance: Got 4 bars for BDTX
+2025-08-19 11:04:39,176 - supplemental_data_provider - INFO - ✅ Supplemental data provider session closed cleanly
+2025-08-19 11:04:39,176 - supplemental_data_provider - INFO - 🔑 Yahoo Finance is primary data source (sustainable 1500/hour limit)
+2025-08-19 11:04:39,177 - supplemental_data_provider - INFO - 🔑 Alpha Vantage key generation available if needed...
+2025-08-19 11:04:39,283 - supplemental_data_provider - INFO - 📊 Yahoo Finance: Got 4 bars for CBUS
+2025-08-19 11:04:39,283 - supplemental_data_provider - INFO - ✅ Supplemental data provider session closed cleanly
+2025-08-19 11:04:39,284 - supplemental_data_provider - INFO - 🔑 Yahoo Finance is primary data source (sustainable 1500/hour limit)
+2025-08-19 11:04:39,284 - supplemental_data_provider - INFO - 🔑 Alpha Vantage key generation available if needed...
+2025-08-19 11:04:39,401 - supplemental_data_provider - INFO - 📊 Yahoo Finance: Got 4 bars for BTFX
+2025-08-19 11:04:39,401 - supplemental_data_provider - INFO - ✅ Supplemental data provider session closed cleanly
+2025-08-19 11:04:39,402 - supplemental_data_provider - INFO - 🔑 Yahoo Finance is primary data source (sustainable 1500/hour limit)
+2025-08-19 11:04:39,402 - supplemental_data_provider - INFO - 🔑 Alpha Vantage key generation available if needed...
+2025-08-19 11:04:39,531 - supplemental_data_provider - INFO - 📊 Yahoo Finance: Got 4 bars for SKYY
+2025-08-19 11:04:39,532 - supplemental_data_provider - INFO - ✅ Supplemental data provider session closed cleanly
+2025-08-19 11:04:39,532 - supplemental_data_provider - INFO - 🔑 Yahoo Finance is primary data source (sustainable 1500/hour limit)
+2025-08-19 11:04:39,532 - supplemental_data_provider - INFO - 🔑 Alpha Vantage key generation available if needed...
+2025-08-19 11:04:39,652 - supplemental_data_provider - INFO - 📊 Yahoo Finance: Got 4 bars for ARQQ
+2025-08-19 11:04:39,653 - supplemental_data_provider - INFO - ✅ Supplemental data provider session closed cleanly
+2025-08-19 11:04:39,653 - supplemental_data_provider - INFO - 🔑 Yahoo Finance is primary data source (sustainable 1500/hour limit)
+2025-08-19 11:04:39,653 - supplemental_data_provider - INFO - 🔑 Alpha Vantage key generation available if needed...
+2025-08-19 11:04:39,822 - supplemental_data_provider - INFO - 📊 Yahoo Finance: Got 4 bars for PLOW
+2025-08-19 11:04:39,823 - supplemental_data_provider - INFO - ✅ Supplemental data provider session closed cleanly
+2025-08-19 11:04:39,823 - supplemental_data_provider - INFO - 🔑 Yahoo Finance is primary data source (sustainable 1500/hour limit)
+2025-08-19 11:04:39,823 - supplemental_data_provider - INFO - 🔑 Alpha Vantage key generation available if needed...
+2025-08-19 11:04:40,019 - supplemental_data_provider - INFO - 📊 Yahoo Finance: Got 4 bars for F
+2025-08-19 11:04:40,020 - supplemental_data_provider - INFO - ✅ Supplemental data provider session closed cleanly
+2025-08-19 11:04:40,020 - supplemental_data_provider - INFO - 🔑 Yahoo Finance is primary data source (sustainable 1500/hour limit)
+2025-08-19 11:04:40,020 - supplemental_data_provider - INFO - 🔑 Alpha Vantage key generation available if needed...
+2025-08-19 11:04:40,160 - supplemental_data_provider - INFO - 📊 Yahoo Finance: Got 4 bars for NMZ
+2025-08-19 11:04:40,160 - supplemental_data_provider - INFO - ✅ Supplemental data provider session closed cleanly
+2025-08-19 11:04:40,161 - supplemental_data_provider - INFO - 🔑 Yahoo Finance is primary data source (sustainable 1500/hour limit)
+2025-08-19 11:04:40,161 - supplemental_data_provider - INFO - 🔑 Alpha Vantage key generation available if needed...
+2025-08-19 11:04:40,289 - supplemental_data_provider - INFO - 📊 Yahoo Finance: Got 4 bars for GBFH
+2025-08-19 11:04:40,289 - supplemental_data_provider - INFO - ✅ Supplemental data provider session closed cleanly
+2025-08-19 11:04:40,289 - supplemental_data_provider - INFO - 🔑 Yahoo Finance is primary data source (sustainable 1500/hour limit)
+2025-08-19 11:04:40,289 - supplemental_data_provider - INFO - 🔑 Alpha Vantage key generation available if needed...
+2025-08-19 11:04:40,398 - supplemental_data_provider - INFO - 📊 Yahoo Finance: Got 4 bars for VFF
+2025-08-19 11:04:40,398 - supplemental_data_provider - INFO - ✅ Supplemental data provider session closed cleanly
+2025-08-19 11:04:40,398 - supplemental_data_provider - INFO - 🔑 Yahoo Finance is primary data source (sustainable 1500/hour limit)
+2025-08-19 11:04:40,399 - supplemental_data_provider - INFO - 🔑 Alpha Vantage key generation available if needed...
+2025-08-19 11:04:40,502 - supplemental_data_provider - INFO - 📊 Yahoo Finance: Got 4 bars for OTLY
+2025-08-19 11:04:40,502 - supplemental_data_provider - INFO - ✅ Supplemental data provider session closed cleanly
+2025-08-19 11:04:40,503 - supplemental_data_provider - INFO - 🔑 Yahoo Finance is primary data source (sustainable 1500/hour limit)
+2025-08-19 11:04:40,503 - supplemental_data_provider - INFO - 🔑 Alpha Vantage key generation available if needed...
+2025-08-19 11:04:40,606 - supplemental_data_provider - INFO - 📊 Yahoo Finance: Got 4 bars for GETY
+2025-08-19 11:04:40,607 - supplemental_data_provider - INFO - ✅ Supplemental data provider session closed cleanly
+2025-08-19 11:04:40,607 - supplemental_data_provider - INFO - 🔑 Yahoo Finance is primary data source (sustainable 1500/hour limit)
+2025-08-19 11:04:40,607 - supplemental_data_provider - INFO - 🔑 Alpha Vantage key generation available if needed...
+2025-08-19 11:04:40,760 - supplemental_data_provider - INFO - 📊 Yahoo Finance: Got 4 bars for SPH
+2025-08-19 11:04:40,761 - supplemental_data_provider - INFO - ✅ Supplemental data provider session closed cleanly
+2025-08-19 11:04:40,761 - supplemental_data_provider - INFO - 🔑 Yahoo Finance is primary data source (sustainable 1500/hour limit)
+2025-08-19 11:04:40,761 - supplemental_data_provider - INFO - 🔑 Alpha Vantage key generation available if needed...
+2025-08-19 11:04:40,904 - supplemental_data_provider - INFO - 📊 Yahoo Finance: Got 4 bars for EXG
+2025-08-19 11:04:40,905 - supplemental_data_provider - INFO - ✅ Supplemental data provider session closed cleanly
+2025-08-19 11:04:40,905 - supplemental_data_provider - INFO - 🔑 Yahoo Finance is primary data source (sustainable 1500/hour limit)
+2025-08-19 11:04:40,905 - supplemental_data_provider - INFO - 🔑 Alpha Vantage key generation available if needed...
+2025-08-19 11:04:41,058 - supplemental_data_provider - INFO - 📊 Yahoo Finance: Got 4 bars for AMP
+2025-08-19 11:04:41,058 - supplemental_data_provider - INFO - ✅ Supplemental data provider session closed cleanly
+2025-08-19 11:04:41,058 - supplemental_data_provider - INFO - 🔑 Yahoo Finance is primary data source (sustainable 1500/hour limit)
+2025-08-19 11:04:41,059 - supplemental_data_provider - INFO - 🔑 Alpha Vantage key generation available if needed...
+2025-08-19 11:04:44,124 - supplemental_data_provider - INFO - 📊 Yahoo Finance: Got 4 bars for EVN
+2025-08-19 11:04:44,125 - supplemental_data_provider - INFO - ✅ Supplemental data provider session closed cleanly
+2025-08-19 11:04:44,125 - supplemental_data_provider - INFO - 🔑 Yahoo Finance is primary data source (sustainable 1500/hour limit)
+2025-08-19 11:04:44,125 - supplemental_data_provider - INFO - 🔑 Alpha Vantage key generation available if needed...
+2025-08-19 11:04:44,262 - supplemental_data_provider - INFO - 📊 Yahoo Finance: Got 4 bars for NVCT
+2025-08-19 11:04:44,263 - supplemental_data_provider - INFO - ✅ Supplemental data provider session closed cleanly
+2025-08-19 11:04:44,263 - supplemental_data_provider - INFO - 🔑 Yahoo Finance is primary data source (sustainable 1500/hour limit)
+2025-08-19 11:04:44,264 - supplemental_data_provider - INFO - 🔑 Alpha Vantage key generation available if needed...
+2025-08-19 11:04:44,415 - supplemental_data_provider - INFO - 📊 Yahoo Finance: Got 4 bars for ITUB
+2025-08-19 11:04:44,415 - supplemental_data_provider - INFO - ✅ Supplemental data provider session closed cleanly
+2025-08-19 11:04:44,416 - supplemental_data_provider - INFO - 🔑 Yahoo Finance is primary data source (sustainable 1500/hour limit)
+2025-08-19 11:04:44,416 - supplemental_data_provider - INFO - 🔑 Alpha Vantage key generation available if needed...
+2025-08-19 11:04:44,575 - supplemental_data_provider - INFO - 📊 Yahoo Finance: Got 4 bars for FLS
+2025-08-19 11:04:44,576 - supplemental_data_provider - INFO - ✅ Supplemental data provider session closed cleanly
+2025-08-19 11:04:44,576 - supplemental_data_provider - INFO - 🔑 Yahoo Finance is primary data source (sustainable 1500/hour limit)
+2025-08-19 11:04:44,576 - supplemental_data_provider - INFO - 🔑 Alpha Vantage key generation available if needed...
+2025-08-19 11:04:44,671 - supplemental_data_provider - INFO - 📊 Yahoo Finance: Got 4 bars for BYON
+2025-08-19 11:04:44,671 - supplemental_data_provider - INFO - ✅ Supplemental data provider session closed cleanly
+2025-08-19 11:04:44,671 - supplemental_data_provider - INFO - 🔑 Yahoo Finance is primary data source (sustainable 1500/hour limit)
+2025-08-19 11:04:44,672 - supplemental_data_provider - INFO - 🔑 Alpha Vantage key generation available if needed...
+2025-08-19 11:04:44,808 - supplemental_data_provider - INFO - 📊 Yahoo Finance: Got 4 bars for SSD
+2025-08-19 11:04:44,808 - supplemental_data_provider - INFO - ✅ Supplemental data provider session closed cleanly
+2025-08-19 11:04:44,809 - supplemental_data_provider - INFO - 🔑 Yahoo Finance is primary data source (sustainable 1500/hour limit)
+2025-08-19 11:04:44,809 - supplemental_data_provider - INFO - 🔑 Alpha Vantage key generation available if needed...
+2025-08-19 11:04:44,945 - supplemental_data_provider - INFO - 📊 Yahoo Finance: Got 4 bars for PDM
+2025-08-19 11:04:44,946 - supplemental_data_provider - INFO - ✅ Supplemental data provider session closed cleanly
+2025-08-19 11:04:44,946 - supplemental_data_provider - INFO - 🔑 Yahoo Finance is primary data source (sustainable 1500/hour limit)
+2025-08-19 11:04:44,946 - supplemental_data_provider - INFO - 🔑 Alpha Vantage key generation available if needed...
+2025-08-19 11:04:45,072 - supplemental_data_provider - INFO - 📊 Yahoo Finance: Got 4 bars for BSTZ
+2025-08-19 11:04:45,073 - supplemental_data_provider - INFO - ✅ Supplemental data provider session closed cleanly
+2025-08-19 11:04:45,075 - intelligent_funnel - INFO - 🎯 Dynamic volume: found 1 high-volume opportunities
+2025-08-19 11:04:45,985 - intelligent_funnel - INFO - No unusual volume patterns detected
+2025-08-19 11:04:45,985 - intelligent_funnel - INFO - 📊 Broad scan: 5 API calls → 16 candidates
+2025-08-19 11:04:45,986 - intelligent_funnel - INFO - 📊 Broad scan: 5 API calls → 16 candidates
+2025-08-19 11:04:45,986 - intelligent_funnel - INFO - 📊 Broad scan found 16 candidates
+2025-08-19 11:04:46,143 - intelligent_funnel - INFO - 🧠 AI filtering: 16 → 6 candidates (regime: bull_trending)
+2025-08-19 11:04:46,143 - intelligent_funnel - INFO - 🏢 Sector diversification: {'EQUITY': 3, 'TECHNOLOGY': 3}
+2025-08-19 11:04:46,143 - intelligent_funnel - INFO - 🧠 AI filtering selected 6 candidates
+2025-08-19 11:04:46,144 - intelligent_funnel - INFO - 🎯 Deep dive: 12 API calls → 6 opportunities
+2025-08-19 11:04:46,145 - intelligent_funnel - INFO - 🎯 Deep dive analysis identified 6 opportunities
+2025-08-19 11:04:46,145 - intelligent_funnel - INFO - 📝 Watchlist updated: -0 +6 = 6 total
+2025-08-19 11:04:46,145 - intelligent_funnel - INFO - ✅ Funnel scan completed in 15.10s, found 6 opportunities
+2025-08-19 11:04:46,145 - __main__ - INFO - 🎯 TOP OPPORTUNITIES:
+2025-08-19 11:04:46,145 - __main__ - INFO -    1. BZ: 1.00 (news_movers) - High-impact news (POSITIVE)
+2025-08-19 11:04:46,145 - __main__ - INFO -    2. EPRT: 1.00 (news_movers) - earnings
+2025-08-19 11:04:46,145 - __main__ - INFO -    3. AAPL: 0.88 (news_movers) - general news
+2025-08-19 11:04:46,145 - __main__ - INFO -    4. ENB: 0.88 (news_movers) - High-impact news (NEUTRAL)
+2025-08-19 11:04:46,145 - __main__ - INFO -    5. AMZN: 0.88 (news_movers) - general news
+2025-08-19 11:04:46,145 - __main__ - INFO - 🧪 Running Tiered Analysis Test with Hot Stocks...
+2025-08-19 11:04:46,146 - __main__ - INFO - 🔥 Testing Tiered Analysis with Day Trader Hot Stocks
+2025-08-19 11:04:46,146 - __main__ - INFO - 🎯 Analyzing 12 hot stocks with comprehensive tiered approach
+2025-08-19 11:04:46,146 - intelligent_funnel - INFO - 🔥 Analyzing 12 hot stocks with maximum priority
+2025-08-19 11:04:46,146 - intelligent_funnel - INFO - 🔍 Executing tiered analysis for 12 stocks (priority: HIGH)
+2025-08-19 11:04:46,146 - tiered_analyzer - INFO - 🔍 Starting tiered analysis of 12 stocks (priority: HIGH)
+2025-08-19 11:04:46,969 - tiered_analyzer - INFO - 📊 Fast screening completed: 7 results
+2025-08-19 11:04:46,970 - tiered_analyzer - INFO - 🎯 Selected 6 stocks for deeper analysis from 7 screened
+2025-08-19 11:04:46,970 - tiered_analyzer - INFO - 🎯 Prioritized 6 stocks for deeper analysis
+2025-08-19 11:04:47,052 - supplemental_data_provider - INFO - 📊 Yahoo Finance: Got 2 bars for IONQ
+2025-08-19 11:04:47,056 - supplemental_data_provider - INFO - 📊 Yahoo Finance: Got 2 bars for PLTR
+2025-08-19 11:04:47,057 - supplemental_data_provider - INFO - 📊 Yahoo Finance: Got 2 bars for OKLO
+2025-08-19 11:04:47,063 - supplemental_data_provider - INFO - 📊 Yahoo Finance: Got 2 bars for SOFI
+2025-08-19 11:04:47,077 - supplemental_data_provider - INFO - 📊 Yahoo Finance: Got 2 bars for QBTS
+2025-08-19 11:04:47,101 - supplemental_data_provider - INFO - 📊 Yahoo Finance: Got 2 bars for RKLB
+2025-08-19 11:04:47,602 - tiered_analyzer - INFO - 🔬 Starting deep dive analysis for 0 stocks
+2025-08-19 11:04:47,602 - tiered_analyzer - WARNING - 🚨 Analyzing 6 potentially missed opportunities
+2025-08-19 11:04:47,602 - tiered_analyzer - INFO - 🚨 Emergency analysis for 6 missed stocks
+2025-08-19 11:04:47,603 - tiered_analyzer - INFO - ✅ Tiered analysis complete: 7 final results
+2025-08-19 11:04:47,603 - tiered_analyzer - INFO - 📊 Tiered Analysis Statistics:
+2025-08-19 11:04:47,603 - tiered_analyzer - INFO -    - Fast screens: 12
+2025-08-19 11:04:47,603 - tiered_analyzer - INFO -    - Priority analyses: 6
+2025-08-19 11:04:47,603 - tiered_analyzer - INFO -    - Deep dives: 0
+2025-08-19 11:04:47,603 - tiered_analyzer - INFO -    - Signals generated: 0
+2025-08-19 11:04:47,603 - tiered_analyzer - INFO -    - Rate limited: 0
+2025-08-19 11:04:47,603 - tiered_analyzer - INFO -    - Data issues: 0
+2025-08-19 11:04:47,603 - intelligent_funnel - INFO - ✅ Tiered analysis complete: 0 actionable signals from 7 analyzed
+2025-08-19 11:04:47,603 - intelligent_funnel - INFO - 📊 Analysis Stats: {'fast_screen_count': 12, 'priority_analysis_count': 6, 'deep_dive_count': 0, 'rate_limited_count': 0, 'data_issues_count': 0, 'signals_generated': 0}
+2025-08-19 11:04:47,604 - __main__ - INFO - ✅ TIERED ANALYSIS RESULTS:
+2025-08-19 11:04:47,604 - __main__ - INFO -    - Total stocks analyzed: 12
+2025-08-19 11:04:47,604 - __main__ - INFO -    - Results generated: 0
+2025-08-19 11:04:47,604 - __main__ - INFO -    - Actionable signals: 0
+2025-08-19 11:04:47,604 - __main__ - INFO - 🔍 Analyzing 6 opportunities for trade signals...
+2025-08-19 11:04:47,630 - __main__ - INFO - 🔒 Existing positions: XLC, SNDK, WB, CLBT, ARRY, EPD, AMD, TRMD, AAPL, BHC, DELL, CELH, GOOG, NTST, NU, INTC, ARKF, GOOGL, TMHC, GRFS, CBRE, HOOD - will skip these symbols
+2025-08-19 11:04:47,651 - api_gateway - WARNING - ⚠️ SIP data unavailable for BZ (free tier limitation)
+2025-08-19 11:04:47,651 - __main__ - INFO - 📊 Alpaca data insufficient for BZ, trying free sources...
+2025-08-19 11:04:47,705 - supplemental_data_provider - INFO - 📊 Yahoo Finance: Got 22 bars for BZ
+2025-08-19 11:04:47,757 - __main__ - INFO - 📊 BZ data acquisition: Alpaca-daily (0 bars) + Free-sources (22 bars) + Yahoo-quote
+2025-08-19 11:04:47,758 - __main__ - INFO - 📊 Retrieved 22 bars for BZ
+2025-08-19 11:04:47,758 - enhanced_momentum_strategy - INFO - 🔄 STRATEGY CHANGE: MOMENTUM → BREAKOUT
+2025-08-19 11:04:47,758 - enhanced_momentum_strategy - INFO -    Market Regime: LOW_VOLATILITY
+2025-08-19 11:04:47,758 - enhanced_momentum_strategy - INFO -    Volatility: LOW
+2025-08-19 11:04:47,758 - enhanced_momentum_strategy - INFO - 📊 BZ data sources: Alpaca-daily (0 bars), Free-sources (22 bars), Yahoo-quote
+2025-08-19 11:04:47,781 - enhanced_momentum_strategy - INFO - 📊 No breakout setup detected for BZ
+2025-08-19 11:04:47,781 - __main__ - INFO - 🤖 AI-only evaluation for BZ (technical analysis bypassed)
+2025-08-19 11:04:47,781 - __main__ - INFO - 🧠 AI evaluation for BZ: score=0.95, confidence=0.90, recommendation=IMMEDIATE
+2025-08-19 11:04:47,865 - __main__ - INFO - 🚀 AGGRESSIVE POSITION FOR 50% RETURNS: BZ = 40.0% of account
+2025-08-19 11:04:47,865 - order_executor - INFO - 🎯 Executing signal: BZ BUY
+2025-08-19 11:04:47,893 - order_executor - WARNING - ⚠️ Position size capped at $1240.24 (5% of account)
+2025-08-19 11:04:47,920 - order_executor - INFO - 📊 Position sizing: account=$24,804.87, size_pct=40.000, value=$1240.24, price=$21.23, quantity=58
+2025-08-19 11:04:47,945 - order_executor - INFO - 📊 Position details: 58 shares, $1,240.24 value
+2025-08-19 11:04:48,000 - api_gateway - INFO - Order submitted: BZ buy 58
+2025-08-19 11:04:48,000 - order_executor - INFO - 🔍 Starting enhanced bracket order verification for BZ
+2025-08-19 11:05:48,784 - order_executor - ERROR - ❌ BZ: Bracket order verification FAILED - no stop loss leg found within 60s
+2025-08-19 11:05:48,784 - order_executor - CRITICAL - 🚨 BZ: BRACKET LEGS MISSING - creating emergency protection
+2025-08-19 11:05:48,785 - order_executor - CRITICAL - 🚨 Creating emergency bracket protection for BZ
+2025-08-19 11:05:48,864 - api_gateway - INFO - Order 948a8fae-0ac0-4e1f-9d61-dbc7c6620afc cancelled
+2025-08-19 11:05:48,864 - order_executor - INFO - 🗑️ Cancelled conflicting order: 948a8fae-0ac0-4e1f-9d61-dbc7c6620afc
+2025-08-19 11:05:48,864 - order_executor - INFO - 🧹 Cancelled 1 conflicting orders for BZ
+2025-08-19 11:05:50,894 - api_gateway - INFO - Order submitted: BZ sell 58
+2025-08-19 11:05:50,894 - order_executor - CRITICAL - ✅ Emergency stop loss created: BZ @ $19.64
+2025-08-19 11:05:50,921 - order_executor - WARNING - ⚠️ Emergency take profit failed for BZ
+2025-08-19 11:05:50,922 - order_executor - ERROR - ❌ Bracket order legs verification failed for BZ
+2025-08-19 11:05:50,922 - order_executor - ERROR - ❌ Trade execution failed: BZ
+2025-08-19 11:05:51,015 - api_gateway - WARNING - ⚠️ SIP data unavailable for EPRT (free tier limitation)
+2025-08-19 11:05:51,015 - __main__ - INFO - 📊 Alpaca data insufficient for EPRT, trying free sources...
+2025-08-19 11:05:51,139 - supplemental_data_provider - INFO - 📊 Yahoo Finance: Got 22 bars for EPRT
+2025-08-19 11:05:51,191 - __main__ - INFO - 📊 EPRT data acquisition: Alpaca-daily (0 bars) + Free-sources (22 bars) + Yahoo-quote
+2025-08-19 11:05:51,191 - __main__ - INFO - 📊 Retrieved 22 bars for EPRT
+2025-08-19 11:05:51,192 - enhanced_momentum_strategy - INFO - 📊 EPRT data sources: Alpaca-daily (0 bars), Free-sources (22 bars), Yahoo-quote
+2025-08-19 11:05:51,207 - enhanced_momentum_strategy - INFO - 📊 No breakout setup detected for EPRT
+2025-08-19 11:05:51,208 - __main__ - INFO - 🤖 AI-only evaluation for EPRT (technical analysis bypassed)
+2025-08-19 11:05:51,208 - __main__ - INFO - 🧠 AI evaluation for EPRT: score=0.95, confidence=0.90, recommendation=IMMEDIATE
+2025-08-19 11:05:51,279 - __main__ - INFO - 🚀 AGGRESSIVE POSITION FOR 50% RETURNS: EPRT = 40.0% of account
+2025-08-19 11:05:51,280 - order_executor - INFO - 🎯 Executing signal: EPRT BUY
+2025-08-19 11:05:51,305 - order_executor - WARNING - ⚠️ Position size capped at $1240.00 (5% of account)
+2025-08-19 11:05:51,333 - order_executor - INFO - 📊 Position sizing: account=$24,799.94, size_pct=40.000, value=$1240.00, price=$30.70, quantity=40
+2025-08-19 11:05:51,360 - order_executor - INFO - 📊 Position details: 40 shares, $1,240.00 value
+2025-08-19 11:05:51,413 - api_gateway - ERROR - PDT VIOLATION: Order blocked for EPRT - Pattern Day Trading rules exceeded
+2025-08-19 11:05:51,413 - api_gateway - ERROR - Account equity below $25,000 and day trade limit reached
+2025-08-19 11:05:51,414 - order_executor - ERROR - Failed to submit bracket order for EPRT
+2025-08-19 11:05:51,414 - order_executor - ERROR - ❌ Trade execution failed: EPRT
+2025-08-19 11:05:51,414 - __main__ - INFO - ⏭️ SKIPPING AAPL: Already have position
+2025-08-19 11:05:51,441 - api_gateway - WARNING - ⚠️ SIP data unavailable for ENB (free tier limitation)
+2025-08-19 11:05:51,442 - __main__ - INFO - 📊 Alpaca data insufficient for ENB, trying free sources...
+2025-08-19 11:05:51,558 - supplemental_data_provider - INFO - 📊 Yahoo Finance: Got 22 bars for ENB
+2025-08-19 11:05:51,636 - __main__ - INFO - 📊 ENB data acquisition: Alpaca-daily (0 bars) + Free-sources (22 bars) + Yahoo-quote
+2025-08-19 11:05:51,637 - __main__ - INFO - 📊 Retrieved 22 bars for ENB
+2025-08-19 11:05:51,637 - enhanced_momentum_strategy - INFO - 📊 ENB data sources: Alpaca-daily (0 bars), Free-sources (22 bars), Yahoo-quote
+2025-08-19 11:05:51,652 - enhanced_momentum_strategy - INFO - 📊 No breakout setup detected for ENB
+2025-08-19 11:05:51,652 - __main__ - INFO - 🤖 AI-only evaluation for ENB (technical analysis bypassed)
+2025-08-19 11:05:51,652 - __main__ - INFO - 🧠 AI evaluation for ENB: score=0.93, confidence=0.80, recommendation=IMMEDIATE
+2025-08-19 11:05:51,653 - __main__ - INFO - ⚠️ ENB: AI validation failed - score=0.93 (need ≥0.7), confidence=0.80 (need ≥0.85), recommendation=IMMEDIATE
+2025-08-19 11:05:51,671 - api_gateway - WARNING - ⚠️ SIP data unavailable for AMZN (free tier limitation)
+2025-08-19 11:05:51,671 - __main__ - INFO - 📊 Alpaca data insufficient for AMZN, trying free sources...
+2025-08-19 11:05:51,731 - supplemental_data_provider - INFO - 📊 Yahoo Finance: Got 22 bars for AMZN
+2025-08-19 11:05:51,783 - __main__ - INFO - 📊 AMZN data acquisition: Alpaca-daily (0 bars) + Free-sources (22 bars) + Yahoo-quote
+2025-08-19 11:05:51,783 - __main__ - INFO - 📊 Retrieved 22 bars for AMZN
+2025-08-19 11:05:51,783 - enhanced_momentum_strategy - INFO - 📊 AMZN data sources: Alpaca-daily (0 bars), Free-sources (22 bars), Yahoo-quote
+2025-08-19 11:05:51,798 - enhanced_momentum_strategy - INFO - 📊 No breakout setup detected for AMZN
+2025-08-19 11:05:51,799 - __main__ - INFO - 🤖 AI-only evaluation for AMZN (technical analysis bypassed)
+2025-08-19 11:05:51,799 - __main__ - INFO - 🧠 AI evaluation for AMZN: score=0.93, confidence=0.80, recommendation=IMMEDIATE
+2025-08-19 11:05:51,799 - __main__ - INFO - ⚠️ AMZN: AI validation failed - score=0.93 (need ≥0.7), confidence=0.80 (need ≥0.85), recommendation=IMMEDIATE
+2025-08-19 11:05:51,820 - api_gateway - WARNING - ⚠️ SIP data unavailable for META (free tier limitation)
+2025-08-19 11:05:51,821 - __main__ - INFO - 📊 Alpaca data insufficient for META, trying free sources...
+2025-08-19 11:05:51,875 - supplemental_data_provider - INFO - 📊 Yahoo Finance: Got 22 bars for META
+2025-08-19 11:05:51,923 - __main__ - INFO - 📊 META data acquisition: Alpaca-daily (0 bars) + Free-sources (22 bars) + Yahoo-quote
+2025-08-19 11:05:51,923 - __main__ - INFO - 📊 Retrieved 22 bars for META
+2025-08-19 11:05:51,923 - enhanced_momentum_strategy - INFO - 📊 META data sources: Alpaca-daily (0 bars), Free-sources (22 bars), Yahoo-quote
+2025-08-19 11:05:51,939 - enhanced_momentum_strategy - INFO - 📊 No breakout setup detected for META
+2025-08-19 11:05:51,939 - __main__ - INFO - 🤖 AI-only evaluation for META (technical analysis bypassed)
+2025-08-19 11:05:51,939 - __main__ - INFO - 🧠 AI evaluation for META: score=0.93, confidence=0.80, recommendation=IMMEDIATE
+2025-08-19 11:05:51,939 - __main__ - INFO - ⚠️ META: AI validation failed - score=0.93 (need ≥0.7), confidence=0.80 (need ≥0.85), recommendation=IMMEDIATE
+2025-08-19 11:05:51,964 - __main__ - INFO - 📊 Managing 24 active positions...
+2025-08-19 11:05:52,186 - __main__ - INFO - 💰 PROFIT TAKING: ARRY at +17.6% - selling 41 shares (25.0%)
+2025-08-19 11:05:52,238 - __main__ - INFO - 🔍 Found 1 open orders for ARRY
+2025-08-19 11:05:52,238 - __main__ - INFO -    - unknown sell order, status: new
+2025-08-19 11:05:52,238 - __main__ - INFO - ✅ PROFIT TAKING SKIPPED: ARRY - shares held by existing orders (protected)
+2025-08-19 11:05:54,155 - __main__ - INFO - 💰 REAL PERFORMANCE (Alpaca API):
+2025-08-19 11:05:54,155 - __main__ - INFO -    Current Equity: $24,798.61
+2025-08-19 11:05:54,155 - __main__ - INFO -    Daily P&L: 🔴 $-142.04 (-0.57%)
+2025-08-19 11:05:54,155 - __main__ - INFO -    Total P&L: 🟢 $+22821.57 (+1154.33%)
+2025-08-19 11:05:54,156 - __main__ - INFO - 🚫 PDT-blocked symbols: EPRT
+2025-08-19 11:06:54,322 - __main__ - INFO - 🔍 Analyzing 6 opportunities for trade signals...
+2025-08-19 11:06:54,349 - __main__ - INFO - 🔒 Existing positions: META, XLC, SNDK, WB, CLBT, ARRY, EPD, AMD, TRMD, AAPL, BHC, DELL, CELH, NU, GOOG, NTST, INTC, ARKF, GOOGL, TMHC, GRFS, BZ, CBRE, HOOD - will skip these symbols
+2025-08-19 11:06:54,349 - __main__ - INFO - ⏭️ SKIPPING BZ: Already have position
+2025-08-19 11:06:54,349 - __main__ - WARNING - 🚫 SKIPPING EPRT: PDT-blocked from previous violation
+2025-08-19 11:06:54,349 - __main__ - INFO - ⏭️ SKIPPING AAPL: Already have position
+2025-08-19 11:06:54,437 - __main__ - INFO - 📊 Alpaca data insufficient for ENB, trying free sources...
+2025-08-19 11:06:54,575 - supplemental_data_provider - INFO - 📊 Yahoo Finance: Got 22 bars for ENB
+2025-08-19 11:06:54,639 - __main__ - INFO - 📊 ENB data acquisition: Alpaca-daily (0 bars) + Free-sources (22 bars) + Yahoo-quote
+2025-08-19 11:06:54,639 - __main__ - INFO - 📊 Retrieved 22 bars for ENB
+2025-08-19 11:06:54,639 - enhanced_momentum_strategy - INFO - 📊 ENB data sources: Alpaca-daily (0 bars), Free-sources (22 bars), Yahoo-quote
+2025-08-19 11:06:54,656 - enhanced_momentum_strategy - INFO - 📊 No breakout setup detected for ENB
+2025-08-19 11:06:54,656 - __main__ - INFO - 🤖 AI-only evaluation for ENB (technical analysis bypassed)
+2025-08-19 11:06:54,656 - __main__ - INFO - 🧠 AI evaluation for ENB: score=0.93, confidence=0.80, recommendation=IMMEDIATE
+2025-08-19 11:06:54,656 - __main__ - INFO - ⚠️ ENB: AI validation failed - score=0.93 (need ≥0.7), confidence=0.80 (need ≥0.85), recommendation=IMMEDIATE
+2025-08-19 11:06:54,693 - __main__ - INFO - 📊 Alpaca data insufficient for AMZN, trying free sources...
+2025-08-19 11:06:54,751 - supplemental_data_provider - INFO - 📊 Yahoo Finance: Got 22 bars for AMZN
+2025-08-19 11:06:54,869 - __main__ - INFO - 📊 AMZN data acquisition: Alpaca-daily (0 bars) + Free-sources (22 bars) + Yahoo-quote
+2025-08-19 11:06:54,869 - __main__ - INFO - 📊 Retrieved 22 bars for AMZN
+2025-08-19 11:06:54,869 - enhanced_momentum_strategy - INFO - 📊 AMZN data sources: Alpaca-daily (0 bars), Free-sources (22 bars), Yahoo-quote
+2025-08-19 11:06:54,883 - enhanced_momentum_strategy - INFO - 📊 No breakout setup detected for AMZN
+2025-08-19 11:06:54,883 - __main__ - INFO - 🤖 AI-only evaluation for AMZN (technical analysis bypassed)
+2025-08-19 11:06:54,884 - __main__ - INFO - 🧠 AI evaluation for AMZN: score=0.93, confidence=0.80, recommendation=IMMEDIATE
+2025-08-19 11:06:54,884 - __main__ - INFO - ⚠️ AMZN: AI validation failed - score=0.93 (need ≥0.7), confidence=0.80 (need ≥0.85), recommendation=IMMEDIATE
+2025-08-19 11:06:54,884 - __main__ - INFO - ⏭️ SKIPPING META: Already have position
+2025-08-19 11:06:54,906 - __main__ - INFO - 📊 Managing 24 active positions...
+2025-08-19 11:06:55,133 - __main__ - INFO - 💰 PROFIT TAKING: ARRY at +17.2% - selling 41 shares (25.0%)
+2025-08-19 11:06:55,196 - __main__ - INFO - 🔍 Found 1 open orders for ARRY
+2025-08-19 11:06:55,196 - __main__ - INFO -    - unknown sell order, status: new
+2025-08-19 11:06:55,196 - __main__ - INFO - ✅ PROFIT TAKING SKIPPED: ARRY - shares held by existing orders (protected)
+2025-08-19 11:06:57,261 - __main__ - INFO - 💰 REAL PERFORMANCE (Alpaca API):
+2025-08-19 11:06:57,261 - __main__ - INFO -    Current Equity: $24,790.35
+2025-08-19 11:06:57,261 - __main__ - INFO -    Daily P&L: 🔴 $-150.30 (-0.60%)
+2025-08-19 11:06:57,261 - __main__ - INFO -    Total P&L: 🟢 $+22813.31 (+1153.91%)
+2025-08-19 11:06:57,262 - __main__ - INFO - 🚫 PDT-blocked symbols: EPRT
+2025-08-19 11:08:54,434 - __main__ - INFO - 🔍 Analyzing 6 opportunities for trade signals...
+2025-08-19 11:08:54,456 - __main__ - INFO - 🔒 Existing positions: META, XLC, SNDK, WB, CLBT, ARRY, EPD, AMD, TRMD, AAPL, BHC, DELL, CELH, NU, GOOG, NTST, INTC, ARKF, GOOGL, TMHC, GRFS, BZ, CBRE, HOOD - will skip these symbols
+2025-08-19 11:08:54,456 - __main__ - INFO - ⏭️ SKIPPING BZ: Already have position
+2025-08-19 11:08:54,456 - __main__ - WARNING - 🚫 SKIPPING EPRT: PDT-blocked from previous violation
+2025-08-19 11:08:54,457 - __main__ - INFO - ⏭️ SKIPPING AAPL: Already have position
+2025-08-19 11:08:54,534 - __main__ - INFO - 📊 Alpaca data insufficient for ENB, trying free sources...
+2025-08-19 11:08:54,681 - supplemental_data_provider - INFO - 📊 Yahoo Finance: Got 22 bars for ENB
+2025-08-19 11:08:54,733 - __main__ - INFO - 📊 ENB data acquisition: Alpaca-daily (0 bars) + Free-sources (22 bars) + Yahoo-quote
+2025-08-19 11:08:54,733 - __main__ - INFO - 📊 Retrieved 22 bars for ENB
+2025-08-19 11:08:54,734 - enhanced_momentum_strategy - INFO - 📊 ENB data sources: Alpaca-daily (0 bars), Free-sources (22 bars), Yahoo-quote
+2025-08-19 11:08:54,750 - enhanced_momentum_strategy - INFO - 📊 No breakout setup detected for ENB
+2025-08-19 11:08:54,750 - __main__ - INFO - 🤖 AI-only evaluation for ENB (technical analysis bypassed)
+2025-08-19 11:08:54,750 - __main__ - INFO - 🧠 AI evaluation for ENB: score=0.93, confidence=0.80, recommendation=IMMEDIATE
+2025-08-19 11:08:54,750 - __main__ - INFO - ⚠️ ENB: AI validation failed - score=0.93 (need ≥0.7), confidence=0.80 (need ≥0.85), recommendation=IMMEDIATE
+2025-08-19 11:08:54,767 - __main__ - INFO - 📊 Alpaca data insufficient for AMZN, trying free sources...
+2025-08-19 11:08:54,817 - supplemental_data_provider - INFO - 📊 Yahoo Finance: Got 22 bars for AMZN
+2025-08-19 11:08:54,874 - __main__ - INFO - 📊 AMZN data acquisition: Alpaca-daily (0 bars) + Free-sources (22 bars) + Yahoo-quote
+2025-08-19 11:08:54,874 - __main__ - INFO - 📊 Retrieved 22 bars for AMZN
+2025-08-19 11:08:54,875 - enhanced_momentum_strategy - INFO - 📊 AMZN data sources: Alpaca-daily (0 bars), Free-sources (22 bars), Yahoo-quote
+2025-08-19 11:08:54,890 - enhanced_momentum_strategy - INFO - 📊 No breakout setup detected for AMZN
+2025-08-19 11:08:54,891 - __main__ - INFO - 🤖 AI-only evaluation for AMZN (technical analysis bypassed)
+2025-08-19 11:08:54,891 - __main__ - INFO - 🧠 AI evaluation for AMZN: score=0.93, confidence=0.80, recommendation=IMMEDIATE
+2025-08-19 11:08:54,891 - __main__ - INFO - ⚠️ AMZN: AI validation failed - score=0.93 (need ≥0.7), confidence=0.80 (need ≥0.85), recommendation=IMMEDIATE
+2025-08-19 11:08:54,891 - __main__ - INFO - ⏭️ SKIPPING META: Already have position
+2025-08-19 11:08:54,914 - __main__ - INFO - 📊 Managing 24 active positions...
+2025-08-19 11:08:55,090 - __main__ - INFO - 💰 PROFIT TAKING: ARRY at +18.0% - selling 41 shares (25.0%)
+2025-08-19 11:08:55,140 - __main__ - INFO - 🔍 Found 1 open orders for ARRY
+2025-08-19 11:08:55,140 - __main__ - INFO -    - unknown sell order, status: new
+2025-08-19 11:08:55,140 - __main__ - INFO - ✅ PROFIT TAKING SKIPPED: ARRY - shares held by existing orders (protected)
+2025-08-19 11:08:56,779 - __main__ - INFO - 💰 REAL PERFORMANCE (Alpaca API):
+2025-08-19 11:08:56,779 - __main__ - INFO -    Current Equity: $24,799.50
+2025-08-19 11:08:56,779 - __main__ - INFO -    Daily P&L: 🔴 $-141.15 (-0.57%)
+2025-08-19 11:08:56,780 - __main__ - INFO -    Total P&L: 🟢 $+22822.46 (+1154.38%)
+2025-08-19 11:08:56,780 - __main__ - INFO - 🚫 PDT-blocked symbols: EPRT
+2025-08-19 11:08:56,800 - __main__ - INFO - ⏳ Running enhanced position aging management...
+2025-08-19 11:08:56,912 - __main__ - INFO - 📊 Position Aging Analysis: 1 actions identified
+2025-08-19 11:08:56,912 - __main__ - WARNING - 🔄 POSITION AGING ACTION: NU - TURNOVER_OPTIMIZATION
+2025-08-19 11:08:56,912 - __main__ - WARNING -    Reason: Large stagnant position (+0.4%) - optimize capital allocation
+2025-08-19 11:08:56,912 - __main__ - WARNING -    Selling 31 shares (33.0% of position)
+2025-08-19 11:08:56,982 - __main__ - INFO - 🔍 Found 1 open orders for NU
+2025-08-19 11:08:56,982 - __main__ - INFO -    - unknown sell order, status: new
+2025-08-19 11:08:56,982 - __main__ - INFO - ✅ AGING MANAGEMENT SKIPPED: NU - shares held by existing orders (protected)
+2025-08-19 11:08:56,982 - __main__ - INFO - ✅ Position aging management complete: 0/1 actions executed
+2025-08-19 11:08:56,982 - __main__ - INFO - 📋 1 aging actions deferred to next cycle
+2025-08-19 11:10:54,554 - __main__ - INFO - 🔍 Analyzing 6 opportunities for trade signals...
+2025-08-19 11:10:54,578 - __main__ - INFO - 🔒 Existing positions: META, XLC, SNDK, WB, CLBT, ARRY, EPD, AMD, TRMD, AAPL, BHC, DELL, CELH, NU, GOOG, NTST, INTC, ARKF, GOOGL, TMHC, GRFS, BZ, CBRE, HOOD - will skip these symbols
+2025-08-19 11:10:54,579 - __main__ - INFO - ⏭️ SKIPPING BZ: Already have position
+2025-08-19 11:10:54,579 - __main__ - WARNING - 🚫 SKIPPING EPRT: PDT-blocked from previous violation
+2025-08-19 11:10:54,579 - __main__ - INFO - ⏭️ SKIPPING AAPL: Already have position
+2025-08-19 11:10:54,660 - __main__ - INFO - 📊 Alpaca data insufficient for ENB, trying free sources...
+2025-08-19 11:10:54,834 - supplemental_data_provider - INFO - 📊 Yahoo Finance: Got 22 bars for ENB
+2025-08-19 11:10:54,896 - __main__ - INFO - 📊 ENB data acquisition: Alpaca-daily (0 bars) + Free-sources (22 bars) + Yahoo-quote
+2025-08-19 11:10:54,897 - __main__ - INFO - 📊 Retrieved 22 bars for ENB
+2025-08-19 11:10:54,897 - enhanced_momentum_strategy - INFO - 📊 ENB data sources: Alpaca-daily (0 bars), Free-sources (22 bars), Yahoo-quote
+2025-08-19 11:10:54,914 - enhanced_momentum_strategy - INFO - 📊 No breakout setup detected for ENB
+2025-08-19 11:10:54,914 - __main__ - INFO - 🤖 AI-only evaluation for ENB (technical analysis bypassed)
+2025-08-19 11:10:54,915 - __main__ - INFO - 🧠 AI evaluation for ENB: score=0.93, confidence=0.80, recommendation=IMMEDIATE
+2025-08-19 11:10:54,915 - __main__ - INFO - ⚠️ ENB: AI validation failed - score=0.93 (need ≥0.7), confidence=0.80 (need ≥0.85), recommendation=IMMEDIATE
+2025-08-19 11:10:54,936 - __main__ - INFO - 📊 Alpaca data insufficient for AMZN, trying free sources...
+2025-08-19 11:10:54,986 - supplemental_data_provider - INFO - 📊 Yahoo Finance: Got 22 bars for AMZN
+2025-08-19 11:10:55,053 - __main__ - INFO - 📊 AMZN data acquisition: Alpaca-daily (0 bars) + Free-sources (22 bars) + Yahoo-quote
+2025-08-19 11:10:55,053 - __main__ - INFO - 📊 Retrieved 22 bars for AMZN
+2025-08-19 11:10:55,053 - enhanced_momentum_strategy - INFO - 📊 AMZN data sources: Alpaca-daily (0 bars), Free-sources (22 bars), Yahoo-quote
+2025-08-19 11:10:55,068 - enhanced_momentum_strategy - INFO - 📊 No breakout setup detected for AMZN
+2025-08-19 11:10:55,068 - __main__ - INFO - 🤖 AI-only evaluation for AMZN (technical analysis bypassed)
+2025-08-19 11:10:55,068 - __main__ - INFO - 🧠 AI evaluation for AMZN: score=0.93, confidence=0.80, recommendation=IMMEDIATE
+2025-08-19 11:10:55,068 - __main__ - INFO - ⚠️ AMZN: AI validation failed - score=0.93 (need ≥0.7), confidence=0.80 (need ≥0.85), recommendation=IMMEDIATE
+2025-08-19 11:10:55,068 - __main__ - INFO - ⏭️ SKIPPING META: Already have position
+2025-08-19 11:10:55,094 - __main__ - INFO - 📊 Managing 24 active positions...
+2025-08-19 11:10:55,337 - __main__ - INFO - 💰 PROFIT TAKING: ARRY at +18.1% - selling 41 shares (25.0%)
+2025-08-19 11:10:55,401 - __main__ - INFO - 🔍 Found 1 open orders for ARRY
+2025-08-19 11:10:55,401 - __main__ - INFO -    - unknown sell order, status: new
+2025-08-19 11:10:55,401 - __main__ - INFO - ✅ PROFIT TAKING SKIPPED: ARRY - shares held by existing orders (protected)
+2025-08-19 11:10:57,083 - __main__ - INFO - 💰 REAL PERFORMANCE (Alpaca API):
+2025-08-19 11:10:57,084 - __main__ - INFO -    Current Equity: $24,781.93
+2025-08-19 11:10:57,084 - __main__ - INFO -    Daily P&L: 🔴 $-158.72 (-0.64%)
+2025-08-19 11:10:57,084 - __main__ - INFO -    Total P&L: 🟢 $+22804.89 (+1153.49%)
+2025-08-19 11:10:57,085 - __main__ - INFO - 🚫 PDT-blocked symbols: EPRT
+2025-08-19 11:12:54,667 - __main__ - INFO - 🔍 Analyzing 6 opportunities for trade signals...
+2025-08-19 11:12:54,692 - __main__ - INFO - 🔒 Existing positions: META, XLC, SNDK, WB, CLBT, ARRY, EPD, AMD, TRMD, AAPL, BHC, DELL, CELH, NU, GOOG, NTST, INTC, ARKF, GOOGL, TMHC, GRFS, BZ, CBRE, HOOD - will skip these symbols
+2025-08-19 11:12:54,692 - __main__ - INFO - ⏭️ SKIPPING BZ: Already have position
+2025-08-19 11:12:54,692 - __main__ - WARNING - 🚫 SKIPPING EPRT: PDT-blocked from previous violation
+2025-08-19 11:12:54,692 - __main__ - INFO - ⏭️ SKIPPING AAPL: Already have position
+2025-08-19 11:12:54,765 - __main__ - INFO - 📊 Alpaca data insufficient for ENB, trying free sources...
+2025-08-19 11:12:54,921 - supplemental_data_provider - INFO - 📊 Yahoo Finance: Got 22 bars for ENB
+2025-08-19 11:12:54,977 - __main__ - INFO - 📊 ENB data acquisition: Alpaca-daily (0 bars) + Free-sources (22 bars) + Yahoo-quote
+2025-08-19 11:12:54,977 - __main__ - INFO - 📊 Retrieved 22 bars for ENB
+2025-08-19 11:12:54,977 - enhanced_momentum_strategy - INFO - 📊 ENB data sources: Alpaca-daily (0 bars), Free-sources (22 bars), Yahoo-quote
+2025-08-19 11:12:54,994 - enhanced_momentum_strategy - INFO - 📊 No breakout setup detected for ENB
+2025-08-19 11:12:54,994 - __main__ - INFO - 🤖 AI-only evaluation for ENB (technical analysis bypassed)
+2025-08-19 11:12:54,994 - __main__ - INFO - 🧠 AI evaluation for ENB: score=0.93, confidence=0.80, recommendation=IMMEDIATE
+2025-08-19 11:12:54,995 - __main__ - INFO - ⚠️ ENB: AI validation failed - score=0.93 (need ≥0.7), confidence=0.80 (need ≥0.85), recommendation=IMMEDIATE
+2025-08-19 11:12:55,017 - __main__ - INFO - 📊 Alpaca data insufficient for AMZN, trying free sources...
+2025-08-19 11:12:55,067 - supplemental_data_provider - INFO - 📊 Yahoo Finance: Got 22 bars for AMZN
+2025-08-19 11:12:55,127 - __main__ - INFO - 📊 AMZN data acquisition: Alpaca-daily (0 bars) + Free-sources (22 bars) + Yahoo-quote
+2025-08-19 11:12:55,127 - __main__ - INFO - 📊 Retrieved 22 bars for AMZN
+2025-08-19 11:12:55,127 - enhanced_momentum_strategy - INFO - 📊 AMZN data sources: Alpaca-daily (0 bars), Free-sources (22 bars), Yahoo-quote
+2025-08-19 11:12:55,144 - enhanced_momentum_strategy - INFO - 📊 No breakout setup detected for AMZN
+2025-08-19 11:12:55,144 - __main__ - INFO - 🤖 AI-only evaluation for AMZN (technical analysis bypassed)
+2025-08-19 11:12:55,144 - __main__ - INFO - 🧠 AI evaluation for AMZN: score=0.93, confidence=0.80, recommendation=IMMEDIATE
+2025-08-19 11:12:55,144 - __main__ - INFO - ⚠️ AMZN: AI validation failed - score=0.93 (need ≥0.7), confidence=0.80 (need ≥0.85), recommendation=IMMEDIATE
+2025-08-19 11:12:55,144 - __main__ - INFO - ⏭️ SKIPPING META: Already have position
+2025-08-19 11:12:55,166 - __main__ - INFO - 📊 Managing 24 active positions...
+2025-08-19 11:12:55,368 - __main__ - INFO - 💰 PROFIT TAKING: ARRY at +17.7% - selling 41 shares (25.0%)
+2025-08-19 11:12:55,416 - __main__ - INFO - 🔍 Found 1 open orders for ARRY
+2025-08-19 11:12:55,416 - __main__ - INFO -    - unknown sell order, status: new
+2025-08-19 11:12:55,416 - __main__ - INFO - ✅ PROFIT TAKING SKIPPED: ARRY - shares held by existing orders (protected)
+2025-08-19 11:12:57,078 - __main__ - INFO - 💰 REAL PERFORMANCE (Alpaca API):
+2025-08-19 11:12:57,078 - __main__ - INFO -    Current Equity: $24,769.22
+2025-08-19 11:12:57,078 - __main__ - INFO -    Daily P&L: 🔴 $-171.43 (-0.69%)
+2025-08-19 11:12:57,078 - __main__ - INFO -    Total P&L: 🟢 $+22792.18 (+1152.84%)
+2025-08-19 11:12:57,079 - __main__ - INFO - 🚫 PDT-blocked symbols: EPRT
+2025-08-19 11:12:57,079 - __main__ - INFO - 🔍 Running periodic protection verification...
+2025-08-19 11:12:57,125 - __main__ - INFO - 📊 Periodic Protection Verification Results:
+2025-08-19 11:12:57,125 - __main__ - INFO -    Total positions: 24
+2025-08-19 11:12:57,125 - __main__ - INFO -    Protected: 24
+2025-08-19 11:12:57,125 - __main__ - INFO -    Unprotected: 0
+2025-08-19 11:12:57,126 - __main__ - INFO -    ✅ AAPL: 5.0 shares, $1,152.80, 1 stops, 0 limits
+2025-08-19 11:12:57,126 - __main__ - INFO -    ✅ AMD: 7.0 shares, $1,180.87, 1 stops, 0 limits
+2025-08-19 11:12:57,126 - __main__ - INFO -    ✅ ARKF: 23.0 shares, $1,220.84, 1 stops, 0 limits
+2025-08-19 11:12:57,126 - __main__ - INFO -    ✅ ARRY: 165.0 shares, $1,465.20, 1 stops, 0 limits
+2025-08-19 11:12:57,126 - __main__ - INFO -    ✅ BHC: 148.0 shares, $1,149.96, 1 stops, 0 limits
+2025-08-19 11:12:57,126 - __main__ - INFO -    ✅ BZ: 58.0 shares, $1,232.50, 1 stops, 0 limits
+2025-08-19 11:12:57,126 - __main__ - INFO -    ✅ CBRE: 7.0 shares, $1,112.68, 1 stops, 0 limits
+2025-08-19 11:12:57,126 - __main__ - INFO -    ✅ CELH: 21.0 shares, $1,265.68, 1 stops, 0 limits
+2025-08-19 11:12:57,126 - __main__ - INFO -    ✅ CLBT: 24.0 shares, $378.36, 1 stops, 0 limits
+2025-08-19 11:12:57,126 - __main__ - INFO -    ✅ DELL: 9.0 shares, $1,223.91, 1 stops, 0 limits
+2025-08-19 11:12:57,126 - __main__ - INFO -    ✅ EPD: 11.0 shares, $344.52, 1 stops, 0 limits
+2025-08-19 11:12:57,126 - __main__ - INFO -    ✅ GOOG: 6.0 shares, $1,209.06, 1 stops, 0 limits
+2025-08-19 11:12:57,127 - __main__ - INFO -    ✅ GOOGL: 6.0 shares, $1,203.84, 1 stops, 0 limits
+2025-08-19 11:12:57,127 - __main__ - INFO -    ✅ GRFS: 34.0 shares, $351.90, 1 stops, 0 limits
+2025-08-19 11:12:57,127 - __main__ - INFO -    ✅ HOOD: 11.0 shares, $1,205.05, 1 stops, 0 limits
+2025-08-19 11:12:57,127 - __main__ - INFO -    ✅ INTC: 15.0 shares, $380.24, 1 stops, 0 limits
+2025-08-19 11:12:57,127 - __main__ - INFO -    ✅ META: 1.0 shares, $751.04, 1 stops, 0 limits
+2025-08-19 11:12:57,127 - __main__ - INFO -    ✅ NTST: 66.0 shares, $1,237.50, 1 stops, 0 limits
+2025-08-19 11:12:57,127 - __main__ - INFO -    ✅ NU: 94.0 shares, $1,251.05, 1 stops, 0 limits
+2025-08-19 11:12:57,127 - __main__ - INFO -    ✅ SNDK: 27.0 shares, $1,220.13, 1 stops, 0 limits
+2025-08-19 11:12:57,127 - __main__ - INFO -    ✅ TMHC: 18.0 shares, $1,253.34, 1 stops, 0 limits
+2025-08-19 11:12:57,127 - __main__ - INFO -    ✅ TRMD: 18.0 shares, $358.11, 1 stops, 0 limits
+2025-08-19 11:12:57,127 - __main__ - INFO -    ✅ WB: 32.0 shares, $368.16, 1 stops, 0 limits
+2025-08-19 11:12:57,127 - __main__ - INFO -    ✅ XLC: 11.0 shares, $1,207.69, 1 stops, 0 limits
+2025-08-19 11:12:57,128 - __main__ - INFO - ✅ Periodic verification: All positions properly protected
+2025-08-19 11:14:54,786 - __main__ - INFO - 🔍 Analyzing 6 opportunities for trade signals...
+2025-08-19 11:14:54,809 - __main__ - INFO - 🔒 Existing positions: META, XLC, SNDK, WB, CLBT, ARRY, EPD, AMD, TRMD, AAPL, BHC, DELL, CELH, NU, GOOG, NTST, INTC, ARKF, GOOGL, TMHC, GRFS, BZ, CBRE, HOOD - will skip these symbols
+2025-08-19 11:14:54,809 - __main__ - INFO - ⏭️ SKIPPING BZ: Already have position
+2025-08-19 11:14:54,809 - __main__ - WARNING - 🚫 SKIPPING EPRT: PDT-blocked from previous violation
+2025-08-19 11:14:54,809 - __main__ - INFO - ⏭️ SKIPPING AAPL: Already have position
+2025-08-19 11:14:54,893 - __main__ - INFO - 📊 Alpaca data insufficient for ENB, trying free sources...
+2025-08-19 11:14:55,041 - supplemental_data_provider - INFO - 📊 Yahoo Finance: Got 22 bars for ENB
+2025-08-19 11:14:55,093 - __main__ - INFO - 📊 ENB data acquisition: Alpaca-daily (0 bars) + Free-sources (22 bars) + Yahoo-quote
+2025-08-19 11:14:55,093 - __main__ - INFO - 📊 Retrieved 22 bars for ENB
+2025-08-19 11:14:55,093 - enhanced_momentum_strategy - INFO - 📊 ENB data sources: Alpaca-daily (0 bars), Free-sources (22 bars), Yahoo-quote
+2025-08-19 11:14:55,111 - enhanced_momentum_strategy - INFO - 📊 No breakout setup detected for ENB
+2025-08-19 11:14:55,111 - __main__ - INFO - 🤖 AI-only evaluation for ENB (technical analysis bypassed)
+2025-08-19 11:14:55,111 - __main__ - INFO - 🧠 AI evaluation for ENB: score=0.93, confidence=0.80, recommendation=IMMEDIATE
+2025-08-19 11:14:55,111 - __main__ - INFO - ⚠️ ENB: AI validation failed - score=0.93 (need ≥0.7), confidence=0.80 (need ≥0.85), recommendation=IMMEDIATE
+2025-08-19 11:14:55,134 - __main__ - INFO - 📊 Alpaca data insufficient for AMZN, trying free sources...
+2025-08-19 11:14:55,180 - supplemental_data_provider - INFO - 📊 Yahoo Finance: Got 22 bars for AMZN
+2025-08-19 11:14:55,240 - __main__ - INFO - 📊 AMZN data acquisition: Alpaca-daily (0 bars) + Free-sources (22 bars) + Yahoo-quote
+2025-08-19 11:14:55,240 - __main__ - INFO - 📊 Retrieved 22 bars for AMZN
+2025-08-19 11:14:55,241 - enhanced_momentum_strategy - INFO - 📊 AMZN data sources: Alpaca-daily (0 bars), Free-sources (22 bars), Yahoo-quote
+2025-08-19 11:14:55,255 - enhanced_momentum_strategy - INFO - 📊 No breakout setup detected for AMZN
+2025-08-19 11:14:55,255 - __main__ - INFO - 🤖 AI-only evaluation for AMZN (technical analysis bypassed)
+2025-08-19 11:14:55,255 - __main__ - INFO - 🧠 AI evaluation for AMZN: score=0.93, confidence=0.80, recommendation=IMMEDIATE
+2025-08-19 11:14:55,255 - __main__ - INFO - ⚠️ AMZN: AI validation failed - score=0.93 (need ≥0.7), confidence=0.80 (need ≥0.85), recommendation=IMMEDIATE
+2025-08-19 11:14:55,255 - __main__ - INFO - ⏭️ SKIPPING META: Already have position
+2025-08-19 11:14:55,281 - __main__ - INFO - 📊 Managing 24 active positions...
+2025-08-19 11:14:55,463 - __main__ - INFO - 💰 PROFIT TAKING: ARRY at +17.3% - selling 41 shares (25.0%)
+2025-08-19 11:14:55,514 - __main__ - INFO - 🔍 Found 1 open orders for ARRY
+2025-08-19 11:14:55,514 - __main__ - INFO -    - unknown sell order, status: new
+2025-08-19 11:14:55,514 - __main__ - INFO - ✅ PROFIT TAKING SKIPPED: ARRY - shares held by existing orders (protected)
+2025-08-19 11:14:58,230 - __main__ - INFO - 💰 REAL PERFORMANCE (Alpaca API):
+2025-08-19 11:14:58,231 - __main__ - INFO -    Current Equity: $24,796.88
+2025-08-19 11:14:58,231 - __main__ - INFO -    Daily P&L: 🔴 $-143.77 (-0.58%)
+2025-08-19 11:14:58,231 - __main__ - INFO -    Total P&L: 🟢 $+22819.84 (+1154.24%)
+2025-08-19 11:14:58,231 - __main__ - INFO - 🚫 PDT-blocked symbols: EPRT
+2025-08-19 11:14:58,252 - __main__ - INFO - ⏳ Running enhanced position aging management...
+2025-08-19 11:14:58,373 - __main__ - INFO - 📊 Position Aging Analysis: 1 actions identified
+2025-08-19 11:14:58,373 - __main__ - WARNING - 🔄 POSITION AGING ACTION: NU - TURNOVER_OPTIMIZATION
+2025-08-19 11:14:58,373 - __main__ - WARNING -    Reason: Large stagnant position (+0.4%) - optimize capital allocation
+2025-08-19 11:14:58,374 - __main__ - WARNING -    Selling 31 shares (33.0% of position)
+2025-08-19 11:14:58,446 - __main__ - INFO - 🔍 Found 1 open orders for NU
+2025-08-19 11:14:58,446 - __main__ - INFO -    - unknown sell order, status: new
+2025-08-19 11:14:58,446 - __main__ - INFO - ✅ AGING MANAGEMENT SKIPPED: NU - shares held by existing orders (protected)
+2025-08-19 11:14:58,446 - __main__ - INFO - ✅ Position aging management complete: 0/1 actions executed
+2025-08-19 11:14:58,446 - __main__ - INFO - 📋 1 aging actions deferred to next cycle
+2025-08-19 11:16:54,909 - __main__ - INFO - 🔍 Analyzing 6 opportunities for trade signals...
+2025-08-19 11:16:54,931 - __main__ - INFO - 🔒 Existing positions: META, XLC, SNDK, WB, CLBT, ARRY, EPD, AMD, TRMD, AAPL, BHC, DELL, CELH, NU, GOOG, NTST, INTC, ARKF, GOOGL, TMHC, GRFS, BZ, CBRE, HOOD - will skip these symbols
+2025-08-19 11:16:54,931 - __main__ - INFO - ⏭️ SKIPPING BZ: Already have position
+2025-08-19 11:16:54,931 - __main__ - WARNING - 🚫 SKIPPING EPRT: PDT-blocked from previous violation
+2025-08-19 11:16:54,931 - __main__ - INFO - ⏭️ SKIPPING AAPL: Already have position
+2025-08-19 11:16:55,013 - __main__ - INFO - 📊 Alpaca data insufficient for ENB, trying free sources...
+2025-08-19 11:16:55,180 - supplemental_data_provider - INFO - 📊 Yahoo Finance: Got 22 bars for ENB
+2025-08-19 11:16:55,256 - __main__ - INFO - 📊 ENB data acquisition: Alpaca-daily (0 bars) + Free-sources (22 bars) + Yahoo-quote
+2025-08-19 11:16:55,256 - __main__ - INFO - 📊 Retrieved 22 bars for ENB
+2025-08-19 11:16:55,257 - enhanced_momentum_strategy - INFO - 📊 ENB data sources: Alpaca-daily (0 bars), Free-sources (22 bars), Yahoo-quote
+2025-08-19 11:16:55,274 - enhanced_momentum_strategy - INFO - 📊 No breakout setup detected for ENB
+2025-08-19 11:16:55,274 - __main__ - INFO - 🤖 AI-only evaluation for ENB (technical analysis bypassed)
+2025-08-19 11:16:55,274 - __main__ - INFO - 🧠 AI evaluation for ENB: score=0.93, confidence=0.80, recommendation=IMMEDIATE
+2025-08-19 11:16:55,274 - __main__ - INFO - ⚠️ ENB: AI validation failed - score=0.93 (need ≥0.7), confidence=0.80 (need ≥0.85), recommendation=IMMEDIATE
+2025-08-19 11:16:55,296 - __main__ - INFO - 📊 Alpaca data insufficient for AMZN, trying free sources...
+2025-08-19 11:16:55,353 - supplemental_data_provider - INFO - 📊 Yahoo Finance: Got 22 bars for AMZN
+2025-08-19 11:16:55,432 - __main__ - INFO - 📊 AMZN data acquisition: Alpaca-daily (0 bars) + Free-sources (22 bars) + Yahoo-quote
+2025-08-19 11:16:55,433 - __main__ - INFO - 📊 Retrieved 22 bars for AMZN
+2025-08-19 11:16:55,433 - enhanced_momentum_strategy - INFO - 📊 AMZN data sources: Alpaca-daily (0 bars), Free-sources (22 bars), Yahoo-quote
+2025-08-19 11:16:55,448 - enhanced_momentum_strategy - INFO - 📊 No breakout setup detected for AMZN
+2025-08-19 11:16:55,448 - __main__ - INFO - 🤖 AI-only evaluation for AMZN (technical analysis bypassed)
+2025-08-19 11:16:55,448 - __main__ - INFO - 🧠 AI evaluation for AMZN: score=0.93, confidence=0.80, recommendation=IMMEDIATE
+2025-08-19 11:16:55,448 - __main__ - INFO - ⚠️ AMZN: AI validation failed - score=0.93 (need ≥0.7), confidence=0.80 (need ≥0.85), recommendation=IMMEDIATE
+2025-08-19 11:16:55,448 - __main__ - INFO - ⏭️ SKIPPING META: Already have position
+2025-08-19 11:16:55,470 - __main__ - INFO - 📊 Managing 24 active positions...
+2025-08-19 11:16:55,665 - __main__ - INFO - 💰 PROFIT TAKING: ARRY at +17.3% - selling 41 shares (25.0%)
+2025-08-19 11:16:55,717 - __main__ - INFO - 🔍 Found 1 open orders for ARRY
+2025-08-19 11:16:55,718 - __main__ - INFO -    - unknown sell order, status: new
+2025-08-19 11:16:55,718 - __main__ - INFO - ✅ PROFIT TAKING SKIPPED: ARRY - shares held by existing orders (protected)
+2025-08-19 11:16:57,514 - __main__ - INFO - 💰 REAL PERFORMANCE (Alpaca API):
+2025-08-19 11:16:57,514 - __main__ - INFO -    Current Equity: $24,807.75
+2025-08-19 11:16:57,514 - __main__ - INFO -    Daily P&L: 🔴 $-132.90 (-0.53%)
+2025-08-19 11:16:57,515 - __main__ - INFO -    Total P&L: 🟢 $+22830.71 (+1154.79%)
+2025-08-19 11:16:57,515 - __main__ - INFO - 🚫 PDT-blocked symbols: EPRT
+2025-08-19 11:18:55,003 - __main__ - INFO - 🔍 Analyzing 6 opportunities for trade signals...
+2025-08-19 11:18:55,049 - __main__ - INFO - 🔒 Existing positions: META, XLC, SNDK, WB, CLBT, ARRY, EPD, AMD, TRMD, AAPL, BHC, DELL, CELH, NU, GOOG, NTST, INTC, ARKF, GOOGL, TMHC, GRFS, BZ, CBRE, HOOD - will skip these symbols
+2025-08-19 11:18:55,049 - __main__ - INFO - ⏭️ SKIPPING BZ: Already have position
+2025-08-19 11:18:55,050 - __main__ - WARNING - 🚫 SKIPPING EPRT: PDT-blocked from previous violation
+2025-08-19 11:18:55,050 - __main__ - INFO - ⏭️ SKIPPING AAPL: Already have position
+2025-08-19 11:18:55,142 - __main__ - INFO - 📊 Alpaca data insufficient for ENB, trying free sources...
+2025-08-19 11:18:55,348 - supplemental_data_provider - INFO - 📊 Yahoo Finance: Got 22 bars for ENB
+2025-08-19 11:18:55,400 - __main__ - INFO - 📊 ENB data acquisition: Alpaca-daily (0 bars) + Free-sources (22 bars) + Yahoo-quote
+2025-08-19 11:18:55,400 - __main__ - INFO - 📊 Retrieved 22 bars for ENB
+2025-08-19 11:18:55,400 - enhanced_momentum_strategy - INFO - 📊 ENB data sources: Alpaca-daily (0 bars), Free-sources (22 bars), Yahoo-quote
+2025-08-19 11:18:55,416 - enhanced_momentum_strategy - INFO - 📊 No breakout setup detected for ENB
+2025-08-19 11:18:55,417 - __main__ - INFO - 🤖 AI-only evaluation for ENB (technical analysis bypassed)
+2025-08-19 11:18:55,417 - __main__ - INFO - 🧠 AI evaluation for ENB: score=0.93, confidence=0.80, recommendation=IMMEDIATE
+2025-08-19 11:18:55,417 - __main__ - INFO - ⚠️ ENB: AI validation failed - score=0.93 (need ≥0.7), confidence=0.80 (need ≥0.85), recommendation=IMMEDIATE
+2025-08-19 11:18:55,438 - __main__ - INFO - 📊 Alpaca data insufficient for AMZN, trying free sources...
+2025-08-19 11:18:55,491 - supplemental_data_provider - INFO - 📊 Yahoo Finance: Got 22 bars for AMZN
+2025-08-19 11:18:55,545 - __main__ - INFO - 📊 AMZN data acquisition: Alpaca-daily (0 bars) + Free-sources (22 bars) + Yahoo-quote
+2025-08-19 11:18:55,545 - __main__ - INFO - 📊 Retrieved 22 bars for AMZN
+2025-08-19 11:18:55,545 - enhanced_momentum_strategy - INFO - 📊 AMZN data sources: Alpaca-daily (0 bars), Free-sources (22 bars), Yahoo-quote
+2025-08-19 11:18:55,561 - enhanced_momentum_strategy - INFO - 📊 No breakout setup detected for AMZN
+2025-08-19 11:18:55,561 - __main__ - INFO - 🤖 AI-only evaluation for AMZN (technical analysis bypassed)
+2025-08-19 11:18:55,561 - __main__ - INFO - 🧠 AI evaluation for AMZN: score=0.93, confidence=0.80, recommendation=IMMEDIATE
+2025-08-19 11:18:55,561 - __main__ - INFO - ⚠️ AMZN: AI validation failed - score=0.93 (need ≥0.7), confidence=0.80 (need ≥0.85), recommendation=IMMEDIATE
+2025-08-19 11:18:55,561 - __main__ - INFO - ⏭️ SKIPPING META: Already have position
+2025-08-19 11:18:55,584 - __main__ - INFO - 📊 Managing 24 active positions...
+2025-08-19 11:18:55,781 - __main__ - INFO - 💰 PROFIT TAKING: ARRY at +17.2% - selling 41 shares (25.0%)
+2025-08-19 11:18:55,828 - __main__ - INFO - 🔍 Found 1 open orders for ARRY
+2025-08-19 11:18:55,828 - __main__ - INFO -    - unknown sell order, status: new
+2025-08-19 11:18:55,828 - __main__ - INFO - ✅ PROFIT TAKING SKIPPED: ARRY - shares held by existing orders (protected)
+2025-08-19 11:18:57,579 - __main__ - INFO - 💰 REAL PERFORMANCE (Alpaca API):
+2025-08-19 11:18:57,579 - __main__ - INFO -    Current Equity: $24,813.66
+2025-08-19 11:18:57,579 - __main__ - INFO -    Daily P&L: 🔴 $-126.99 (-0.51%)
+2025-08-19 11:18:57,579 - __main__ - INFO -    Total P&L: 🟢 $+22836.62 (+1155.09%)
+2025-08-19 11:18:57,579 - __main__ - INFO - 🚫 PDT-blocked symbols: EPRT
+2025-08-19 11:20:55,128 - intelligent_funnel - INFO - 🔍 Starting intelligent market funnel scan...
+2025-08-19 11:20:55,251 - intelligent_funnel - INFO - No live most active data, using dynamic discovery
+2025-08-19 11:20:55,251 - intelligent_funnel - INFO - 🔍 Dynamic discovery: scanning for high volume from 8461 assets
+2025-08-19 11:20:55,257 - supplemental_data_provider - INFO - 🔑 Yahoo Finance is primary data source (sustainable 1500/hour limit)
+2025-08-19 11:20:55,257 - supplemental_data_provider - INFO - 🔑 Alpha Vantage key generation available if needed...
+2025-08-19 11:20:55,360 - supplemental_data_provider - INFO - 📊 Yahoo Finance: Got 4 bars for QQQJ
+2025-08-19 11:20:55,360 - supplemental_data_provider - INFO - ✅ Supplemental data provider session closed cleanly
+2025-08-19 11:20:55,360 - supplemental_data_provider - INFO - 🔑 Yahoo Finance is primary data source (sustainable 1500/hour limit)
+2025-08-19 11:20:55,360 - supplemental_data_provider - INFO - 🔑 Alpha Vantage key generation available if needed...
+2025-08-19 11:20:55,460 - supplemental_data_provider - INFO - 📊 Yahoo Finance: Got 4 bars for POST
+2025-08-19 11:20:55,461 - supplemental_data_provider - INFO - ✅ Supplemental data provider session closed cleanly
+2025-08-19 11:20:55,461 - supplemental_data_provider - INFO - 🔑 Yahoo Finance is primary data source (sustainable 1500/hour limit)
+2025-08-19 11:20:55,461 - supplemental_data_provider - INFO - 🔑 Alpha Vantage key generation available if needed...
+2025-08-19 11:20:55,589 - supplemental_data_provider - INFO - 📊 Yahoo Finance: Got 4 bars for WTMY
+2025-08-19 11:20:55,589 - supplemental_data_provider - INFO - ✅ Supplemental data provider session closed cleanly
+2025-08-19 11:20:55,590 - supplemental_data_provider - INFO - 🔑 Yahoo Finance is primary data source (sustainable 1500/hour limit)
+2025-08-19 11:20:55,590 - supplemental_data_provider - INFO - 🔑 Alpha Vantage key generation available if needed...
+2025-08-19 11:20:55,784 - supplemental_data_provider - INFO - 📊 Yahoo Finance: Got 4 bars for MCR
+2025-08-19 11:20:55,784 - supplemental_data_provider - INFO - ✅ Supplemental data provider session closed cleanly
+2025-08-19 11:20:55,784 - supplemental_data_provider - INFO - 🔑 Yahoo Finance is primary data source (sustainable 1500/hour limit)
+2025-08-19 11:20:55,785 - supplemental_data_provider - INFO - 🔑 Alpha Vantage key generation available if needed...
+2025-08-19 11:20:55,887 - supplemental_data_provider - INFO - 📊 Yahoo Finance: Got 4 bars for CWK
+2025-08-19 11:20:55,888 - supplemental_data_provider - INFO - ✅ Supplemental data provider session closed cleanly
+2025-08-19 11:20:55,888 - supplemental_data_provider - INFO - 🔑 Yahoo Finance is primary data source (sustainable 1500/hour limit)
+2025-08-19 11:20:55,888 - supplemental_data_provider - INFO - 🔑 Alpha Vantage key generation available if needed...
+2025-08-19 11:20:56,043 - supplemental_data_provider - INFO - 📊 Yahoo Finance: Got 4 bars for CALX
+2025-08-19 11:20:56,044 - supplemental_data_provider - INFO - ✅ Supplemental data provider session closed cleanly
+2025-08-19 11:20:56,044 - supplemental_data_provider - INFO - 🔑 Yahoo Finance is primary data source (sustainable 1500/hour limit)
+2025-08-19 11:20:56,044 - supplemental_data_provider - INFO - 🔑 Alpha Vantage key generation available if needed...
+2025-08-19 11:20:56,220 - supplemental_data_provider - INFO - 📊 Yahoo Finance: Got 4 bars for PFO
+2025-08-19 11:20:56,220 - supplemental_data_provider - INFO - ✅ Supplemental data provider session closed cleanly
+2025-08-19 11:20:56,220 - supplemental_data_provider - INFO - 🔑 Yahoo Finance is primary data source (sustainable 1500/hour limit)
+2025-08-19 11:20:56,220 - supplemental_data_provider - INFO - 🔑 Alpha Vantage key generation available if needed...
+2025-08-19 11:20:56,324 - supplemental_data_provider - INFO - 📊 Yahoo Finance: Got 4 bars for MSBI
+2025-08-19 11:20:56,324 - supplemental_data_provider - INFO - ✅ Supplemental data provider session closed cleanly
+2025-08-19 11:20:56,325 - supplemental_data_provider - INFO - 🔑 Yahoo Finance is primary data source (sustainable 1500/hour limit)
+2025-08-19 11:20:56,325 - supplemental_data_provider - INFO - 🔑 Alpha Vantage key generation available if needed...
+2025-08-19 11:20:56,487 - supplemental_data_provider - INFO - 📊 Yahoo Finance: Got 4 bars for RIG
+2025-08-19 11:20:56,488 - supplemental_data_provider - INFO - ✅ Supplemental data provider session closed cleanly
+2025-08-19 11:20:56,488 - supplemental_data_provider - INFO - 🔑 Yahoo Finance is primary data source (sustainable 1500/hour limit)
+2025-08-19 11:20:56,488 - supplemental_data_provider - INFO - 🔑 Alpha Vantage key generation available if needed...
+2025-08-19 11:20:56,627 - supplemental_data_provider - INFO - 📊 Yahoo Finance: Got 4 bars for SFHG
+2025-08-19 11:20:56,627 - supplemental_data_provider - INFO - ✅ Supplemental data provider session closed cleanly
+2025-08-19 11:20:56,627 - supplemental_data_provider - INFO - 🔑 Yahoo Finance is primary data source (sustainable 1500/hour limit)
+2025-08-19 11:20:56,627 - supplemental_data_provider - INFO - 🔑 Alpha Vantage key generation available if needed...
+2025-08-19 11:20:56,731 - supplemental_data_provider - INFO - 📊 Yahoo Finance: Got 4 bars for SLDE
+2025-08-19 11:20:56,731 - supplemental_data_provider - INFO - ✅ Supplemental data provider session closed cleanly
+2025-08-19 11:20:56,731 - supplemental_data_provider - INFO - 🔑 Yahoo Finance is primary data source (sustainable 1500/hour limit)
+2025-08-19 11:20:56,731 - supplemental_data_provider - INFO - 🔑 Alpha Vantage key generation available if needed...
+2025-08-19 11:20:56,889 - supplemental_data_provider - INFO - 📊 Yahoo Finance: Got 4 bars for SEZL
+2025-08-19 11:20:56,889 - supplemental_data_provider - INFO - ✅ Supplemental data provider session closed cleanly
+2025-08-19 11:20:56,890 - supplemental_data_provider - INFO - 🔑 Yahoo Finance is primary data source (sustainable 1500/hour limit)
+2025-08-19 11:20:56,890 - supplemental_data_provider - INFO - 🔑 Alpha Vantage key generation available if needed...
+2025-08-19 11:20:57,142 - supplemental_data_provider - INFO - 📊 Yahoo Finance: Got 4 bars for TARS
+2025-08-19 11:20:57,143 - supplemental_data_provider - INFO - ✅ Supplemental data provider session closed cleanly
+2025-08-19 11:20:57,143 - supplemental_data_provider - INFO - 🔑 Yahoo Finance is primary data source (sustainable 1500/hour limit)
+2025-08-19 11:20:57,143 - supplemental_data_provider - INFO - 🔑 Alpha Vantage key generation available if needed...
+2025-08-19 11:20:57,487 - supplemental_data_provider - INFO - 📊 Yahoo Finance: Got 4 bars for SPRU
+2025-08-19 11:20:57,488 - supplemental_data_provider - INFO - ✅ Supplemental data provider session closed cleanly
+2025-08-19 11:20:57,488 - supplemental_data_provider - INFO - 🔑 Yahoo Finance is primary data source (sustainable 1500/hour limit)
+2025-08-19 11:20:57,488 - supplemental_data_provider - INFO - 🔑 Alpha Vantage key generation available if needed...
+2025-08-19 11:20:57,647 - supplemental_data_provider - INFO - 📊 Yahoo Finance: Got 3 bars for CIL
+2025-08-19 11:20:57,648 - supplemental_data_provider - INFO - ✅ Supplemental data provider session closed cleanly
+2025-08-19 11:20:57,648 - supplemental_data_provider - INFO - 🔑 Yahoo Finance is primary data source (sustainable 1500/hour limit)
+2025-08-19 11:20:57,648 - supplemental_data_provider - INFO - 🔑 Alpha Vantage key generation available if needed...
+2025-08-19 11:20:57,753 - supplemental_data_provider - INFO - 📊 Yahoo Finance: Got 4 bars for SEEM
+2025-08-19 11:20:57,754 - supplemental_data_provider - INFO - ✅ Supplemental data provider session closed cleanly
+2025-08-19 11:20:57,754 - supplemental_data_provider - INFO - 🔑 Yahoo Finance is primary data source (sustainable 1500/hour limit)
+2025-08-19 11:20:57,754 - supplemental_data_provider - INFO - 🔑 Alpha Vantage key generation available if needed...
+2025-08-19 11:20:57,871 - supplemental_data_provider - INFO - 📊 Yahoo Finance: Got 4 bars for SILA
+2025-08-19 11:20:57,872 - supplemental_data_provider - INFO - ✅ Supplemental data provider session closed cleanly
+2025-08-19 11:20:57,872 - supplemental_data_provider - INFO - 🔑 Yahoo Finance is primary data source (sustainable 1500/hour limit)
+2025-08-19 11:20:57,872 - supplemental_data_provider - INFO - 🔑 Alpha Vantage key generation available if needed...
+2025-08-19 11:20:58,008 - supplemental_data_provider - INFO - 📊 Yahoo Finance: Got 4 bars for GBUG
+2025-08-19 11:20:58,008 - supplemental_data_provider - INFO - ✅ Supplemental data provider session closed cleanly
+2025-08-19 11:20:58,008 - supplemental_data_provider - INFO - 🔑 Yahoo Finance is primary data source (sustainable 1500/hour limit)
+2025-08-19 11:20:58,008 - supplemental_data_provider - INFO - 🔑 Alpha Vantage key generation available if needed...
+2025-08-19 11:20:58,142 - supplemental_data_provider - INFO - 📊 Yahoo Finance: Got 4 bars for OCFT
+2025-08-19 11:20:58,142 - supplemental_data_provider - INFO - ✅ Supplemental data provider session closed cleanly
+2025-08-19 11:20:58,142 - supplemental_data_provider - INFO - 🔑 Yahoo Finance is primary data source (sustainable 1500/hour limit)
+2025-08-19 11:20:58,142 - supplemental_data_provider - INFO - 🔑 Alpha Vantage key generation available if needed...
+2025-08-19 11:20:58,285 - supplemental_data_provider - INFO - 📊 Yahoo Finance: Got 4 bars for UBER
+2025-08-19 11:20:58,286 - supplemental_data_provider - INFO - ✅ Supplemental data provider session closed cleanly
+2025-08-19 11:20:58,286 - supplemental_data_provider - INFO - 🔑 Yahoo Finance is primary data source (sustainable 1500/hour limit)
+2025-08-19 11:20:58,286 - supplemental_data_provider - INFO - 🔑 Alpha Vantage key generation available if needed...
+2025-08-19 11:20:58,394 - supplemental_data_provider - INFO - 📊 Yahoo Finance: Got 4 bars for OCCI
+2025-08-19 11:20:58,395 - supplemental_data_provider - INFO - ✅ Supplemental data provider session closed cleanly
+2025-08-19 11:20:58,395 - supplemental_data_provider - INFO - 🔑 Yahoo Finance is primary data source (sustainable 1500/hour limit)
+2025-08-19 11:20:58,395 - supplemental_data_provider - INFO - 🔑 Alpha Vantage key generation available if needed...
+2025-08-19 11:20:58,508 - supplemental_data_provider - INFO - 📊 Yahoo Finance: Got 4 bars for RMAX
+2025-08-19 11:20:58,508 - supplemental_data_provider - INFO - ✅ Supplemental data provider session closed cleanly
+2025-08-19 11:20:58,509 - supplemental_data_provider - INFO - 🔑 Yahoo Finance is primary data source (sustainable 1500/hour limit)
+2025-08-19 11:20:58,509 - supplemental_data_provider - INFO - 🔑 Alpha Vantage key generation available if needed...
+2025-08-19 11:20:58,651 - supplemental_data_provider - INFO - 📊 Yahoo Finance: Got 4 bars for ROST
+2025-08-19 11:20:58,651 - supplemental_data_provider - INFO - ✅ Supplemental data provider session closed cleanly
+2025-08-19 11:20:58,651 - supplemental_data_provider - INFO - 🔑 Yahoo Finance is primary data source (sustainable 1500/hour limit)
+2025-08-19 11:20:58,651 - supplemental_data_provider - INFO - 🔑 Alpha Vantage key generation available if needed...
+2025-08-19 11:20:58,754 - supplemental_data_provider - INFO - 📊 Yahoo Finance: Got 4 bars for ANTX
+2025-08-19 11:20:58,754 - supplemental_data_provider - INFO - ✅ Supplemental data provider session closed cleanly
+2025-08-19 11:20:58,754 - supplemental_data_provider - INFO - 🔑 Yahoo Finance is primary data source (sustainable 1500/hour limit)
+2025-08-19 11:20:58,755 - supplemental_data_provider - INFO - 🔑 Alpha Vantage key generation available if needed...
+2025-08-19 11:20:58,867 - supplemental_data_provider - INFO - 📊 Yahoo Finance: Got 4 bars for MNMD
+2025-08-19 11:20:58,868 - supplemental_data_provider - INFO - ✅ Supplemental data provider session closed cleanly
+2025-08-19 11:20:58,868 - supplemental_data_provider - INFO - 🔑 Yahoo Finance is primary data source (sustainable 1500/hour limit)
+2025-08-19 11:20:58,868 - supplemental_data_provider - INFO - 🔑 Alpha Vantage key generation available if needed...
+2025-08-19 11:20:58,972 - supplemental_data_provider - INFO - 📊 Yahoo Finance: Got 4 bars for URI
+2025-08-19 11:20:58,972 - supplemental_data_provider - INFO - ✅ Supplemental data provider session closed cleanly
+2025-08-19 11:20:58,973 - supplemental_data_provider - INFO - 🔑 Yahoo Finance is primary data source (sustainable 1500/hour limit)
+2025-08-19 11:20:58,973 - supplemental_data_provider - INFO - 🔑 Alpha Vantage key generation available if needed...
+2025-08-19 11:20:59,078 - supplemental_data_provider - INFO - 📊 Yahoo Finance: Got 3 bars for BRNS
+2025-08-19 11:20:59,079 - supplemental_data_provider - INFO - ✅ Supplemental data provider session closed cleanly
+2025-08-19 11:20:59,079 - supplemental_data_provider - INFO - 🔑 Yahoo Finance is primary data source (sustainable 1500/hour limit)
+2025-08-19 11:20:59,079 - supplemental_data_provider - INFO - 🔑 Alpha Vantage key generation available if needed...
+2025-08-19 11:20:59,186 - supplemental_data_provider - INFO - 📊 Yahoo Finance: Got 4 bars for CHNR
+2025-08-19 11:20:59,186 - supplemental_data_provider - INFO - ✅ Supplemental data provider session closed cleanly
+2025-08-19 11:20:59,187 - supplemental_data_provider - INFO - 🔑 Yahoo Finance is primary data source (sustainable 1500/hour limit)
+2025-08-19 11:20:59,187 - supplemental_data_provider - INFO - 🔑 Alpha Vantage key generation available if needed...
+2025-08-19 11:20:59,297 - supplemental_data_provider - INFO - 📊 Yahoo Finance: Got 4 bars for RSF
+2025-08-19 11:20:59,298 - supplemental_data_provider - INFO - ✅ Supplemental data provider session closed cleanly
+2025-08-19 11:20:59,298 - supplemental_data_provider - INFO - 🔑 Yahoo Finance is primary data source (sustainable 1500/hour limit)
+2025-08-19 11:20:59,298 - supplemental_data_provider - INFO - 🔑 Alpha Vantage key generation available if needed...
+2025-08-19 11:20:59,438 - supplemental_data_provider - INFO - 📊 Yahoo Finance: Got 4 bars for UTHY
+2025-08-19 11:20:59,438 - supplemental_data_provider - INFO - ✅ Supplemental data provider session closed cleanly
+2025-08-19 11:20:59,439 - supplemental_data_provider - INFO - 🔑 Yahoo Finance is primary data source (sustainable 1500/hour limit)
+2025-08-19 11:20:59,439 - supplemental_data_provider - INFO - 🔑 Alpha Vantage key generation available if needed...
+2025-08-19 11:20:59,573 - supplemental_data_provider - INFO - 📊 Yahoo Finance: Got 4 bars for BSL
+2025-08-19 11:20:59,573 - supplemental_data_provider - INFO - ✅ Supplemental data provider session closed cleanly
+2025-08-19 11:20:59,574 - supplemental_data_provider - INFO - 🔑 Yahoo Finance is primary data source (sustainable 1500/hour limit)
+2025-08-19 11:20:59,574 - supplemental_data_provider - INFO - 🔑 Alpha Vantage key generation available if needed...
+2025-08-19 11:20:59,711 - supplemental_data_provider - INFO - 📊 Yahoo Finance: Got 4 bars for RXRX
+2025-08-19 11:20:59,711 - supplemental_data_provider - INFO - ✅ Supplemental data provider session closed cleanly
+2025-08-19 11:20:59,711 - supplemental_data_provider - INFO - 🔑 Yahoo Finance is primary data source (sustainable 1500/hour limit)
+2025-08-19 11:20:59,711 - supplemental_data_provider - INFO - 🔑 Alpha Vantage key generation available if needed...
+2025-08-19 11:20:59,902 - supplemental_data_provider - INFO - 📊 Yahoo Finance: Got 4 bars for OII
+2025-08-19 11:20:59,902 - supplemental_data_provider - INFO - ✅ Supplemental data provider session closed cleanly
+2025-08-19 11:20:59,902 - supplemental_data_provider - INFO - 🔑 Yahoo Finance is primary data source (sustainable 1500/hour limit)
+2025-08-19 11:20:59,902 - supplemental_data_provider - INFO - 🔑 Alpha Vantage key generation available if needed...
+2025-08-19 11:21:00,259 - supplemental_data_provider - INFO - 📊 Yahoo Finance: Got 4 bars for EXTR
+2025-08-19 11:21:00,260 - supplemental_data_provider - INFO - ✅ Supplemental data provider session closed cleanly
+2025-08-19 11:21:00,260 - supplemental_data_provider - INFO - 🔑 Yahoo Finance is primary data source (sustainable 1500/hour limit)
+2025-08-19 11:21:00,261 - supplemental_data_provider - INFO - 🔑 Alpha Vantage key generation available if needed...
+2025-08-19 11:21:00,398 - supplemental_data_provider - INFO - 📊 Yahoo Finance: Got 4 bars for NPCE
+2025-08-19 11:21:00,398 - supplemental_data_provider - INFO - ✅ Supplemental data provider session closed cleanly
+2025-08-19 11:21:00,399 - supplemental_data_provider - INFO - 🔑 Yahoo Finance is primary data source (sustainable 1500/hour limit)
+2025-08-19 11:21:00,399 - supplemental_data_provider - INFO - 🔑 Alpha Vantage key generation available if needed...
+2025-08-19 11:21:00,502 - supplemental_data_provider - INFO - 📊 Yahoo Finance: Got 4 bars for ANNA
+2025-08-19 11:21:00,502 - supplemental_data_provider - INFO - ✅ Supplemental data provider session closed cleanly
+2025-08-19 11:21:00,502 - supplemental_data_provider - INFO - 🔑 Yahoo Finance is primary data source (sustainable 1500/hour limit)
+2025-08-19 11:21:00,502 - supplemental_data_provider - INFO - 🔑 Alpha Vantage key generation available if needed...
+2025-08-19 11:21:00,659 - supplemental_data_provider - INFO - 📊 Yahoo Finance: Got 4 bars for YSPY
+2025-08-19 11:21:00,659 - supplemental_data_provider - INFO - ✅ Supplemental data provider session closed cleanly
+2025-08-19 11:21:00,659 - supplemental_data_provider - INFO - 🔑 Yahoo Finance is primary data source (sustainable 1500/hour limit)
+2025-08-19 11:21:00,660 - supplemental_data_provider - INFO - 🔑 Alpha Vantage key generation available if needed...
+2025-08-19 11:21:00,771 - supplemental_data_provider - INFO - 📊 Yahoo Finance: Got 4 bars for SKYH
+2025-08-19 11:21:00,771 - supplemental_data_provider - INFO - ✅ Supplemental data provider session closed cleanly
+2025-08-19 11:21:00,772 - supplemental_data_provider - INFO - 🔑 Yahoo Finance is primary data source (sustainable 1500/hour limit)
+2025-08-19 11:21:00,772 - supplemental_data_provider - INFO - 🔑 Alpha Vantage key generation available if needed...
+2025-08-19 11:21:00,947 - supplemental_data_provider - INFO - 📊 Yahoo Finance: Got 4 bars for FULT
+2025-08-19 11:21:00,947 - supplemental_data_provider - INFO - ✅ Supplemental data provider session closed cleanly
+2025-08-19 11:21:00,947 - supplemental_data_provider - INFO - 🔑 Yahoo Finance is primary data source (sustainable 1500/hour limit)
+2025-08-19 11:21:00,947 - supplemental_data_provider - INFO - 🔑 Alpha Vantage key generation available if needed...
+2025-08-19 11:21:01,121 - supplemental_data_provider - INFO - 📊 Yahoo Finance: Got 4 bars for ARX
+2025-08-19 11:21:01,121 - supplemental_data_provider - INFO - ✅ Supplemental data provider session closed cleanly
+2025-08-19 11:21:01,121 - supplemental_data_provider - INFO - 🔑 Yahoo Finance is primary data source (sustainable 1500/hour limit)
+2025-08-19 11:21:01,121 - supplemental_data_provider - INFO - 🔑 Alpha Vantage key generation available if needed...
+2025-08-19 11:21:01,230 - supplemental_data_provider - INFO - 📊 Yahoo Finance: Got 4 bars for FSTR
+2025-08-19 11:21:01,230 - supplemental_data_provider - INFO - ✅ Supplemental data provider session closed cleanly
+2025-08-19 11:21:01,231 - supplemental_data_provider - INFO - 🔑 Yahoo Finance is primary data source (sustainable 1500/hour limit)
+2025-08-19 11:21:01,231 - supplemental_data_provider - INFO - 🔑 Alpha Vantage key generation available if needed...
+2025-08-19 11:21:01,325 - supplemental_data_provider - INFO - 📊 Yahoo Finance: Got 4 bars for ETEC
+2025-08-19 11:21:01,325 - supplemental_data_provider - INFO - ✅ Supplemental data provider session closed cleanly
+2025-08-19 11:21:01,326 - supplemental_data_provider - INFO - 🔑 Yahoo Finance is primary data source (sustainable 1500/hour limit)
+2025-08-19 11:21:01,326 - supplemental_data_provider - INFO - 🔑 Alpha Vantage key generation available if needed...
+2025-08-19 11:21:01,442 - supplemental_data_provider - INFO - 📊 Yahoo Finance: Got 4 bars for MASS
+2025-08-19 11:21:01,442 - supplemental_data_provider - INFO - ✅ Supplemental data provider session closed cleanly
+2025-08-19 11:21:01,443 - supplemental_data_provider - INFO - 🔑 Yahoo Finance is primary data source (sustainable 1500/hour limit)
+2025-08-19 11:21:01,443 - supplemental_data_provider - INFO - 🔑 Alpha Vantage key generation available if needed...
+2025-08-19 11:21:01,560 - supplemental_data_provider - INFO - 📊 Yahoo Finance: Got 4 bars for KBR
+2025-08-19 11:21:01,560 - supplemental_data_provider - INFO - ✅ Supplemental data provider session closed cleanly
+2025-08-19 11:21:01,560 - supplemental_data_provider - INFO - 🔑 Yahoo Finance is primary data source (sustainable 1500/hour limit)
+2025-08-19 11:21:01,560 - supplemental_data_provider - INFO - 🔑 Alpha Vantage key generation available if needed...
+2025-08-19 11:21:01,664 - supplemental_data_provider - INFO - 📊 Yahoo Finance: Got 4 bars for AIZN
+2025-08-19 11:21:01,664 - supplemental_data_provider - INFO - ✅ Supplemental data provider session closed cleanly
+2025-08-19 11:21:01,665 - supplemental_data_provider - INFO - 🔑 Yahoo Finance is primary data source (sustainable 1500/hour limit)
+2025-08-19 11:21:01,665 - supplemental_data_provider - INFO - 🔑 Alpha Vantage key generation available if needed...
+2025-08-19 11:21:01,780 - supplemental_data_provider - INFO - 📊 Yahoo Finance: Got 4 bars for ANSC
+2025-08-19 11:21:01,781 - supplemental_data_provider - INFO - ✅ Supplemental data provider session closed cleanly
+2025-08-19 11:21:01,781 - supplemental_data_provider - INFO - 🔑 Yahoo Finance is primary data source (sustainable 1500/hour limit)
+2025-08-19 11:21:01,781 - supplemental_data_provider - INFO - 🔑 Alpha Vantage key generation available if needed...
+2025-08-19 11:21:01,918 - supplemental_data_provider - INFO - 📊 Yahoo Finance: Got 4 bars for THO
+2025-08-19 11:21:01,919 - supplemental_data_provider - INFO - ✅ Supplemental data provider session closed cleanly
+2025-08-19 11:21:01,919 - supplemental_data_provider - INFO - 🔑 Yahoo Finance is primary data source (sustainable 1500/hour limit)
+2025-08-19 11:21:01,919 - supplemental_data_provider - INFO - 🔑 Alpha Vantage key generation available if needed...
+2025-08-19 11:21:02,064 - supplemental_data_provider - INFO - 📊 Yahoo Finance: Got 4 bars for SAIC
+2025-08-19 11:21:02,064 - supplemental_data_provider - INFO - ✅ Supplemental data provider session closed cleanly
+2025-08-19 11:21:02,064 - supplemental_data_provider - INFO - 🔑 Yahoo Finance is primary data source (sustainable 1500/hour limit)
+2025-08-19 11:21:02,064 - supplemental_data_provider - INFO - 🔑 Alpha Vantage key generation available if needed...
+2025-08-19 11:21:02,287 - supplemental_data_provider - INFO - 📊 Yahoo Finance: Got 4 bars for MYE
+2025-08-19 11:21:02,288 - supplemental_data_provider - INFO - ✅ Supplemental data provider session closed cleanly
+2025-08-19 11:21:02,288 - supplemental_data_provider - INFO - 🔑 Yahoo Finance is primary data source (sustainable 1500/hour limit)
+2025-08-19 11:21:02,288 - supplemental_data_provider - INFO - 🔑 Alpha Vantage key generation available if needed...
+2025-08-19 11:21:02,461 - supplemental_data_provider - INFO - 📊 Yahoo Finance: Got 4 bars for RFI
+2025-08-19 11:21:02,461 - supplemental_data_provider - INFO - ✅ Supplemental data provider session closed cleanly
+2025-08-19 11:21:02,462 - supplemental_data_provider - INFO - 🔑 Yahoo Finance is primary data source (sustainable 1500/hour limit)
+2025-08-19 11:21:02,462 - supplemental_data_provider - INFO - 🔑 Alpha Vantage key generation available if needed...
+2025-08-19 11:21:02,601 - supplemental_data_provider - INFO - 📊 Yahoo Finance: Got 4 bars for ESCA
+2025-08-19 11:21:02,602 - supplemental_data_provider - INFO - ✅ Supplemental data provider session closed cleanly
+2025-08-19 11:21:02,602 - supplemental_data_provider - INFO - 🔑 Yahoo Finance is primary data source (sustainable 1500/hour limit)
+2025-08-19 11:21:02,602 - supplemental_data_provider - INFO - 🔑 Alpha Vantage key generation available if needed...
+2025-08-19 11:21:02,718 - supplemental_data_provider - INFO - 📊 Yahoo Finance: Got 4 bars for APG
+2025-08-19 11:21:02,719 - supplemental_data_provider - INFO - ✅ Supplemental data provider session closed cleanly
+2025-08-19 11:21:02,719 - supplemental_data_provider - INFO - 🔑 Yahoo Finance is primary data source (sustainable 1500/hour limit)
+2025-08-19 11:21:02,719 - supplemental_data_provider - INFO - 🔑 Alpha Vantage key generation available if needed...
+2025-08-19 11:21:02,835 - supplemental_data_provider - INFO - 📊 Yahoo Finance: Got 4 bars for HRI
+2025-08-19 11:21:02,835 - supplemental_data_provider - INFO - ✅ Supplemental data provider session closed cleanly
+2025-08-19 11:21:02,835 - supplemental_data_provider - INFO - 🔑 Yahoo Finance is primary data source (sustainable 1500/hour limit)
+2025-08-19 11:21:02,835 - supplemental_data_provider - INFO - 🔑 Alpha Vantage key generation available if needed...
+2025-08-19 11:21:02,940 - supplemental_data_provider - INFO - 📊 Yahoo Finance: Got 4 bars for ULTA
+2025-08-19 11:21:02,941 - supplemental_data_provider - INFO - ✅ Supplemental data provider session closed cleanly
+2025-08-19 11:21:02,941 - supplemental_data_provider - INFO - 🔑 Yahoo Finance is primary data source (sustainable 1500/hour limit)
+2025-08-19 11:21:02,941 - supplemental_data_provider - INFO - 🔑 Alpha Vantage key generation available if needed...
+2025-08-19 11:21:03,042 - supplemental_data_provider - INFO - 📊 Yahoo Finance: Got 4 bars for SCNI
+2025-08-19 11:21:03,042 - supplemental_data_provider - INFO - ✅ Supplemental data provider session closed cleanly
+2025-08-19 11:21:03,043 - supplemental_data_provider - INFO - 🔑 Yahoo Finance is primary data source (sustainable 1500/hour limit)
+2025-08-19 11:21:03,043 - supplemental_data_provider - INFO - 🔑 Alpha Vantage key generation available if needed...
+2025-08-19 11:21:03,166 - supplemental_data_provider - INFO - 📊 Yahoo Finance: Got 4 bars for TFSL
+2025-08-19 11:21:03,166 - supplemental_data_provider - INFO - ✅ Supplemental data provider session closed cleanly
+2025-08-19 11:21:03,167 - supplemental_data_provider - INFO - 🔑 Yahoo Finance is primary data source (sustainable 1500/hour limit)
+2025-08-19 11:21:03,167 - supplemental_data_provider - INFO - 🔑 Alpha Vantage key generation available if needed...
+2025-08-19 11:21:03,267 - supplemental_data_provider - INFO - 📊 Yahoo Finance: Got 4 bars for AMRC
+2025-08-19 11:21:03,267 - supplemental_data_provider - INFO - ✅ Supplemental data provider session closed cleanly
+2025-08-19 11:21:03,267 - supplemental_data_provider - INFO - 🔑 Yahoo Finance is primary data source (sustainable 1500/hour limit)
+2025-08-19 11:21:03,268 - supplemental_data_provider - INFO - 🔑 Alpha Vantage key generation available if needed...
+2025-08-19 11:21:03,378 - supplemental_data_provider - INFO - 📊 Yahoo Finance: Got 4 bars for QTOP
+2025-08-19 11:21:03,378 - supplemental_data_provider - INFO - ✅ Supplemental data provider session closed cleanly
+2025-08-19 11:21:03,378 - supplemental_data_provider - INFO - 🔑 Yahoo Finance is primary data source (sustainable 1500/hour limit)
+2025-08-19 11:21:03,378 - supplemental_data_provider - INFO - 🔑 Alpha Vantage key generation available if needed...
+2025-08-19 11:21:03,533 - supplemental_data_provider - INFO - 📊 Yahoo Finance: Got 4 bars for GAB
+2025-08-19 11:21:03,533 - supplemental_data_provider - INFO - ✅ Supplemental data provider session closed cleanly
+2025-08-19 11:21:03,534 - supplemental_data_provider - INFO - 🔑 Yahoo Finance is primary data source (sustainable 1500/hour limit)
+2025-08-19 11:21:03,534 - supplemental_data_provider - INFO - 🔑 Alpha Vantage key generation available if needed...
+2025-08-19 11:21:03,638 - supplemental_data_provider - INFO - 📊 Yahoo Finance: Got 4 bars for MDAI
+2025-08-19 11:21:03,639 - supplemental_data_provider - INFO - ✅ Supplemental data provider session closed cleanly
+2025-08-19 11:21:03,639 - supplemental_data_provider - INFO - 🔑 Yahoo Finance is primary data source (sustainable 1500/hour limit)
+2025-08-19 11:21:03,639 - supplemental_data_provider - INFO - 🔑 Alpha Vantage key generation available if needed...
+2025-08-19 11:21:03,795 - supplemental_data_provider - INFO - 📊 Yahoo Finance: Got 4 bars for AAPD
+2025-08-19 11:21:03,795 - supplemental_data_provider - INFO - ✅ Supplemental data provider session closed cleanly
+2025-08-19 11:21:03,795 - supplemental_data_provider - INFO - 🔑 Yahoo Finance is primary data source (sustainable 1500/hour limit)
+2025-08-19 11:21:03,795 - supplemental_data_provider - INFO - 🔑 Alpha Vantage key generation available if needed...
+2025-08-19 11:21:03,984 - supplemental_data_provider - INFO - 📊 Yahoo Finance: Got 4 bars for PEBK
+2025-08-19 11:21:03,984 - supplemental_data_provider - INFO - ✅ Supplemental data provider session closed cleanly
+2025-08-19 11:21:03,984 - supplemental_data_provider - INFO - 🔑 Yahoo Finance is primary data source (sustainable 1500/hour limit)
+2025-08-19 11:21:03,985 - supplemental_data_provider - INFO - 🔑 Alpha Vantage key generation available if needed...
+2025-08-19 11:21:04,120 - supplemental_data_provider - INFO - 📊 Yahoo Finance: Got 3 bars for WTMU
+2025-08-19 11:21:04,120 - supplemental_data_provider - INFO - ✅ Supplemental data provider session closed cleanly
+2025-08-19 11:21:04,120 - supplemental_data_provider - INFO - 🔑 Yahoo Finance is primary data source (sustainable 1500/hour limit)
+2025-08-19 11:21:04,120 - supplemental_data_provider - INFO - 🔑 Alpha Vantage key generation available if needed...
+2025-08-19 11:21:04,450 - supplemental_data_provider - INFO - 📊 Yahoo Finance: Got 4 bars for PHM
+2025-08-19 11:21:04,450 - supplemental_data_provider - INFO - ✅ Supplemental data provider session closed cleanly
+2025-08-19 11:21:04,451 - supplemental_data_provider - INFO - 🔑 Yahoo Finance is primary data source (sustainable 1500/hour limit)
+2025-08-19 11:21:04,451 - supplemental_data_provider - INFO - 🔑 Alpha Vantage key generation available if needed...
+2025-08-19 11:21:04,555 - supplemental_data_provider - INFO - 📊 Yahoo Finance: Got 4 bars for VRAX
+2025-08-19 11:21:04,555 - supplemental_data_provider - INFO - ✅ Supplemental data provider session closed cleanly
+2025-08-19 11:21:04,555 - supplemental_data_provider - INFO - 🔑 Yahoo Finance is primary data source (sustainable 1500/hour limit)
+2025-08-19 11:21:04,555 - supplemental_data_provider - INFO - 🔑 Alpha Vantage key generation available if needed...
+2025-08-19 11:21:04,713 - supplemental_data_provider - INFO - 📊 Yahoo Finance: Got 4 bars for USA
+2025-08-19 11:21:04,714 - supplemental_data_provider - INFO - ✅ Supplemental data provider session closed cleanly
+2025-08-19 11:21:04,714 - supplemental_data_provider - INFO - 🔑 Yahoo Finance is primary data source (sustainable 1500/hour limit)
+2025-08-19 11:21:04,714 - supplemental_data_provider - INFO - 🔑 Alpha Vantage key generation available if needed...
+2025-08-19 11:21:04,825 - supplemental_data_provider - INFO - 📊 Yahoo Finance: Got 4 bars for JEPQ
+2025-08-19 11:21:04,826 - supplemental_data_provider - INFO - ✅ Supplemental data provider session closed cleanly
+2025-08-19 11:21:04,826 - supplemental_data_provider - INFO - 🔑 Yahoo Finance is primary data source (sustainable 1500/hour limit)
+2025-08-19 11:21:04,826 - supplemental_data_provider - INFO - 🔑 Alpha Vantage key generation available if needed...
+2025-08-19 11:21:05,379 - supplemental_data_provider - INFO - 📊 Yahoo Finance: Got 4 bars for BIOX
+2025-08-19 11:21:05,379 - supplemental_data_provider - INFO - ✅ Supplemental data provider session closed cleanly
+2025-08-19 11:21:05,379 - supplemental_data_provider - INFO - 🔑 Yahoo Finance is primary data source (sustainable 1500/hour limit)
+2025-08-19 11:21:05,379 - supplemental_data_provider - INFO - 🔑 Alpha Vantage key generation available if needed...
+2025-08-19 11:21:05,847 - supplemental_data_provider - INFO - 📊 Fallback data: Got 1 bars for TAXS
+2025-08-19 11:21:05,848 - supplemental_data_provider - INFO - ✅ Supplemental data provider session closed cleanly
+2025-08-19 11:21:05,848 - supplemental_data_provider - INFO - 🔑 Yahoo Finance is primary data source (sustainable 1500/hour limit)
+2025-08-19 11:21:05,848 - supplemental_data_provider - INFO - 🔑 Alpha Vantage key generation available if needed...
+2025-08-19 11:21:05,946 - supplemental_data_provider - INFO - 📊 Yahoo Finance: Got 4 bars for SLGL
+2025-08-19 11:21:05,947 - supplemental_data_provider - INFO - ✅ Supplemental data provider session closed cleanly
+2025-08-19 11:21:05,947 - supplemental_data_provider - INFO - 🔑 Yahoo Finance is primary data source (sustainable 1500/hour limit)
+2025-08-19 11:21:05,947 - supplemental_data_provider - INFO - 🔑 Alpha Vantage key generation available if needed...
+2025-08-19 11:21:06,106 - supplemental_data_provider - INFO - 📊 Yahoo Finance: Got 4 bars for LOAR
+2025-08-19 11:21:06,106 - supplemental_data_provider - INFO - ✅ Supplemental data provider session closed cleanly
+2025-08-19 11:21:06,106 - supplemental_data_provider - INFO - 🔑 Yahoo Finance is primary data source (sustainable 1500/hour limit)
+2025-08-19 11:21:06,106 - supplemental_data_provider - INFO - 🔑 Alpha Vantage key generation available if needed...
+2025-08-19 11:21:06,210 - supplemental_data_provider - INFO - 📊 Yahoo Finance: Got 3 bars for WTIP
+2025-08-19 11:21:06,211 - supplemental_data_provider - INFO - ✅ Supplemental data provider session closed cleanly
+2025-08-19 11:21:06,211 - supplemental_data_provider - INFO - 🔑 Yahoo Finance is primary data source (sustainable 1500/hour limit)
+2025-08-19 11:21:06,211 - supplemental_data_provider - INFO - 🔑 Alpha Vantage key generation available if needed...
+2025-08-19 11:21:06,410 - supplemental_data_provider - INFO - 📊 Yahoo Finance: Got 4 bars for PLPC
+2025-08-19 11:21:06,410 - supplemental_data_provider - INFO - ✅ Supplemental data provider session closed cleanly
+2025-08-19 11:21:06,410 - supplemental_data_provider - INFO - 🔑 Yahoo Finance is primary data source (sustainable 1500/hour limit)
+2025-08-19 11:21:06,410 - supplemental_data_provider - INFO - 🔑 Alpha Vantage key generation available if needed...
+2025-08-19 11:21:06,580 - supplemental_data_provider - INFO - 📊 Yahoo Finance: Got 4 bars for CEE
+2025-08-19 11:21:06,580 - supplemental_data_provider - INFO - ✅ Supplemental data provider session closed cleanly
+2025-08-19 11:21:06,580 - supplemental_data_provider - INFO - 🔑 Yahoo Finance is primary data source (sustainable 1500/hour limit)
+2025-08-19 11:21:06,581 - supplemental_data_provider - INFO - 🔑 Alpha Vantage key generation available if needed...
+2025-08-19 11:21:06,688 - supplemental_data_provider - INFO - 📊 Yahoo Finance: Got 4 bars for IGIC
+2025-08-19 11:21:06,688 - supplemental_data_provider - INFO - ✅ Supplemental data provider session closed cleanly
+2025-08-19 11:21:06,688 - intelligent_funnel - INFO - 🎯 Dynamic volume: found 0 high-volume opportunities
+2025-08-19 11:21:07,650 - intelligent_funnel - INFO - No unusual volume patterns detected
+2025-08-19 11:21:07,650 - intelligent_funnel - INFO - 📊 Broad scan: 5 API calls → 15 candidates
+2025-08-19 11:21:07,650 - intelligent_funnel - INFO - 📊 Broad scan: 5 API calls → 15 candidates
+2025-08-19 11:21:07,650 - intelligent_funnel - INFO - 📊 Broad scan found 15 candidates
+2025-08-19 11:21:07,814 - intelligent_funnel - INFO - 🧠 AI filtering: 15 → 4 candidates (regime: bull_trending)
+2025-08-19 11:21:07,814 - intelligent_funnel - INFO - 🏢 Sector diversification: {'EQUITY': 3, 'TECHNOLOGY': 1}
+2025-08-19 11:21:07,814 - intelligent_funnel - INFO - 🧠 AI filtering selected 4 candidates
+2025-08-19 11:21:07,815 - intelligent_funnel - INFO - 🎯 Deep dive: 8 API calls → 4 opportunities
+2025-08-19 11:21:07,815 - intelligent_funnel - INFO - 🎯 Deep dive analysis identified 4 opportunities
+2025-08-19 11:21:07,816 - intelligent_funnel - INFO - 📝 Watchlist updated: -0 +3 = 9 total
+2025-08-19 11:21:07,816 - intelligent_funnel - INFO - ✅ Funnel scan completed in 12.69s, found 4 opportunities
+2025-08-19 11:21:07,816 - __main__ - INFO - 🎯 TOP OPPORTUNITIES:
+2025-08-19 11:21:07,816 - __main__ - INFO -    1. ESEA: 1.00 (news_movers) - High-impact news (POSITIVE)
+2025-08-19 11:21:07,816 - __main__ - INFO -    2. OVV: 0.88 (news_movers) - general news
+2025-08-19 11:21:07,816 - __main__ - INFO -    3. AAPL: 0.88 (news_movers) - general news
+2025-08-19 11:21:07,816 - __main__ - INFO -    4. PTCT: 0.78 (news_movers) - High-impact news (NEGATIVE)
+2025-08-19 11:21:07,816 - __main__ - INFO - 🔍 Analyzing 4 opportunities for trade signals...
+2025-08-19 11:21:07,838 - __main__ - INFO - 🔒 Existing positions: META, XLC, SNDK, WB, CLBT, ARRY, EPD, AMD, TRMD, AAPL, BHC, DELL, CELH, NU, GOOG, NTST, INTC, ARKF, GOOGL, TMHC, GRFS, BZ, CBRE, HOOD - will skip these symbols
+2025-08-19 11:21:07,861 - api_gateway - WARNING - ⚠️ SIP data unavailable for ESEA (free tier limitation)
+2025-08-19 11:21:07,861 - __main__ - INFO - 📊 Alpaca data insufficient for ESEA, trying free sources...
+2025-08-19 11:21:07,979 - supplemental_data_provider - INFO - 📊 Yahoo Finance: Got 22 bars for ESEA
+2025-08-19 11:21:08,025 - __main__ - INFO - 📊 ESEA data acquisition: Alpaca-daily (0 bars) + Free-sources (22 bars) + Yahoo-quote
+2025-08-19 11:21:08,025 - __main__ - INFO - 📊 Retrieved 22 bars for ESEA
+2025-08-19 11:21:08,025 - enhanced_momentum_strategy - INFO - 📊 ESEA data sources: Alpaca-daily (0 bars), Free-sources (22 bars), Yahoo-quote
+2025-08-19 11:21:08,041 - enhanced_momentum_strategy - INFO - 📊 No breakout setup detected for ESEA
+2025-08-19 11:21:08,041 - __main__ - INFO - 🤖 AI-only evaluation for ESEA (technical analysis bypassed)
+2025-08-19 11:21:08,042 - __main__ - INFO - 🧠 AI evaluation for ESEA: score=0.95, confidence=0.90, recommendation=IMMEDIATE
+2025-08-19 11:21:08,107 - __main__ - INFO - 🚀 AGGRESSIVE POSITION FOR 50% RETURNS: ESEA = 40.0% of account
+2025-08-19 11:21:08,107 - order_executor - INFO - 🎯 Executing signal: ESEA BUY
+2025-08-19 11:21:08,130 - order_executor - WARNING - ⚠️ Position size capped at $1241.00 (5% of account)
+2025-08-19 11:21:08,152 - order_executor - INFO - 📊 Position sizing: account=$24,819.96, size_pct=40.000, value=$1241.00, price=$60.40, quantity=20
+2025-08-19 11:21:08,172 - order_executor - INFO - 📊 Position details: 20 shares, $1,241.00 value
+2025-08-19 11:21:08,219 - api_gateway - ERROR - PDT VIOLATION: Order blocked for ESEA - Pattern Day Trading rules exceeded
+2025-08-19 11:21:08,219 - api_gateway - ERROR - Account equity below $25,000 and day trade limit reached
+2025-08-19 11:21:08,219 - order_executor - ERROR - Failed to submit bracket order for ESEA
+2025-08-19 11:21:08,219 - order_executor - ERROR - ❌ Trade execution failed: ESEA
+2025-08-19 11:21:08,238 - api_gateway - WARNING - ⚠️ SIP data unavailable for OVV (free tier limitation)
+2025-08-19 11:21:08,238 - __main__ - INFO - 📊 Alpaca data insufficient for OVV, trying free sources...
+2025-08-19 11:21:08,317 - supplemental_data_provider - INFO - 📊 Yahoo Finance: Got 22 bars for OVV
+2025-08-19 11:21:08,401 - __main__ - INFO - 📊 OVV data acquisition: Alpaca-daily (0 bars) + Free-sources (22 bars) + Yahoo-quote
+2025-08-19 11:21:08,401 - __main__ - INFO - 📊 Retrieved 22 bars for OVV
+2025-08-19 11:21:08,401 - enhanced_momentum_strategy - INFO - 📊 OVV data sources: Alpaca-daily (0 bars), Free-sources (22 bars), Yahoo-quote
+2025-08-19 11:21:08,417 - enhanced_momentum_strategy - INFO - 📊 No breakout setup detected for OVV
+2025-08-19 11:21:08,418 - __main__ - INFO - 🤖 AI-only evaluation for OVV (technical analysis bypassed)
+2025-08-19 11:21:08,418 - __main__ - INFO - 🧠 AI evaluation for OVV: score=0.93, confidence=0.80, recommendation=IMMEDIATE
+2025-08-19 11:21:08,418 - __main__ - INFO - ⚠️ OVV: AI validation failed - score=0.93 (need ≥0.7), confidence=0.80 (need ≥0.85), recommendation=IMMEDIATE
+2025-08-19 11:21:08,418 - __main__ - INFO - ⏭️ SKIPPING AAPL: Already have position
+2025-08-19 11:21:08,439 - api_gateway - WARNING - ⚠️ SIP data unavailable for PTCT (free tier limitation)
+2025-08-19 11:21:08,439 - __main__ - INFO - 📊 Alpaca data insufficient for PTCT, trying free sources...
+2025-08-19 11:21:08,492 - supplemental_data_provider - INFO - 📊 Yahoo Finance: Got 22 bars for PTCT
+2025-08-19 11:21:08,544 - __main__ - INFO - 📊 PTCT data acquisition: Alpaca-daily (0 bars) + Free-sources (22 bars) + Yahoo-quote
+2025-08-19 11:21:08,544 - __main__ - INFO - 📊 Retrieved 22 bars for PTCT
+2025-08-19 11:21:08,544 - enhanced_momentum_strategy - INFO - 📊 PTCT data sources: Alpaca-daily (0 bars), Free-sources (22 bars), Yahoo-quote
+2025-08-19 11:21:08,559 - enhanced_momentum_strategy - INFO - 📊 No breakout setup detected for PTCT
+2025-08-19 11:21:08,559 - __main__ - INFO - 🤖 AI-only evaluation for PTCT (technical analysis bypassed)
+2025-08-19 11:21:08,559 - __main__ - INFO - 🧠 AI evaluation for PTCT: score=0.83, confidence=0.72, recommendation=PATIENT
+2025-08-19 11:21:08,559 - __main__ - INFO - ⚠️ PTCT: AI validation failed - score=0.83 (need ≥0.7), confidence=0.72 (need ≥0.85), recommendation=PATIENT
+2025-08-19 11:21:08,583 - __main__ - INFO - 📊 Managing 24 active positions...
+2025-08-19 11:21:08,779 - __main__ - INFO - 💰 PROFIT TAKING: ARRY at +17.6% - selling 41 shares (25.0%)
+2025-08-19 11:21:08,829 - __main__ - INFO - 🔍 Found 1 open orders for ARRY
+2025-08-19 11:21:08,829 - __main__ - INFO -    - unknown sell order, status: new
+2025-08-19 11:21:08,829 - __main__ - INFO - ✅ PROFIT TAKING SKIPPED: ARRY - shares held by existing orders (protected)
+2025-08-19 11:21:10,475 - __main__ - INFO - 💰 REAL PERFORMANCE (Alpaca API):
+2025-08-19 11:21:10,475 - __main__ - INFO -    Current Equity: $24,817.37
+2025-08-19 11:21:10,475 - __main__ - INFO -    Daily P&L: 🔴 $-123.28 (-0.49%)
+2025-08-19 11:21:10,476 - __main__ - INFO -    Total P&L: 🟢 $+22840.33 (+1155.28%)
+2025-08-19 11:21:10,476 - __main__ - INFO - 🚫 PDT-blocked symbols: EPRT, ESEA
+2025-08-19 11:21:10,495 - __main__ - INFO - ⏳ Running enhanced position aging management...
+2025-08-19 11:21:10,615 - __main__ - INFO - 📊 Position Aging Analysis: 1 actions identified
+2025-08-19 11:21:10,616 - __main__ - WARNING - 🔄 POSITION AGING ACTION: NU - TURNOVER_OPTIMIZATION
+2025-08-19 11:21:10,616 - __main__ - WARNING -    Reason: Large stagnant position (+0.5%) - optimize capital allocation
+2025-08-19 11:21:10,616 - __main__ - WARNING -    Selling 31 shares (33.0% of position)
+2025-08-19 11:21:10,687 - __main__ - INFO - 🔍 Found 1 open orders for NU
+2025-08-19 11:21:10,687 - __main__ - INFO -    - unknown sell order, status: new
+2025-08-19 11:21:10,687 - __main__ - INFO - ✅ AGING MANAGEMENT SKIPPED: NU - shares held by existing orders (protected)
+2025-08-19 11:21:10,687 - __main__ - INFO - ✅ Position aging management complete: 0/1 actions executed
+2025-08-19 11:21:10,688 - __main__ - INFO - 📋 1 aging actions deferred to next cycle
+2025-08-19 11:22:55,224 - __main__ - INFO - 🔍 Analyzing 4 opportunities for trade signals...
+2025-08-19 11:22:55,249 - __main__ - INFO - 🔒 Existing positions: META, XLC, SNDK, WB, CLBT, ARRY, EPD, AMD, TRMD, AAPL, BHC, DELL, CELH, NU, GOOG, NTST, INTC, ARKF, GOOGL, TMHC, GRFS, BZ, CBRE, HOOD - will skip these symbols
+2025-08-19 11:22:55,249 - __main__ - WARNING - 🚫 SKIPPING ESEA: PDT-blocked from previous violation
+2025-08-19 11:22:55,324 - __main__ - INFO - 📊 Alpaca data insufficient for OVV, trying free sources...
+2025-08-19 11:22:56,358 - supplemental_data_provider - INFO - 📊 Yahoo Finance: Got 22 bars for OVV
+2025-08-19 11:22:57,727 - __main__ - INFO - 🛑 Shutdown signal received
+2025-08-19 11:22:57,727 - __main__ - INFO - 🛑 GRACEFUL SHUTDOWN INITIATED
+2025-08-19 11:22:57,727 - __main__ - INFO - 📊 Generating final performance report...
+2025-08-19 11:22:57,774 - __main__ - INFO - 📊 FINAL PERFORMANCE: {
+  "report_timestamp": "2025-08-19T11:22:57.774560",
+  "session_start_time": "2025-08-19T11:04:11.284378",
+  "session_start_value": 24796.15,
+  "initial_account_value": 1977.04,
+  "current_equity": 24806.13,
+  "daily_pnl": -134.52000000000044,
+  "daily_pnl_pct": -0.5393604416885703,
+  "total_pnl": 22829.09,
+  "total_pnl_pct": 1154.7105774288837,
+  "session_pnl": 9.979999999999563,
+  "session_pnl_pct": 0.04024818368980492,
+  "positions_count": 24,
+  "total_position_value": 23761.340499999995,
+  "total_unrealized_pnl": 64.5405,
+  "data_source": "Alpaca API (Real Data)"
+}
+2025-08-19 11:22:57,775 - supplemental_data_provider - INFO - ✅ Supplemental data provider session closed cleanly
+2025-08-19 11:22:57,976 - ai_market_intelligence - INFO - ✅ AI Assistant session closed cleanly
+2025-08-19 11:22:57,977 - api_gateway - INFO - ✅ API Gateway session closed cleanly
+2025-08-19 11:22:57,977 - __main__ - INFO - ✅ SYSTEM SHUTDOWN COMPLETE
+
+🛑 Ctrl+C detected - initiating graceful shutdown...

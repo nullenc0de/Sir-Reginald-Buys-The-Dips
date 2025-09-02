@@ -19,10 +19,30 @@ class MarketStatusManager:
         self.market_status = None
         self.last_status_check = None
         self.extended_hours_monitoring = True  # Monitor positions outside market hours
+        self.api_gateway = None  # Will be set by main.py
         
     async def should_start_trading(self) -> Tuple[bool, str]:
         """Determine if trading should start"""
         try:
+            # First check with Alpaca API for accurate market status (includes holidays)
+            if self.api_gateway:
+                try:
+                    clock = await self.api_gateway.get_clock()
+                    if clock and hasattr(clock, 'is_open'):
+                        if not clock.is_open:
+                            # Get more specific reason
+                            current_time = datetime.now()
+                            if current_time.weekday() >= 5:
+                                return False, "Weekend - market closed"
+                            else:
+                                # It's a weekday but market is closed - likely a holiday
+                                return False, "Market closed (holiday or special closure)"
+                        else:
+                            return True, "Market is open for trading"
+                except Exception as api_error:
+                    logger.warning(f"API clock check failed, falling back to time-based check: {api_error}")
+            
+            # Fallback to time-based checking if API is unavailable
             current_time = datetime.now()
             
             # Check if it's a weekday
@@ -42,8 +62,9 @@ class MarketStatusManager:
             if current_time_only > market_close:
                 return False, "Market closed for the day"
                 
-            # Market is open
-            return True, "Market is open for trading"
+            # Market is open (but this is just time-based, may not account for holidays)
+            logger.warning("Using time-based market check - holidays not detected")
+            return True, "Market appears open (time-based check)"
             
         except Exception as e:
             logger.error(f"Market status check failed: {e}")

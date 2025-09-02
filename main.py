@@ -53,6 +53,7 @@ class IntelligentTradingSystem:
         self.gateway = ResilientAlpacaGateway()
         self.supplemental_data = SupplementalDataProvider()
         self.market_status = MarketStatusManager(self.gateway.trading_client)
+        self.market_status.api_gateway = self.gateway  # Provide access to API for holiday checks
         self.ai_assistant = EnhancedAIAssistant()
         self.strategy_engine = EventDrivenMomentumStrategy()
         self.market_funnel = IntelligentMarketFunnel(
