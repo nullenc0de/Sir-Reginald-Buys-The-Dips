@@ -370,7 +370,7 @@ chmod +x setup.sh
 # The script will automatically:
 # 1. Install Ollama
 # 2. Start the Ollama service
-# 3. Download Llama3 13B model
+# 3. Download Llama3.1 8B model (llama3.1:latest)
 # 4. Configure environment variables
 ```
 
@@ -399,11 +399,12 @@ curl http://localhost:11434/api/version
 
 **Step 3: Download AI Model**
 ```bash
-# Download Llama3 13B (recommended for trading analysis)
-ollama pull llama3:13b
+# Download latest Llama3.1 8B (recommended - best balance of performance/speed)
+ollama pull llama3.1:latest
 
 # Alternative models for different hardware:
-ollama pull llama3:8b          # For systems with 16GB RAM
+ollama pull llama3.1:8b        # Same as latest, explicit version
+ollama pull llama3:13b         # Larger model for high-RAM systems (32GB+)
 ollama pull mistral:7b         # Lighter alternative
 ollama pull codellama:13b      # For code analysis tasks
 ```
@@ -414,35 +415,47 @@ ollama pull codellama:13b      # For code analysis tasks
 ollama list
 
 # Test model with a simple query
-ollama run llama3:13b "Analyze the current market sentiment for AAPL stock"
+ollama run llama3.1:latest "Analyze the current market sentiment for AAPL stock"
 ```
 
 ### Model Selection Guide
 
-#### Llama3 13B (Default - Recommended)
+#### Llama3.1 8B (Default - Recommended)
+```bash
+ollama pull llama3.1:latest
+```
+- **Best For**: Optimal balance of performance and speed for trading analysis
+- **RAM Required**: 8-16GB minimum, performs well on most systems
+- **Size**: ~4.9GB download
+- **Strengths**: Fast inference, excellent reasoning, updated training data
+- **Trade-off**: None - this is the sweet spot for most users
+
+#### Llama3 13B (High-Performance Option)
 ```bash
 ollama pull llama3:13b
 ```
-- **Best For**: Comprehensive market analysis and trading insights
+- **Best For**: Maximum analysis depth when you have abundant RAM
 - **RAM Required**: 24GB minimum, 32GB optimal
-- **Strengths**: Excellent reasoning, nuanced financial analysis
-- **Trade-off**: Slower inference on lower-end hardware
+- **Size**: ~7.4GB download
+- **Strengths**: Most comprehensive analysis, complex reasoning
+- **Trade-off**: Slower inference, higher memory requirements
 
-#### Llama3 8B (Budget Option)
+#### Mistral 7B (Lightweight Option)
 ```bash
-ollama pull llama3:8b
+ollama pull mistral:7b
 ```
-- **Best For**: Systems with limited RAM (16-24GB)
-- **RAM Required**: 16GB minimum
-- **Strengths**: Faster inference, still capable analysis
-- **Trade-off**: Less detailed analysis than 13B model
+- **Best For**: Very resource-constrained systems or development
+- **RAM Required**: 8GB minimum
+- **Size**: ~4.1GB download
+- **Strengths**: Fastest inference, lowest resource usage
+- **Trade-off**: Less sophisticated market analysis
 
 #### Model Performance Comparison
-| Model | RAM Usage | Inference Speed | Analysis Quality | Best Use Case |
-|-------|-----------|----------------|------------------|---------------|
-| Llama3 13B | 24-32GB | Slower | Excellent | Production trading |
-| Llama3 8B | 16-24GB | Faster | Very Good | Resource-constrained systems |
-| Mistral 7B | 12-16GB | Fastest | Good | Development/testing |
+| Model | RAM Usage | Size | Inference Speed | Analysis Quality | Best Use Case |
+|-------|-----------|------|----------------|------------------|---------------|
+| **Llama3.1 8B** ⭐ | **8-16GB** | **4.9GB** | **Fast** | **Excellent** | **Production trading (recommended)** |
+| Llama3 13B | 24-32GB | 7.4GB | Slower | Outstanding | High-end systems |
+| Mistral 7B | 8-12GB | 4.1GB | Fastest | Good | Development/testing |
 
 ### Configuration in Trading System
 
@@ -450,7 +463,7 @@ ollama pull llama3:8b
 ```bash
 # Add to your .env file
 OLLAMA_URL=http://localhost:11434
-AI_MODEL=llama3:13b
+AI_MODEL=llama3.1:latest
 AI_CONFIDENCE_THRESHOLD=0.65
 AI_ANALYSIS_TIMEOUT=30
 ```
@@ -460,26 +473,31 @@ AI_ANALYSIS_TIMEOUT=30
 # AI Configuration
 AI_CONFIG = {
     'ollama_url': 'http://localhost:11434',
-    'model_name': 'llama3:13b',
+    'model_name': 'llama3.1:latest',
     'confidence_threshold': 0.65,
     'max_tokens': 1000,
     'temperature': 0.1,          # Lower = more consistent
-    'timeout_seconds': 30,
+    'timeout_seconds': 25,       # Optimized for 8B model
     'retry_attempts': 3,
     'context_window': 4000
 }
 
 # Model-specific optimizations
 MODEL_CONFIGS = {
+    'llama3.1:latest': {
+        'optimal_temperature': 0.1,
+        'max_context': 4000,
+        'recommended_timeout': 25
+    },
     'llama3:13b': {
         'optimal_temperature': 0.1,
         'max_context': 4000,
         'recommended_timeout': 30
     },
-    'llama3:8b': {
+    'mistral:7b': {
         'optimal_temperature': 0.15,
         'max_context': 3000,
-        'recommended_timeout': 20
+        'recommended_timeout': 15
     }
 }
 ```
@@ -510,7 +528,7 @@ netstat -tlnp | grep 11434
 # Test API endpoint
 curl -X POST http://localhost:11434/api/generate \
   -H "Content-Type: application/json" \
-  -d '{"model": "llama3:13b", "prompt": "Hello", "stream": false}'
+  -d '{"model": "llama3.1:latest", "prompt": "Hello", "stream": false}'
 ```
 
 #### Service Auto-Start Configuration
