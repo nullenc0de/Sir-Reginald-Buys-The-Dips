@@ -376,6 +376,14 @@ ollama serve &
 ollama pull llama3:13b
 ```
 
+💡 **For comprehensive Ollama setup and troubleshooting**, see the dedicated section in [WIKI.md](WIKI.md#ollama-ai-setup--configuration):
+- Complete installation guides for all platforms
+- Model selection and hardware requirements  
+- Service management and auto-start configuration
+- Performance optimization and GPU acceleration
+- Detailed troubleshooting for common issues
+- Integration examples and prompt engineering
+
 **Permission Issues**:
 ```bash
 # Fix script permissions

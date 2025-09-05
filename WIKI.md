@@ -7,15 +7,16 @@ A comprehensive guide to understanding, deploying, and maintaining a production-
 1. [System Overview](#system-overview)
 2. [Architecture Deep Dive](#architecture-deep-dive)
 3. [Installation & Setup](#installation--setup)
-4. [Configuration Guide](#configuration-guide)
-5. [Trading Strategies](#trading-strategies)
-6. [Safety Systems](#safety-systems)
-7. [Monitoring & Alerting](#monitoring--alerting)
-8. [API Integration](#api-integration)
-9. [Troubleshooting](#troubleshooting)
-10. [Advanced Topics](#advanced-topics)
-11. [Performance Analysis](#performance-analysis)
-12. [Security Considerations](#security-considerations)
+4. [Ollama AI Setup & Configuration](#ollama-ai-setup--configuration)
+5. [Configuration Guide](#configuration-guide)
+6. [Trading Strategies](#trading-strategies)
+7. [Safety Systems](#safety-systems)
+8. [Monitoring & Alerting](#monitoring--alerting)
+9. [API Integration](#api-integration)
+10. [Troubleshooting](#troubleshooting)
+11. [Advanced Topics](#advanced-topics)
+12. [Performance Analysis](#performance-analysis)
+13. [Security Considerations](#security-considerations)
 
 ---
 
@@ -327,6 +328,565 @@ Expected output:
 [INFO] ✅ Alpaca API Gateway initialized successfully
 [INFO] 📊 Position reconciliation complete: 0 positions found
 [INFO] 🎯 Trading system ready - monitoring market...
+```
+
+---
+
+## Ollama AI Setup & Configuration
+
+### What is Ollama?
+
+Ollama is a local AI inference engine that allows you to run large language models directly on your machine. The trading system uses Ollama with the Llama3 13B model to provide intelligent market analysis, strategy evaluation, and trading decision support without relying on external API services.
+
+### Why Use Ollama for Trading?
+
+- **Privacy**: All AI analysis happens locally - no data sent to external services
+- **Cost-Effective**: No API costs for AI inference once set up
+- **Reliability**: No dependency on external AI service uptime
+- **Customization**: Full control over model parameters and responses
+- **Security**: Trading data and analysis remain on your local system
+
+### System Requirements for Ollama
+
+**Minimum Requirements**:
+- **RAM**: 16GB minimum (32GB recommended for Llama3 13B)
+- **CPU**: 8+ cores recommended for reasonable inference speed
+- **Storage**: 25GB free space for Llama3 13B model
+- **OS**: Linux, macOS, or Windows
+
+**Performance Expectations**:
+- **16GB RAM**: Can run Llama3 8B smoothly, 13B will be slow
+- **32GB RAM**: Optimal for Llama3 13B with good response times
+- **64GB RAM**: Can run larger models or multiple models simultaneously
+
+### Installation Process
+
+#### Option 1: Automatic Installation (Recommended)
+```bash
+# Use the provided setup script
+chmod +x setup.sh
+./setup.sh
+
+# The script will automatically:
+# 1. Install Ollama
+# 2. Start the Ollama service
+# 3. Download Llama3 13B model
+# 4. Configure environment variables
+```
+
+#### Option 2: Manual Installation
+
+**Step 1: Install Ollama**
+```bash
+# Linux & macOS
+curl -fsSL https://ollama.ai/install.sh | sh
+
+# Windows (PowerShell)
+# Visit https://ollama.ai/download and download the installer
+```
+
+**Step 2: Start Ollama Service**
+```bash
+# Start the Ollama service (runs on localhost:11434 by default)
+ollama serve
+
+# Or run in background
+ollama serve &
+
+# Check if service is running
+curl http://localhost:11434/api/version
+```
+
+**Step 3: Download AI Model**
+```bash
+# Download Llama3 13B (recommended for trading analysis)
+ollama pull llama3:13b
+
+# Alternative models for different hardware:
+ollama pull llama3:8b          # For systems with 16GB RAM
+ollama pull mistral:7b         # Lighter alternative
+ollama pull codellama:13b      # For code analysis tasks
+```
+
+**Step 4: Verify Installation**
+```bash
+# List installed models
+ollama list
+
+# Test model with a simple query
+ollama run llama3:13b "Analyze the current market sentiment for AAPL stock"
+```
+
+### Model Selection Guide
+
+#### Llama3 13B (Default - Recommended)
+```bash
+ollama pull llama3:13b
+```
+- **Best For**: Comprehensive market analysis and trading insights
+- **RAM Required**: 24GB minimum, 32GB optimal
+- **Strengths**: Excellent reasoning, nuanced financial analysis
+- **Trade-off**: Slower inference on lower-end hardware
+
+#### Llama3 8B (Budget Option)
+```bash
+ollama pull llama3:8b
+```
+- **Best For**: Systems with limited RAM (16-24GB)
+- **RAM Required**: 16GB minimum
+- **Strengths**: Faster inference, still capable analysis
+- **Trade-off**: Less detailed analysis than 13B model
+
+#### Model Performance Comparison
+| Model | RAM Usage | Inference Speed | Analysis Quality | Best Use Case |
+|-------|-----------|----------------|------------------|---------------|
+| Llama3 13B | 24-32GB | Slower | Excellent | Production trading |
+| Llama3 8B | 16-24GB | Faster | Very Good | Resource-constrained systems |
+| Mistral 7B | 12-16GB | Fastest | Good | Development/testing |
+
+### Configuration in Trading System
+
+#### Environment Variables
+```bash
+# Add to your .env file
+OLLAMA_URL=http://localhost:11434
+AI_MODEL=llama3:13b
+AI_CONFIDENCE_THRESHOLD=0.65
+AI_ANALYSIS_TIMEOUT=30
+```
+
+#### Config.py Settings
+```python
+# AI Configuration
+AI_CONFIG = {
+    'ollama_url': 'http://localhost:11434',
+    'model_name': 'llama3:13b',
+    'confidence_threshold': 0.65,
+    'max_tokens': 1000,
+    'temperature': 0.1,          # Lower = more consistent
+    'timeout_seconds': 30,
+    'retry_attempts': 3,
+    'context_window': 4000
+}
+
+# Model-specific optimizations
+MODEL_CONFIGS = {
+    'llama3:13b': {
+        'optimal_temperature': 0.1,
+        'max_context': 4000,
+        'recommended_timeout': 30
+    },
+    'llama3:8b': {
+        'optimal_temperature': 0.15,
+        'max_context': 3000,
+        'recommended_timeout': 20
+    }
+}
+```
+
+### Service Management
+
+#### Starting Ollama Service
+```bash
+# Method 1: Direct command
+ollama serve
+
+# Method 2: Background process
+nohup ollama serve > ollama.log 2>&1 &
+
+# Method 3: Systemd service (Linux)
+sudo systemctl enable ollama
+sudo systemctl start ollama
+```
+
+#### Monitoring Service Health
+```bash
+# Check if Ollama is running
+ps aux | grep ollama
+
+# Check port availability
+netstat -tlnp | grep 11434
+
+# Test API endpoint
+curl -X POST http://localhost:11434/api/generate \
+  -H "Content-Type: application/json" \
+  -d '{"model": "llama3:13b", "prompt": "Hello", "stream": false}'
+```
+
+#### Service Auto-Start Configuration
+
+**Linux (systemd)**:
+```bash
+# Create service file
+sudo tee /etc/systemd/system/ollama.service > /dev/null <<EOF
+[Unit]
+Description=Ollama AI Service
+After=network.target
+
+[Service]
+Type=simple
+User=ollama
+ExecStart=/usr/local/bin/ollama serve
+Restart=always
+RestartSec=5
+Environment="OLLAMA_HOST=0.0.0.0:11434"
+
+[Install]
+WantedBy=multi-user.target
+EOF
+
+# Enable and start
+sudo systemctl daemon-reload
+sudo systemctl enable ollama
+sudo systemctl start ollama
+```
+
+**macOS (LaunchAgent)**:
+```bash
+# Create launch agent
+mkdir -p ~/Library/LaunchAgents
+cat > ~/Library/LaunchAgents/com.ollama.server.plist <<EOF
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Label</key>
+    <string>com.ollama.server</string>
+    <key>ProgramArguments</key>
+    <array>
+        <string>/usr/local/bin/ollama</string>
+        <string>serve</string>
+    </array>
+    <key>RunAtLoad</key>
+    <true/>
+    <key>KeepAlive</key>
+    <true/>
+</dict>
+</plist>
+EOF
+
+# Load the agent
+launchctl load ~/Library/LaunchAgents/com.ollama.server.plist
+```
+
+### Performance Optimization
+
+#### Hardware Optimization
+```bash
+# Check current resource usage
+ollama ps
+
+# Monitor system resources during inference
+htop
+# or
+watch -n 1 'ps aux | grep ollama; free -h; nvidia-smi'
+```
+
+#### Model Performance Tuning
+```python
+# In your trading system configuration
+OLLAMA_PERFORMANCE_CONFIG = {
+    'numa_topology': True,          # Use NUMA-aware memory allocation
+    'thread_count': 8,              # Match to your CPU cores
+    'gpu_acceleration': True,       # Use GPU if available
+    'memory_lock': True,           # Lock model in memory
+    'batch_size': 1,               # Process one request at a time for trading
+    'context_size': 2048           # Optimize for trading analysis length
+}
+```
+
+#### GPU Acceleration (Optional)
+```bash
+# Check GPU compatibility
+nvidia-smi
+
+# Install CUDA support (if using NVIDIA GPU)
+# Ollama will automatically use GPU if available
+ollama run llama3:13b --gpu
+```
+
+### Integration with Trading System
+
+#### AI Analysis Pipeline
+```python
+class OllamaAnalyzer:
+    def __init__(self, config):
+        self.ollama_url = config['ollama_url']
+        self.model_name = config['model_name']
+        self.session = aiohttp.ClientSession()
+    
+    async def analyze_market_opportunity(self, symbol, market_data):
+        prompt = self._create_analysis_prompt(symbol, market_data)
+        
+        try:
+            response = await self._query_ollama(prompt)
+            analysis = self._parse_ai_response(response)
+            return analysis
+        except Exception as e:
+            logger.error(f"Ollama analysis failed for {symbol}: {e}")
+            return self._fallback_analysis()
+    
+    async def _query_ollama(self, prompt):
+        payload = {
+            "model": self.model_name,
+            "prompt": prompt,
+            "stream": False,
+            "options": {
+                "temperature": 0.1,
+                "top_p": 0.9,
+                "max_tokens": 500
+            }
+        }
+        
+        async with self.session.post(
+            f"{self.ollama_url}/api/generate",
+            json=payload,
+            timeout=aiohttp.ClientTimeout(total=30)
+        ) as response:
+            result = await response.json()
+            return result.get('response', '')
+```
+
+#### Prompt Engineering for Trading
+```python
+def _create_analysis_prompt(self, symbol, market_data):
+    return f"""
+    As a professional quantitative analyst, analyze this trading opportunity:
+    
+    Symbol: {symbol}
+    Current Price: ${market_data['price']:.2f}
+    Price Change: {market_data['price_change']:.2%}
+    Volume: {market_data['volume']:,}
+    RSI: {market_data.get('rsi', 'N/A')}
+    
+    Market Context:
+    - SPY Performance: {market_data.get('spy_performance', 'N/A')}
+    - VIX Level: {market_data.get('vix', 'N/A')}
+    - Sector Performance: {market_data.get('sector_perf', 'N/A')}
+    
+    Provide analysis in this format:
+    RECOMMENDATION: [BUY/SELL/HOLD]
+    CONFIDENCE: [0-100]%
+    KEY_FACTORS: [2-3 main factors]
+    RISK_LEVEL: [LOW/MEDIUM/HIGH]
+    REASONING: [2-3 sentences]
+    
+    Be concise and data-driven.
+    """
+```
+
+### Troubleshooting Common Issues
+
+#### Issue 1: Ollama Service Won't Start
+**Symptoms**:
+```
+Error: Failed to connect to Ollama service
+Connection refused: http://localhost:11434
+```
+
+**Solutions**:
+```bash
+# Check if port is already in use
+lsof -i :11434
+
+# Kill existing processes
+pkill ollama
+
+# Start fresh
+ollama serve
+
+# Check logs
+tail -f ~/.ollama/logs/server.log
+```
+
+#### Issue 2: Model Download Fails
+**Symptoms**:
+```
+Error: Failed to pull model 'llama3:13b'
+Network timeout or connection error
+```
+
+**Solutions**:
+```bash
+# Check internet connectivity
+curl -I https://ollama.ai
+
+# Try downloading with verbose output
+OLLAMA_DEBUG=1 ollama pull llama3:13b
+
+# Alternative: Download in parts
+ollama pull llama3:8b  # Smaller model first
+ollama pull llama3:13b  # Then larger model
+```
+
+#### Issue 3: Insufficient Memory
+**Symptoms**:
+```
+Error: Not enough memory to load model
+OOM (Out of Memory) errors
+```
+
+**Solutions**:
+```bash
+# Check current memory usage
+free -h
+
+# Try smaller model
+ollama pull llama3:8b
+ollama run llama3:8b
+
+# Optimize system memory
+sudo sysctl vm.swappiness=10
+sudo sysctl vm.overcommit_memory=1
+```
+
+#### Issue 4: Slow Inference Times
+**Symptoms**:
+- AI responses taking >60 seconds
+- Trading system timeouts
+
+**Solutions**:
+```bash
+# Check CPU usage
+htop
+
+# Reduce model context size
+# In your config:
+AI_CONFIG['context_window'] = 2048  # Reduce from 4000
+
+# Use smaller, faster model
+ollama pull mistral:7b
+# Update config to use mistral:7b
+```
+
+#### Issue 5: Trading System Can't Connect to Ollama
+**Symptoms**:
+```
+ERROR - AI Analysis failed: Connection timeout
+WARNING - Falling back to basic strategy
+```
+
+**Diagnostic Steps**:
+```python
+# Test connection manually
+import aiohttp
+import asyncio
+
+async def test_ollama_connection():
+    try:
+        async with aiohttp.ClientSession() as session:
+            async with session.get('http://localhost:11434/api/version') as response:
+                if response.status == 200:
+                    print("✅ Ollama connection successful")
+                    data = await response.json()
+                    print(f"Version: {data}")
+                else:
+                    print(f"❌ Ollama returned status {response.status}")
+    except Exception as e:
+        print(f"❌ Connection failed: {e}")
+
+# Run the test
+asyncio.run(test_ollama_connection())
+```
+
+**Solutions**:
+```bash
+# Verify Ollama is running
+curl http://localhost:11434/api/version
+
+# Check firewall settings
+sudo ufw allow 11434
+
+# Restart trading system with debug logging
+OLLAMA_DEBUG=1 python main.py
+```
+
+### Model Management
+
+#### Updating Models
+```bash
+# Check for model updates
+ollama list
+
+# Update to latest version
+ollama pull llama3:13b
+
+# Remove old model versions
+ollama rm llama3:13b-old
+```
+
+#### Model Storage Management
+```bash
+# Check disk usage
+du -sh ~/.ollama
+
+# List all models with sizes
+ollama list
+
+# Remove unused models
+ollama rm model_name
+
+# Cleanup incomplete downloads
+ollama prune
+```
+
+#### Backup and Migration
+```bash
+# Export model for backup/transfer
+ollama save llama3:13b > llama3-13b-backup.tar
+
+# Import model from backup
+ollama load < llama3-13b-backup.tar
+
+# Copy models between systems
+rsync -av ~/.ollama/models/ user@remote:~/.ollama/models/
+```
+
+### Monitoring and Maintenance
+
+#### Health Checks
+```python
+async def check_ollama_health():
+    health_checks = {
+        'service_running': await check_service_status(),
+        'api_responsive': await test_api_endpoint(),
+        'model_loaded': await verify_model_availability(),
+        'memory_usage': check_memory_consumption(),
+        'response_time': await measure_inference_speed()
+    }
+    return health_checks
+
+async def automated_ollama_monitoring():
+    while True:
+        health = await check_ollama_health()
+        if not all(health.values()):
+            logger.warning(f"Ollama health check failed: {health}")
+            await attempt_service_recovery()
+        
+        await asyncio.sleep(300)  # Check every 5 minutes
+```
+
+#### Performance Metrics
+```bash
+# Monitor Ollama performance
+watch -n 1 'echo "=== Ollama Status ==="; \
+curl -s http://localhost:11434/api/ps | jq .; \
+echo ""; \
+echo "=== System Resources ==="; \
+free -h | grep Mem; \
+top -bn1 | grep ollama'
+```
+
+#### Log Management
+```bash
+# View Ollama logs
+tail -f ~/.ollama/logs/server.log
+
+# Rotate large log files
+logrotate -f /etc/logrotate.d/ollama
+
+# Archive old logs
+find ~/.ollama/logs -name "*.log" -mtime +7 -exec gzip {} \;
 ```
 
 ---
