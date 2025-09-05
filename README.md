@@ -134,7 +134,11 @@ PAPER_TRADING=true
 
 ### 4. Start Trading System
 ```bash
+# Option 1: Direct start
 python main.py
+
+# Option 2: After running setup.sh, use generated script
+# ./start_trading.sh  (created by setup.sh)
 ```
 
 **⚠️ IMPORTANT**: Always start with paper trading! Set `PAPER_TRADING=true` in your `.env` file.
@@ -237,7 +241,7 @@ FUNNEL_CONFIG = {
 **AI Configuration**:
 ```python
 AI_CONFIG = {
-    'model_name': 'llama3:13b',
+    'model_name': 'llama3.1:latest',
     'confidence_threshold': 0.65,      # 65% AI confidence minimum
     'market_regime_analysis_frequency': 30, # Every 30 minutes
 }
@@ -282,17 +286,15 @@ ai-trading-system/
 ├── market_status_manager.py        # Market hours
 ├── performance_tracker.py          # Performance metrics
 ├── requirements.txt                # Dependencies
-├── setup.sh                       # Setup script
-├── start_trading.sh               # Startup script
-├── validate_system.py             # System validation
-├── monitor_system.py              # Real-time monitoring
+├── setup.sh                       # Setup script (creates additional scripts)
+├── main.py                        # Primary trading system
 └── README.md                      # Documentation
 ```
 
 ### Dependencies
 - **Python 3.8+**
 - **Alpaca API** for market data and trading
-- **Ollama** with Llama3 13B for AI analysis
+- **Ollama** with Llama3.1 8B for AI analysis
 - **TA-Lib** for technical indicators
 - **asyncio/aiohttp** for async operations
 
@@ -320,7 +322,11 @@ ai-trading-system/
 
 ### Real-Time Monitoring
 ```bash
-python monitor_system.py
+# Monitor via system logs
+tail -f intelligent_trading_system.log
+
+# OR use generated monitoring script (if you ran setup.sh):
+# python monitor_system.py  (created by setup.sh)
 ```
 
 ### Log Categories
@@ -361,8 +367,11 @@ python monitor_system.py
 
 **API Connection Issues**:
 ```bash
-# Check credentials
-python validate_system.py
+# Check credentials (if you ran setup.sh)
+# python validate_system.py  (created by setup.sh)
+
+# OR check configuration directly:
+python -c "from config import validate_configuration; validate_configuration()"
 
 # Verify network connectivity
 curl -I https://paper-api.alpaca.markets
@@ -373,7 +382,7 @@ curl -I https://paper-api.alpaca.markets
 # Restart Ollama service
 pkill ollama
 ollama serve &
-ollama pull llama3:13b
+ollama pull llama3.1:latest
 ```
 
 💡 **For comprehensive Ollama setup and troubleshooting**, see the dedicated section in [WIKI.md](WIKI.md#ollama-ai-setup--configuration):
