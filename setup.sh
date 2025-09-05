@@ -126,8 +126,8 @@ else
 fi
 
 # Pull required model
-print_step "Downloading Llama3 13B model (this may take a while)..."
-ollama pull llama3:13b
+print_step "Downloading Llama3.1 latest model (this may take a while)..."
+ollama pull llama3.1:latest
 print_status "AI model downloaded ✓"
 
 # Create environment file template
@@ -144,7 +144,7 @@ MAX_POSITION_RISK_PCT=2.0
 
 # AI Configuration
 OLLAMA_URL=http://localhost:11434
-AI_MODEL=llama3:13b
+AI_MODEL=llama3.1:latest
 
 # Logging
 LOG_LEVEL=INFO

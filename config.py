@@ -263,7 +263,7 @@ RISK_CONFIG = {
 AI_CONFIG = {
     # Ollama settings
     'ollama_url': 'http://localhost:11434',
-    'model_name': 'llama3:latest',
+    'model_name': 'llama3.1:latest',
     'request_timeout': 30,
     'temperature': 0.1,
     'max_tokens': 2500,

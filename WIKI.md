@@ -475,9 +475,9 @@ AI_CONFIG = {
     'ollama_url': 'http://localhost:11434',
     'model_name': 'llama3.1:latest',
     'confidence_threshold': 0.65,
-    'max_tokens': 1000,
+    'max_tokens': 2500,
     'temperature': 0.1,          # Lower = more consistent
-    'timeout_seconds': 25,       # Optimized for 8B model
+    'timeout_seconds': 30,       # Actual system timeout
     'retry_attempts': 3,
     'context_window': 4000
 }
@@ -487,7 +487,7 @@ MODEL_CONFIGS = {
     'llama3.1:latest': {
         'optimal_temperature': 0.1,
         'max_context': 4000,
-        'recommended_timeout': 25
+        'recommended_timeout': 30
     },
     'llama3:13b': {
         'optimal_temperature': 0.1,
