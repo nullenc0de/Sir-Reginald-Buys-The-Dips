@@ -453,27 +453,112 @@ class IntelligentTradingSystem:
             self.logger.error(f"Error checking if emergency stop should be skipped for {symbol}: {e}")
             return None
     
+    async def _cleanup_all_stale_orders(self) -> int:
+        """Clean up all stale orders across all symbols"""
+        try:
+            open_orders = await self.gateway.get_orders(status='open')
+            if not open_orders:
+                return 0
+
+            stale_orders_cancelled = 0
+            from datetime import timezone
+
+            for order in open_orders:
+                order_id = getattr(order, 'id', None)
+                symbol = getattr(order, 'symbol', 'unknown')
+                status = getattr(order, 'status', 'unknown')
+                created_at = getattr(order, 'created_at', None)
+                order_type = getattr(order, 'type', 'unknown')
+                side = getattr(order, 'side', 'unknown')
+
+                # Check if order is stale (status 'new' for more than 5 minutes)
+                if status == 'new' and created_at and order_id:
+                    try:
+                        order_age = (datetime.now(timezone.utc) - created_at).total_seconds()
+                        if order_age > 300:  # 5 minutes
+                            self.logger.warning(f"🧹 STALE ORDER FOUND: {symbol} - {order_type} {side} order, age: {order_age/60:.1f} minutes")
+
+                            # Cancel the stale order
+                            cancel_response = await self.gateway.cancel_order(order_id)
+                            if cancel_response and cancel_response.success:
+                                self.logger.info(f"   ✅ Cancelled stale order {order_id} for {symbol}")
+                                stale_orders_cancelled += 1
+                            else:
+                                self.logger.warning(f"   ⚠️ Failed to cancel stale order {order_id} for {symbol}")
+                    except Exception as e:
+                        self.logger.error(f"   ❌ Error processing order {order_id}: {e}")
+
+            if stale_orders_cancelled > 0:
+                self.logger.info(f"🧹 CLEANUP COMPLETE: Cancelled {stale_orders_cancelled} stale orders")
+                await asyncio.sleep(1)  # Brief pause to ensure cancellations are processed
+
+            return stale_orders_cancelled
+
+        except Exception as e:
+            self.logger.error(f"Error during stale order cleanup: {e}")
+            return 0
+
     async def _check_actual_open_orders_for_symbol(self, symbol: str) -> bool:
         """Check if there are actually open orders for a symbol that would hold shares"""
         try:
             open_orders = await self.gateway.get_orders(status='open')
             if not open_orders:
                 return False
-                
+
             symbol_orders = [order for order in open_orders if getattr(order, 'symbol', None) == symbol]
-            
+
             if symbol_orders:
                 self.logger.info(f"🔍 Found {len(symbol_orders)} open orders for {symbol}")
+                stale_orders_cancelled = 0
+                remaining_orders = []
+
                 for order in symbol_orders:
                     order_type = getattr(order, 'type', 'unknown')
-                    side = getattr(order, 'side', 'unknown') 
+                    side = getattr(order, 'side', 'unknown')
                     status = getattr(order, 'status', 'unknown')
-                    self.logger.info(f"   - {order_type} {side} order, status: {status}")
-                return True
+                    created_at = getattr(order, 'created_at', None)
+                    order_id = getattr(order, 'id', None)
+
+                    # Check if order is stale (status 'new' for more than 5 minutes)
+                    is_stale = False
+                    if status == 'new' and created_at:
+                        try:
+                            from datetime import timezone
+                            order_age = (datetime.now(timezone.utc) - created_at).total_seconds()
+                            if order_age > 300:  # 5 minutes
+                                is_stale = True
+                                self.logger.warning(f"   - STALE ORDER: {order_type} {side} order, status: {status}, age: {order_age/60:.1f} minutes")
+                        except:
+                            pass
+
+                    if is_stale and order_id:
+                        # Cancel stale order
+                        try:
+                            cancel_response = await self.gateway.cancel_order(order_id)
+                            if cancel_response and cancel_response.success:
+                                self.logger.info(f"   ✅ Cancelled stale order {order_id}")
+                                stale_orders_cancelled += 1
+                            else:
+                                self.logger.warning(f"   ⚠️ Failed to cancel stale order {order_id}")
+                                remaining_orders.append(order)
+                        except Exception as e:
+                            self.logger.error(f"   ❌ Error cancelling stale order {order_id}: {e}")
+                            remaining_orders.append(order)
+                    else:
+                        self.logger.info(f"   - {order_type} {side} order, status: {status}")
+                        remaining_orders.append(order)
+
+                if stale_orders_cancelled > 0:
+                    self.logger.info(f"🧹 Cancelled {stale_orders_cancelled} stale orders for {symbol}")
+                    # Brief pause to ensure cancellations are processed
+                    await asyncio.sleep(1)
+
+                # Return True only if there are still valid orders after cleanup
+                return len(remaining_orders) > 0
             else:
                 self.logger.info(f"🔍 No open orders found for {symbol} - shares should be available")
                 return False
-                
+
         except Exception as e:
             self.logger.error(f"Error checking orders for {symbol}: {e}")
             return True  # Conservative: assume orders exist if we can't check
@@ -1410,6 +1495,16 @@ class IntelligentTradingSystem:
                 except Exception as e:
                     self.logger.error(f"❌ Signal generation error: {e}")
                 
+                # === STALE ORDER CLEANUP (CRITICAL) ===
+                # Clean up stale orders that may be blocking profit-taking
+                if loop_count % 5 == 0:  # Every 5th iteration
+                    try:
+                        stale_cancelled = await self._cleanup_all_stale_orders()
+                        if stale_cancelled > 0:
+                            self.logger.info(f"🧹 Cleaned up {stale_cancelled} stale orders blocking trades")
+                    except Exception as e:
+                        self.logger.error(f"❌ Stale order cleanup error: {e}")
+
                 # === POSITION MANAGEMENT (CRITICAL - MUST NOT FAIL) ===
                 try:
                     await self._manage_existing_positions()
