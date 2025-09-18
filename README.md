@@ -9,7 +9,6 @@ Transform your trading with production-grade AI algorithms that have generated *
 [![GitHub Stars](https://img.shields.io/github/stars/nullenc0de/Sir-Reginald-Buys-The-Dips?style=for-the-badge&logo=github&color=yellow)](https://github.com/nullenc0de/Sir-Reginald-Buys-The-Dips/stargazers)
 [![GitHub Forks](https://img.shields.io/github/forks/nullenc0de/Sir-Reginald-Buys-The-Dips?style=for-the-badge&logo=github&color=blue)](https://github.com/nullenc0de/Sir-Reginald-Buys-The-Dips/network)
 [![License](https://img.shields.io/github/license/nullenc0de/Sir-Reginald-Buys-The-Dips?style=for-the-badge&color=green)](LICENSE)
-[![Discord](https://img.shields.io/discord/XXXXXX?style=for-the-badge&logo=discord&color=purple)](https://discord.gg/sir-reginald)
 
 ### 🎯 **Why Sir Reginald?**
 
@@ -431,7 +430,6 @@ Sir Reginald thrives on community contributions! Join thousands of algorithmic t
 ### Getting Help & Support
 
 - **📖 Documentation**: Comprehensive [Wiki](../../wiki) with setup guides
-- **💬 Community Chat**: Join our [Discord](https://discord.gg/sir-reginald) for real-time support
 - **🐛 Bug Reports**: [GitHub Issues](https://github.com/nullenc0de/Sir-Reginald-Buys-The-Dips/issues) for technical problems
 - **💡 Feature Requests**: [GitHub Discussions](https://github.com/nullenc0de/Sir-Reginald-Buys-The-Dips/discussions) for strategy ideas
 
@@ -454,16 +452,15 @@ While Sir Reginald's core remains **free and open source forever**, we offer pre
 - **Professional Services**: Setup, optimization, and ongoing support
 - **SLA Guarantees**: 99.9% uptime with 24/7 monitoring
 
-📧 **Interested in premium features?** Email: [sir.reginald@trading.ai](mailto:sir.reginald@trading.ai)
+📧 **Interested in premium features?** Follow development updates in [GitHub Discussions](https://github.com/nullenc0de/Sir-Reginald-Buys-The-Dips/discussions)
 
 ### 🤝 Contributing
 
 We welcome contributions from the community! Here's how to get started:
 
 1. **Fork the repository** and create your feature branch
-2. **Join our Discord** to discuss your ideas with the community
-3. **Test thoroughly** in paper trading mode (required!)
-4. **Submit a pull request** with clear documentation
+2. **Test thoroughly** in paper trading mode (required!)
+3. **Submit a pull request** with clear documentation
 5. **Follow our coding standards** and safety-first principles
 
 **Top Contributors** get special recognition and early access to premium features!
