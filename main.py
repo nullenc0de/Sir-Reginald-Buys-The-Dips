@@ -887,16 +887,17 @@ class IntelligentTradingSystem:
         """Periodic deep verification of position protection (runs every 5 loops)"""
         try:
             self.logger.info("🔍 Running periodic protection verification...")
-            
-            # Reset PDT blocks to prevent permanent blocking of good opportunities
+
+            # Log PDT-blocked symbols for visibility but DO NOT reset them
+            # PDT blocks should only be cleared at start of new trading day
             try:
                 blocked_symbols = self.gateway.get_pdt_blocked_symbols()
                 if blocked_symbols:
-                    self.logger.info(f"🔄 Clearing PDT blocks for {len(blocked_symbols)} symbols to allow fresh evaluation")
-                    self.gateway.reset_pdt_blocks()
+                    self.logger.info(f"📊 PDT Status: {len(blocked_symbols)} symbols currently blocked: {', '.join(blocked_symbols)}")
+                    self.logger.info(f"   These will remain blocked until next trading day to comply with PDT rules")
             except Exception as pdt_error:
-                self.logger.warning(f"⚠️ PDT block reset failed: {pdt_error}")
-            
+                self.logger.warning(f"⚠️ PDT status check failed: {pdt_error}")
+
             # Get all positions and orders
             positions = await self.gateway.get_all_positions()
             active_positions = [pos for pos in positions if float(pos.qty) != 0]
