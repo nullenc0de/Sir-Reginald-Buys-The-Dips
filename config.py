@@ -257,7 +257,21 @@ RISK_CONFIG = {
     'trailing_stop_activation_pct': 8.0,   # Activate trailing stop at +8% (was 3%)
     'max_position_age_days': 2,            # FORCE FASTER TURNOVER (was 4)
     'concentration_limit_pct': 8.0,        # Keep safe concentration limit
-    'extended_hours_emergency_loss_pct': -6.0  # Emergency extended hours threshold
+    'extended_hours_emergency_loss_pct': -6.0,  # Emergency extended hours threshold
+
+    # Position protection monitoring settings
+    'protection_monitoring_loop_interval': 5,  # Monitor protection every 5th loop (~5-10 min)
+    'periodic_protection_verification_loop_interval': 5,  # Deep verification every 5th loop
+    'position_aging_management_loop_interval': 3,  # Position aging every 3rd loop
+    'emergency_stop_recreation_cooldown_minutes': 15,  # Prevent recreation within 15 minutes
+    'stale_order_cleanup_loop_interval': 3,   # Clean stale orders every 3rd loop
+
+    # Stale order timeouts (in seconds)
+    'stale_order_timeouts': {
+        'stop': None,      # Stop orders never considered stale
+        'limit': 1800,     # Limit orders stale after 30 minutes
+        'market': 300      # Market orders stale after 5 minutes
+    }
 }
 
 # === AI CONFIGURATION ===

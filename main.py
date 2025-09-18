@@ -89,6 +89,9 @@ class IntelligentTradingSystem:
         
         # Warning suppression tracking
         self.extended_hours_warnings_sent = set()  # Track symbols already warned about
+
+        # Emergency stop tracking to prevent excessive recreation
+        self.recent_emergency_stops = {}  # {symbol: timestamp} - Track recently created emergency stops
         
     def _setup_logging(self):
         """Setup comprehensive structured logging"""
@@ -355,6 +358,9 @@ class IntelligentTradingSystem:
                     
                     if stop_created:
                         stops_created += 1
+                        # Track this emergency stop to prevent recreation
+                        from datetime import datetime
+                        self.recent_emergency_stops[symbol] = datetime.now()
                         
                 except Exception as stop_error:
                     self.logger.warning(f"Emergency stop creation failed for {pos['symbol']}: {stop_error}")
@@ -479,16 +485,34 @@ class IntelligentTradingSystem:
                     created_at = getattr(order, 'created_at', None)
                     order_id = getattr(order, 'id', None)
 
-                    # Check if order is stale (status 'new' for more than 2 minutes - AGGRESSIVE)
+                    # Check if order is stale - MUCH MORE CONSERVATIVE APPROACH
                     is_stale = False
                     if status == 'new' and created_at:
                         try:
                             from datetime import timezone
                             # Use consolidated datetime handling
                             order_age = DateTimeUtils.calculate_age_seconds(created_at)
-                            if order_age > 120:  # 2 minutes (was 5) - AGGRESSIVE CLEANUP
+
+                            # Use configurable stale order timeouts
+                            stale_timeouts = RISK_CONFIG['stale_order_timeouts']
+                            order_type_key = order_type.lower()
+
+                            # Map order types to config keys
+                            if 'stop' in order_type_key:
+                                timeout = stale_timeouts.get('stop')
+                            elif order_type_key == 'limit':
+                                timeout = stale_timeouts.get('limit')
+                            elif order_type_key == 'market':
+                                timeout = stale_timeouts.get('market')
+                            else:
+                                timeout = stale_timeouts.get('limit')  # Default to limit timeout
+
+                            # Check if order is stale based on configured timeout
+                            if timeout is not None and order_age > timeout:
                                 is_stale = True
-                                self.logger.warning(f"   - STALE ORDER: {order_type} {side} order, status: {status}, age: {order_age/60:.1f} minutes")
+                                self.logger.warning(f"   - STALE {order_type.upper()} ORDER: {order_type} {side} order, status: {status}, age: {order_age/60:.1f} minutes")
+                            else:
+                                is_stale = False
                         except:
                             pass
 
@@ -828,9 +852,30 @@ class IntelligentTradingSystem:
                 for pos in unprotected_positions:
                     try:
                         symbol = pos['symbol']
+
+                        # Check if we recently created an emergency stop for this symbol
+                        from datetime import datetime, timedelta
+                        current_time = datetime.now()
+
+                        # Clean up old tracking entries (older than 1 hour)
+                        symbols_to_remove = []
+                        for tracked_symbol, tracked_time in self.recent_emergency_stops.items():
+                            if (current_time - tracked_time).total_seconds() > 3600:  # 1 hour
+                                symbols_to_remove.append(tracked_symbol)
+                        for old_symbol in symbols_to_remove:
+                            del self.recent_emergency_stops[old_symbol]
+
+                        if symbol in self.recent_emergency_stops:
+                            last_stop_time = self.recent_emergency_stops[symbol]
+                            time_since_last_stop = (current_time - last_stop_time).total_seconds()
+                            cooldown_seconds = RISK_CONFIG['emergency_stop_recreation_cooldown_minutes'] * 60
+                            if time_since_last_stop < cooldown_seconds:
+                                self.logger.info(f"⏭️ Skipping emergency stop for {symbol} - created {time_since_last_stop/60:.1f} minutes ago")
+                                continue
+
                         qty = abs(pos['qty'])
                         current_price = pos['market_value'] / abs(pos['qty'])
-                        
+
                         # 8% stop loss
                         if pos['side'] == 'long':
                             stop_price = current_price * 0.92
@@ -838,7 +883,7 @@ class IntelligentTradingSystem:
                         else:
                             stop_price = current_price * 1.08
                             side = 'buy'
-                        
+
                         emergency_stop_data = {
                             'symbol': symbol,
                             'qty': str(int(qty)),
@@ -847,13 +892,15 @@ class IntelligentTradingSystem:
                             'stop_price': str(round(stop_price, 2)),
                             'time_in_force': 'day'
                         }
-                        
+
                         # Use robust retry logic
                         stop_created = await self._create_emergency_stop_with_retry(symbol, emergency_stop_data, max_retries=3)
                         
                         if stop_created:
                             stops_created += 1
                             self.logger.critical(f"✅ Runtime emergency stop created for {symbol}")
+                            # Track this emergency stop to prevent recreation
+                            self.recent_emergency_stops[symbol] = current_time
                         else:
                             self.logger.critical(f"❌ FAILED to create runtime emergency stop for {symbol}")
                             
@@ -1459,7 +1506,7 @@ class IntelligentTradingSystem:
                 
                 # === STALE ORDER CLEANUP (CRITICAL) ===
                 # Clean up stale orders that may be blocking profit-taking
-                if loop_count % 3 == 0:  # Every 3rd iteration (more aggressive)
+                if loop_count % RISK_CONFIG['stale_order_cleanup_loop_interval'] == 0:  # Configurable cleanup frequency
                     try:
                         stale_cancelled = await self._cleanup_all_stale_orders()
                         if stale_cancelled > 0:
@@ -1474,10 +1521,12 @@ class IntelligentTradingSystem:
                     self.logger.error(f"❌ CRITICAL: Position management error: {e}")
                 
                 # === POSITION PROTECTION MONITORING (CRITICAL) ===
-                try:
-                    await self._monitor_position_protection()
-                except Exception as e:
-                    self.logger.error(f"❌ CRITICAL: Position protection monitoring error: {e}")
+                # Reduced frequency to prevent excessive stop order creation/cancellation cycles
+                if loop_count % RISK_CONFIG['protection_monitoring_loop_interval'] == 0:  # Configurable monitoring frequency
+                    try:
+                        await self._monitor_position_protection()
+                    except Exception as e:
+                        self.logger.error(f"❌ CRITICAL: Position protection monitoring error: {e}")
                 
                 # === STOP LOSS & TRAILING STOPS (CRITICAL) ===
                 try:
@@ -1517,7 +1566,7 @@ class IntelligentTradingSystem:
                     self.logger.error(f"❌ PDT monitoring error: {e}")
                 
                 # === PERIODIC PROTECTION VERIFICATION (Every 5 loops) ===
-                if loop_count % 5 == 0:  # Run every 5th loop (~5-10 minutes)
+                if loop_count % RISK_CONFIG['periodic_protection_verification_loop_interval'] == 0:  # Configurable verification frequency
                     try:
                         await self._periodic_protection_verification()
                     except Exception as e:
@@ -1532,7 +1581,7 @@ class IntelligentTradingSystem:
                 except:
                     market_open = False
                     
-                if loop_count % 3 == 0 and market_open:  # Run every 3rd loop during market hours
+                if loop_count % RISK_CONFIG['position_aging_management_loop_interval'] == 0 and market_open:  # Configurable aging management frequency
                     try:
                         await self._enhanced_position_aging_management()
                     except Exception as e:
