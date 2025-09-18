@@ -471,11 +471,16 @@ class IntelligentTradingSystem:
                 order_type = getattr(order, 'type', 'unknown')
                 side = getattr(order, 'side', 'unknown')
 
-                # Check if order is stale (status 'new' for more than 5 minutes)
+                # Check if order is stale (status 'new' for more than 2 minutes - AGGRESSIVE)
                 if status == 'new' and created_at and order_id:
                     try:
+                        # Handle both datetime objects and strings
+                        if isinstance(created_at, str):
+                            import dateutil.parser
+                            created_at = dateutil.parser.parse(created_at)
+
                         order_age = (datetime.now(timezone.utc) - created_at).total_seconds()
-                        if order_age > 300:  # 5 minutes
+                        if order_age > 120:  # 2 minutes (was 5) - AGGRESSIVE CLEANUP
                             self.logger.warning(f"🧹 STALE ORDER FOUND: {symbol} - {order_type} {side} order, age: {order_age/60:.1f} minutes")
 
                             # Cancel the stale order
@@ -519,13 +524,18 @@ class IntelligentTradingSystem:
                     created_at = getattr(order, 'created_at', None)
                     order_id = getattr(order, 'id', None)
 
-                    # Check if order is stale (status 'new' for more than 5 minutes)
+                    # Check if order is stale (status 'new' for more than 2 minutes - AGGRESSIVE)
                     is_stale = False
                     if status == 'new' and created_at:
                         try:
                             from datetime import timezone
+                            # Handle both datetime objects and strings
+                            if isinstance(created_at, str):
+                                import dateutil.parser
+                                created_at = dateutil.parser.parse(created_at)
+
                             order_age = (datetime.now(timezone.utc) - created_at).total_seconds()
-                            if order_age > 300:  # 5 minutes
+                            if order_age > 120:  # 2 minutes (was 5) - AGGRESSIVE CLEANUP
                                 is_stale = True
                                 self.logger.warning(f"   - STALE ORDER: {order_type} {side} order, status: {status}, age: {order_age/60:.1f} minutes")
                         except:
@@ -1497,7 +1507,7 @@ class IntelligentTradingSystem:
                 
                 # === STALE ORDER CLEANUP (CRITICAL) ===
                 # Clean up stale orders that may be blocking profit-taking
-                if loop_count % 5 == 0:  # Every 5th iteration
+                if loop_count % 3 == 0:  # Every 3rd iteration (more aggressive)
                     try:
                         stale_cancelled = await self._cleanup_all_stale_orders()
                         if stale_cancelled > 0:

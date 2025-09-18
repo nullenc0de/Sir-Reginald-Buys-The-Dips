@@ -91,10 +91,16 @@ class ResilientAlpacaGateway:
             # Ensure session is set to None even if close failed
             self.session = None
             
-    async def _make_request(self, method: str, endpoint: str, data: Dict = None, 
+    async def _make_request(self, method: str, endpoint: str, data: Dict = None,
                           params: Dict = None, retry_count: int = 0) -> ApiResponse:
         """Make HTTP request with comprehensive error handling and retries"""
-        
+
+        # CRITICAL: Check and recover session if None
+        if self.session is None:
+            logger.warning("⚠️ API session is None - attempting recovery...")
+            if not await self.initialize():
+                return ApiResponse(success=False, error="Failed to recover API session")
+
         # Rate limiting check
         await self._enforce_rate_limits()
         
@@ -610,7 +616,22 @@ class ResilientAlpacaGateway:
                 self.stop_price = data.get('stop_price')
                 self.filled_qty = data.get('filled_qty', '0')
                 self.filled_avg_price = data.get('filled_avg_price')
-                self.created_at = data.get('created_at')
+                # CRITICAL FIX: Parse created_at string to datetime object
+                created_at_str = data.get('created_at')
+                if created_at_str:
+                    try:
+                        from datetime import datetime
+                        import dateutil.parser
+                        self.created_at = dateutil.parser.parse(created_at_str)
+                    except Exception as e:
+                        # Fallback: keep as string but log warning
+                        logger.warning(f"Failed to parse created_at: {created_at_str} - {e}")
+                        self.created_at = created_at_str
+                else:
+                    self.created_at = None
+
+                # Add missing attributes for compatibility
+                self.type = data.get('type', self.order_type)
                 
         return Order(data)
     

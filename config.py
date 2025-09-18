@@ -84,9 +84,9 @@ FUNNEL_CONFIG = {
     },
     
     # Final selection - AGGRESSIVE DIVERSIFIED STRATEGY
-    'max_watchlist_size': 30,          # Expanded watchlist for more opportunities
-    'max_active_positions': 30,        # Allow up to 30 positions for aggressive diversification
-    'opportunity_refresh_minutes': 30  # Reduce scanning frequency to avoid overtrading
+    'max_watchlist_size': 50,          # Expanded watchlist for more opportunities
+    'max_active_positions': 50,        # Allow up to 50 positions for maximum diversification
+    'opportunity_refresh_minutes': 20  # More frequent scanning for opportunities
 }
 
 # === MARKET-WIDE SCREENING CRITERIA ===
