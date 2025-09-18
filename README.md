@@ -234,7 +234,7 @@ RISK_CONFIG = {
 FUNNEL_CONFIG = {
     'broad_scan_frequency_minutes': 15, # Full scan every 15 minutes  
     'max_watchlist_size': 25,          # Dynamic watchlist size
-    'max_active_positions': 12,        # Concurrent positions (currently managing 11)
+    'max_active_positions': 50,        # Concurrent positions for maximum diversification
 }
 ```
 

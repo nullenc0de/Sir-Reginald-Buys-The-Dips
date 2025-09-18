@@ -250,8 +250,9 @@ RISK_CONFIG = {
     
     # Enhanced Position Management - AGGRESSIVE 50% GROWTH TARGET
     'max_position_loss_pct': -5.0,         # Allow larger losses for bigger wins (was -4%)
-    'profit_taking_levels': [10.0, 20.0, 30.0],  # AGGRESSIVE: +10% (25%), +20% (35%), +30% (40%)
-    'profit_taking_percentages': [0.25, 0.35, 0.40],  # Scale out more aggressively
+    # CONSOLIDATED PROFIT-TAKING CONFIG (managed by utils.py for consistency)
+    'profit_taking_levels': [5.0, 8.0, 12.0, 20.0],      # Aggressive: 5%, 8%, 12%, 20%
+    'profit_taking_percentages': [0.20, 0.30, 0.50, 0.75], # Scale out: 20%, 30%, 50%, 75%
     'position_review_frequency_minutes': 10, # Review positions every 10min (was 15)
     'trailing_stop_activation_pct': 8.0,   # Activate trailing stop at +8% (was 3%)
     'max_position_age_days': 2,            # FORCE FASTER TURNOVER (was 4)

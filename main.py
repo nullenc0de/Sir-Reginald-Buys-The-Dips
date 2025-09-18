@@ -28,6 +28,7 @@ from intelligent_funnel import IntelligentMarketFunnel, MarketOpportunity
 from ai_market_intelligence import EnhancedAIAssistant, MarketIntelligence
 from enhanced_momentum_strategy import EventDrivenMomentumStrategy, TradingSignal
 from corporate_actions_filter import CorporateActionsFilter
+from utils import OrderUtils, DateTimeUtils, ConfigurationValidator
 from api_gateway import ResilientAlpacaGateway
 from risk_manager import ConservativeRiskManager
 from order_executor import SimpleTradeExecutor
@@ -454,54 +455,8 @@ class IntelligentTradingSystem:
             return None
     
     async def _cleanup_all_stale_orders(self) -> int:
-        """Clean up all stale orders across all symbols"""
-        try:
-            open_orders = await self.gateway.get_orders(status='open')
-            if not open_orders:
-                return 0
-
-            stale_orders_cancelled = 0
-            from datetime import timezone
-
-            for order in open_orders:
-                order_id = getattr(order, 'id', None)
-                symbol = getattr(order, 'symbol', 'unknown')
-                status = getattr(order, 'status', 'unknown')
-                created_at = getattr(order, 'created_at', None)
-                order_type = getattr(order, 'type', 'unknown')
-                side = getattr(order, 'side', 'unknown')
-
-                # Check if order is stale (status 'new' for more than 2 minutes - AGGRESSIVE)
-                if status == 'new' and created_at and order_id:
-                    try:
-                        # Handle both datetime objects and strings
-                        if isinstance(created_at, str):
-                            import dateutil.parser
-                            created_at = dateutil.parser.parse(created_at)
-
-                        order_age = (datetime.now(timezone.utc) - created_at).total_seconds()
-                        if order_age > 120:  # 2 minutes (was 5) - AGGRESSIVE CLEANUP
-                            self.logger.warning(f"🧹 STALE ORDER FOUND: {symbol} - {order_type} {side} order, age: {order_age/60:.1f} minutes")
-
-                            # Cancel the stale order
-                            cancel_response = await self.gateway.cancel_order(order_id)
-                            if cancel_response and cancel_response.success:
-                                self.logger.info(f"   ✅ Cancelled stale order {order_id} for {symbol}")
-                                stale_orders_cancelled += 1
-                            else:
-                                self.logger.warning(f"   ⚠️ Failed to cancel stale order {order_id} for {symbol}")
-                    except Exception as e:
-                        self.logger.error(f"   ❌ Error processing order {order_id}: {e}")
-
-            if stale_orders_cancelled > 0:
-                self.logger.info(f"🧹 CLEANUP COMPLETE: Cancelled {stale_orders_cancelled} stale orders")
-                await asyncio.sleep(1)  # Brief pause to ensure cancellations are processed
-
-            return stale_orders_cancelled
-
-        except Exception as e:
-            self.logger.error(f"Error during stale order cleanup: {e}")
-            return 0
+        """Clean up all stale orders across all symbols using consolidated utilities"""
+        return await OrderUtils.cleanup_stale_orders(self.gateway, threshold_seconds=120)
 
     async def _check_actual_open_orders_for_symbol(self, symbol: str) -> bool:
         """Check if there are actually open orders for a symbol that would hold shares"""
@@ -529,12 +484,8 @@ class IntelligentTradingSystem:
                     if status == 'new' and created_at:
                         try:
                             from datetime import timezone
-                            # Handle both datetime objects and strings
-                            if isinstance(created_at, str):
-                                import dateutil.parser
-                                created_at = dateutil.parser.parse(created_at)
-
-                            order_age = (datetime.now(timezone.utc) - created_at).total_seconds()
+                            # Use consolidated datetime handling
+                            order_age = DateTimeUtils.calculate_age_seconds(created_at)
                             if order_age > 120:  # 2 minutes (was 5) - AGGRESSIVE CLEANUP
                                 is_stale = True
                                 self.logger.warning(f"   - STALE ORDER: {order_type} {side} order, status: {status}, age: {order_age/60:.1f} minutes")
